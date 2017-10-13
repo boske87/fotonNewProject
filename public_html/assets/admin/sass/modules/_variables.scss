@@ -1,0 +1,67 @@
+// VARIABLES
+
+// COMPONENTS
+
+$padding-base-vertical:          10px;
+$padding-base-horizontal:        15px;
+
+// BORDERS
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+// TYPE
+
+$font-family-sans-serif: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$headings-font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$headings-font-weight: 600;
+
+// ICONS
+
+$icon-font-path: "../fonts/";
+
+// COLOURS
+
+$grayLight:                      #f5f7f7;
+$grayLighter:                    #444;
+$grayDarker:                     #343434;
+$grayMain:                       #4a4a4a;
+$grayDarkest:                    #2c2c2c;
+$grayLighterFold:                #c8cbd0;
+$grayLighterShadow:              #adb1b8;
+$yellowLighter:                  #fffed6;
+$yellowMain:                     #fdf4af;
+$redMain:                        #ec5b5d;
+$redLighter:                     #f07375;
+$redLighterShadow:               #ca6162;
+$redDarker:                      #c64d4e;
+$greenMain:                      #6dc084;
+$greenLighter:                   #84cc98;
+$orangeMain:                     #ffa557;
+$legendBg:                       #e5e0ff;
+
+$body-bg:                        #e5e5e5;
+
+$link-color:                     #00a64b;
+
+$btn-acc-color:                  #fff;
+$btn-acc-bg:                     $grayDarker;
+$btn-acc-border:                 darken($btn-acc-bg, 5%);
+
+$state-success-bg:               lighten(#afd99d, 12);
+$state-success-text:             darken(adjust-saturation($state-success-bg, -10), 45%);
+$state-success-border:           darken(adjust-hue($state-success-bg, -10), 8%);
+
+$state-info-bg:                  lighten(#a0d2eb, 12);
+$state-info-text:                darken(adjust-saturation($state-info-bg, -10), 47%);
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 9%);
+
+$state-warning-bg:               lighten(#f7edb9, 10);
+$state-warning-text:             darken(adjust-saturation($state-warning-bg, -10), 49%);
+$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 11%);
+
+$state-danger-bg:                lighten(#deacac, 14);
+$state-danger-text:              darken(adjust-saturation($state-danger-bg, -10), 45%);
+$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%);
+

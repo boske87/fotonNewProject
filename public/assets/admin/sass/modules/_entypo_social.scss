@@ -1,0 +1,70 @@
+// ENTYPO SOCIAL
+//
+// Since icons are fonts, they can be placed anywhere text is placed and are
+// thus automatically sized to match the surrounding child. To use, create an
+// inline element with the appropriate classes, like so:
+//
+// <a href="#"><span class="entypo entypo-github"></span> Star</a>
+
+// Import the fonts
+@font-face {
+    font-family: 'Entypo-Social';
+    src: url("#{$icon-font-path}entypo/social/entypo-social.eot");
+    src: url("#{$icon-font-path}entypo/social/entypo-social.eot?#iefix") format("embedded-opentype"),
+         url("#{$icon-font-path}entypo/social/entypo-social.woff") format("woff"),
+         url("#{$icon-font-path}entypo/social/entypo-social.ttf") format("truetype"),
+         url("#{$icon-font-path}entypo/social/entypo-social.svg#entypo-social") format("svg");
+}
+
+// Catchall baseclass for Entypo SOCIAL icons
+.entypo-social {
+    font-family: 'Entypo-Social';
+}
+
+// Individual icons
+.entypo-github         { &:before { content: "\F300"; } }
+.entypo-c-github       { &:before { content: "\F301"; } }
+.entypo-flickr         { &:before { content: "\F303"; } }
+.entypo-c-flickr       { &:before { content: "\F304"; } }
+.entypo-vimeo          { &:before { content: "\F306"; } }
+.entypo-c-vimeo        { &:before { content: "\F307"; } }
+.entypo-twitter        { &:before { content: "\F309"; } }
+.entypo-c-twitter      { &:before { content: "\F30A"; } }
+.entypo-facebook       { &:before { content: "\F30C"; } }
+.entypo-c-facebook     { &:before { content: "\F30D"; } }
+.entypo-s-facebook     { &:before { content: "\F30E"; } }
+.entypo-google-plus    { &:before { content: "\F30F"; } }
+.entypo-c-google-plus  { &:before { content: "\F310"; } }
+.entypo-pinterest      { &:before { content: "\F312"; } }
+.entypo-c-pinterest    { &:before { content: "\F313"; } }
+.entypo-tumblr         { &:before { content: "\F315"; } }
+.entypo-c-tumblr       { &:before { content: "\F316"; } }
+.entypo-linkedin       { &:before { content: "\F318"; } }
+.entypo-c-linkedin     { &:before { content: "\F319"; } }
+.entypo-dribbble       { &:before { content: "\F31B"; } }
+.entypo-c-dribbble     { &:before { content: "\F31C"; } }
+.entypo-stumbleupon    { &:before { content: "\F31E"; } }
+.entypo-c-stumbleupon  { &:before { content: "\F31F"; } }
+.entypo-lastfm         { &:before { content: "\F321"; } }
+.entypo-c-lastfm       { &:before { content: "\F322"; } }
+.entypo-rdio           { &:before { content: "\F324"; } }
+.entypo-c-rdio         { &:before { content: "\F325"; } }
+.entypo-spotify        { &:before { content: "\F327"; } }
+.entypo-c-spotify      { &:before { content: "\F328"; } }
+.entypo-qq             { &:before { content: "\F32A"; } }
+.entypo-instagram      { &:before { content: "\F32D"; } }
+.entypo-dropbox        { &:before { content: "\F330"; } }
+.entypo-evernote       { &:before { content: "\F333"; } }
+.entypo-flattr         { &:before { content: "\F336"; } }
+.entypo-skype          { &:before { content: "\F339"; } }
+.entypo-c-skype        { &:before { content: "\F33A"; } }
+.entypo-renren         { &:before { content: "\F33C"; } }
+.entypo-sina-weibo     { &:before { content: "\F33F"; } }
+.entypo-paypal         { &:before { content: "\F342"; } }
+.entypo-picasa         { &:before { content: "\F345"; } }
+.entypo-soundcloud     { &:before { content: "\F348"; } }
+.entypo-mixi           { &:before { content: "\F34B"; } }
+.entypo-behance        { &:before { content: "\F34E"; } }
+.entypo-google-circles { &:before { content: "\F351"; } }
+.entypo-vk             { &:before { content: "\F354"; } }
+.entypo-smashing       { &:before { content: "\F357"; } }
