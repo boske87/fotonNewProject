@@ -14,14 +14,14 @@
                             <div class="spanx">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
-                                        <a href="">
-                                            <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
+                                        <a href="{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id])}}">
+                                            <img src="{{ Image::load('gallery/mygallery'.$one->userId.'/' . $one->main_image, ['h' => 10]) }}">
                                         </a>
                                     </div>
                                     <div class="vesti-info single">
                                         <div class="single-comment-box">
                                             <img src="{{ asset('assets/img/message.png')}}">
-                                            <span>7</span><span>Komentara</span>
+                                            <span>{{isset($new_com[$one->id]) ? $new_com[$one->id] : '0'}}</span><span>Komentara</span>
                                         </div>
                                         <div class="single-comment-box comment-box">
                                             <div class="profile-img-wrap">

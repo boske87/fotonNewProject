@@ -9,8 +9,11 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Skippaz\Services\UploadService;
 
+
 class RegisterController extends Controller
 {
+
+    use UploadService;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -65,7 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // upload
-        $data['main_image'] = $this->upload('main_image', 'img/gallery');
+        $data['main_image'] = $this->upload('main_image', 'img/gallery/users/');
 
         return User::create([
             'name' => $data['name'],
@@ -86,12 +89,11 @@ class RegisterController extends Controller
 
     public function register(Request $request) {
 
-
         $user = $this->create($request->all());
-        dd($user,$request->all());
+//        dd($user);
 //        // Sending email, sms or doing anything you want
 //        $this->activationService->sendActivationMail($user);
 //
-//        return redirect('/login')->with('message', 'We sent a comfirmation email to your email, please click on link inside before login');
+        return redirect('/foton-klub#myModal2')->with('message', 'We sent a comfirmation email to your email, please click on link inside before login');
     }
 }

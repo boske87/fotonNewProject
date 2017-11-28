@@ -18,10 +18,13 @@
                                     </div>
                                     <div class="vesti-info">
                                         <h2><a href="{{route('foton-klub.vest',$oneGal->slug)}}"> {!! $oneGal->head !!}</a></h2>
-                                        <span class="vesti-datum">{{ $oneGal->created_at }}</span>
+                                        <span class="vesti-datum">{{ $oneGal->created_at }} - {{$oneGal->user->ime_prezime}}</span>
                                         <p>
                                             {!! substr($oneGal->desc,0,100) !!}...
                                         </p>
+                                        @if($oneGal->userId == Auth::user()->id)
+                                            <a href="{{route('foton-klub.vesti-brisanje', $oneGal->id)}}" style="color: red">OBRISI VEST &rarr;</a><br/>
+                                        @endif
                                         <a href="{{route('foton-klub.vest', $oneGal->slug)}}">SAZNAJ VIŠE &rarr;</a><br/>
                                         <hr/>
                                     </div>

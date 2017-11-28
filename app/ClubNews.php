@@ -21,4 +21,10 @@ class ClubNews extends Model
             ]
         ];
     }
+
+
+    public function user()
+    {
+        return $this->hasOne('App\User', 'id', 'userId');
+    }
 }

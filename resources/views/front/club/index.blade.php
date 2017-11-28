@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    <meta name="csrf-token" content="{!! csrf_token() !!}" />
     <!-- Content section -->
     <section class="main silver-bg" style="background-color: white !important;">
 
@@ -142,17 +143,26 @@
 
     </section>
     <!-- End class="main" -->
+    <div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Registruj se</h3>
+            <div class="modal-body">
+                <h5>Uspesno ste se registrovali.</h5>
+            </div>
+        </div>
 
+    </div>
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        {!! Form::open(['route' => 'register', 'files' => true]) !!}
+        {!! Form::open(['route' => 'register', 'files' => true, 'id'=>'refForm']) !!}
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 id="myModalLabel">Registruj se</h3>
             </div>
             <div class="modal-body">
 
-                <p>Korisnicko ime:</p><input type="text" name="name" class="input-block-level" placeholder="Korisnicko ime" required>
-                <p>Email adresa:</p><input type="text" name="email" class="input-block-level" placeholder="Email address" required>
+                <p>Korisnicko ime:</p><input type="text" name="name" id="userNameReg" class="input-block-level" placeholder="Korisnicko ime" required>
+                <p>Email adresa:</p><input type="text" name="email" id="emailNameReg" class="input-block-level" placeholder="Email address" required>
                 <p>Password:</p><input type="password" name="password" class="input-block-level" placeholder="Password" required>
                 <p>Ime i prezime:</p><input type="text" name="ime_prezime" class="input-block-level" placeholder="Ime i prezime">
                 <p>
@@ -176,29 +186,92 @@
             </div>
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" id="register">Submit</button>
             </div>
 
         {!! Form::close() !!}
     </div>
 
     <div id="myModalLogin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        {!! Form::open(['route' => '/main-login']) !!}
+        {{--{!! Form::open(['route' => '/main-login']) !!}--}}
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">Uloguj se</h3>
         </div>
         <div class="modal-body">
-            <p>Korisnicko ime:</p><input type="text" name="email" class="input-block-level" placeholder="Korisnicko ime" required>
-            <p>Password:</p><input type="password" name="password" class="input-block-level" placeholder="Password" required>
+            <p>Korisnicko ime:</p><input type="text" name="email" id="userEmail" class="input-block-level" placeholder="Korisnicko ime" required>
+            <p>Password:</p><input type="password" name="password" id="userPass" class="input-block-level" placeholder="Password" required>
         </div>
         <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            <button class="btn btn-primary">Submit</button>
+            <button id="loginBtn" class="btn btn-primary">Submit</button>
         </div>
 
-        {!! Form::close() !!}
+        {{--{!! Form::close() !!}--}}
     </div>
 
+    <script>
+        $(document).ready(function() {
+            $(function(){
+                if(window.location.hash) {
+                    var hash = window.location.hash;
+                    $(hash).modal('toggle');
+                }
+            });
 
+
+            $('#loginBtn').click(function() {
+                var username = $('#userEmail').val();
+                var pass = $('#userPass').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/main-login',
+                    data:{
+                        '_token': $('meta[name="csrf-token"]').attr('content'),
+                        'email': username,
+                        'password': pass
+                    },
+                    success: function(data) {
+                        if(data.result === true){
+                            window.location.href = "foton-klub/galerije";
+                            console.log(data);
+                        } else{
+                            alert('Pogresni login parametri, pokusajte opet')
+                        }
+
+                    }
+                });
+            });
+
+
+            $('#refForm').submit(function() {
+                event.preventDefault();
+                var form = this;
+                var username = $('#userNameReg').val();
+                var email = $('#emailNameReg').val();
+//                $("#refForm").submit(function(e){
+//                    e.preventDefault();
+//                });
+                $.ajax({
+                    type: 'POST',
+                    url: '/checkEmail',
+                    data:{
+                        '_token': $('meta[name="csrf-token"]').attr('content'),
+                        'username': username,
+                        'email': email
+                    },
+                    success: function(data) {
+                        if(data.result === true){
+                            form.submit();
+                            console.log(data);
+                        } else{
+                            alert('Korisnicko ime ili email je vec koriscen')
+                        }
+
+                    }
+                });
+            })
+        });
+
+    </script>
 @stop

@@ -97,7 +97,7 @@
                         {!! Form::label('color', 'Boja titule', ['class' => 'col-sm-2 control-label']) !!}
                         <div class="col-sm-10">
 
-                            {!! Form::select('color', $color, null,['class' => 'form-control']) !!}
+                            <input name="color" type="color" value="{{$item->color}}" class="form-control" style="width: 25% !important;">
                             {!! $errors ->first('color', '<span class="help-block">:message</span>') !!}
                         </div>
                     </div>

@@ -40,6 +40,8 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
     Route::get('/vesti', ['as' => 'foton-klub.vesti', 'uses' => 'ClubExtraController@news']);
     Route::get('/vest/{slug}', ['as' => 'foton-klub.vest', 'uses' => 'ClubExtraController@oneNews']);
 
+    Route::get('/vesti-brisanje/{id}', ['as' => 'foton-klub.vesti-brisanje', 'uses' => 'ClubExtraController@newsDelete']);
+
     Route::post('/vesti/add', ['as' => 'foton-klub.vesti.add', 'uses' => 'ClubExtraController@storeNews']);
     Route::get('/strana3', ['as' => 'foton-klub.strana2', 'uses' => 'ClubController@strana3']);
     Route::get('/strana4', ['as' => 'foton-klub.strana2', 'uses' => 'ClubController@strana4']);
@@ -67,6 +69,10 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
 
     Route::get('/nove-fotografije', ['as' => 'foton-klub.nove-fotografije', 'uses' => 'ClubExtraController@newImage']);
 
+    Route::get('/komentari-profesora', ['as' => 'foton-klub.komentari-profesora', 'uses' => 'ClubExtraController@profCommImage']);
+
+    Route::get('/komentarisane-fotografije', ['as' => 'foton-klub.komentarisane-fotografije', 'uses' => 'ClubExtraController@commentsImage']);
+
 });
 
 Route::post('/sendMail', ['as' => 'sendMail', 'uses' => 'IndexController@sendMail']);
@@ -75,6 +81,7 @@ Route::post('/sendMailPrijava', ['as' => 'sendMailPrijava', 'uses' => 'IndexCont
 
 Auth::routes();
 Route::post('/main-login', ['as' => '/main-login', 'uses' => 'AuthController@authenticate']);
+Route::post('/checkEmail', ['as' => '/checkEmail', 'uses' => 'AuthController@checkEmail']);
 Route::post('/login', ['as' => '/login', 'uses' => 'Admin\AuthController@authenticate']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'] ], function () {

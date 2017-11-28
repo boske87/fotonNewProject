@@ -26,14 +26,13 @@
                     @if(Auth::user()->paketKategorija !== NULL)
                         <li>{{Auth::user()->category->name}}</li>
                     @endif
-
                 </ul>
             </li>
         </ul>
         <h6 style="margin-top: 10px">{{ Auth::user()->ime_prezime }}</h6>
         <ul class="color-circles">
             @if(Auth::user()->paketKategorija !== NULL)
-                <li class="{{Auth::user()->category->color}}"></li>
+                <li class="{{Auth::user()->category->color}}" style="background-color: {{Auth::user()->color}};line-height: 45px; width: 45px; height: 45px !important;">{{Auth::user()->titula}}</li>
             @endif
         </ul>
         <nav class="side-bar-nav">
@@ -45,7 +44,7 @@
                 <li><a href="#">Grupe</a></li>
                 <li><a href="#">Sekcije</a></li>
                 <li><a href="{{route('foton-klub.nove-fotografije')}}">Nove fotografije <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
-                <li><a href="#">Komentarisane fotografije <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
+                <li><a href="{{route('foton-klub.komentarisane-fotografije')}}">Komentarisane fotografije <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
                 <li><a href="#">Komentari profesora <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
                 <li><a href="#">Izložbe i konkursi <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
                 <li><a href="#">Dokumenti</a></li>
