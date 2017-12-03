@@ -274,4 +274,20 @@
         });
 
     </script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="jquery-chat/templates/AdminLTE/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+    <link id='theme' rel='stylesheet' />
+    <link rel='stylesheet' href='css/tipsy.css' />
+    <link rel='stylesheet' href='css/chat.css' />
+
+    <script src='https://jquery-chat.herokuapp.com/socket.io/socket.io.js'></script>
+    <script src='jquery-chat/js/jquery-1.11.3.min.js'></script>
+    <script src='jquery-chat/js/jquery-ui-1.10.4.custom.min.js'></script>
+    <script src='jquery-chat/js/jquery.slimscroll.min.js'></script>
+    <script src='jquery-chat/js/jquery.tipsy.js'></script>
+    <script src='jquery-chat/js/jquery.main.js'></script>
+    <script src='jquery-chat/config.js'></script>
+    <script src='jquery-chati18n_en.js'></script>
 @stop
