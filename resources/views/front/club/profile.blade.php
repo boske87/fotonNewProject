@@ -74,21 +74,21 @@
         </div>
     </section>
 
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="{{ asset('assets/js/jquery-chat-master/templates/AdminLTE/dist/css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />
+    {{--<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />--}}
+    {{--<!-- Theme style -->--}}
+    {{--<link href="{{ asset('assets/js/jquery-chat-master/templates/AdminLTE/dist/css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />--}}
 
-    <link id='theme' rel='stylesheet' />
-    <link rel='stylesheet' href={{ asset('assets/js/jquery-chat-master/css/tipsy.css')}} />
-    <link rel='stylesheet' href={{ asset('assets/js/jquery-chat-master/css/chat.css')}} />
+    {{--<link id='theme' rel='stylesheet' />--}}
+    {{--<link rel='stylesheet' href={{ asset('assets/js/jquery-chat-master/css/tipsy.css')}} />--}}
+    {{--<link rel='stylesheet' href={{ asset('assets/js/jquery-chat-master/css/chat.css')}} />--}}
 
-    <script src='https://jquery-chat.herokuapp.com/socket.io/socket.io.js'></script>
-    <script src={{ asset('assets/js/jquery-chat-master/js/jquery-1.11.3.min.js')}}></script>
-    <script src={{ asset('assets/js/jquery-chat-master/js/jquery-ui-1.10.4.custom.min.js')}}></script>
-    <script src={{ asset('assets/js/jquery-chat-master/js/jquery.slimscroll.min.js')}}></script>
-    <script src={{ asset('assets/js/jquery-chat-master/js/jquery.tipsy.js')}}></script>
-    <script src={{ asset('assets/js/jquery-chat-master/js/jquery.main.js')}}></script>
-    <script src={{ asset('assets/js/jquery-chat-master/config.js')}}></script>
-    <script src={{ asset('assets/js/jquery-chat-master/i18n_en.js')}}></script>
+    {{--<script src='https://jquery-chat.herokuapp.com/socket.io/socket.io.js'></script>--}}
+    {{--<script src={{ asset('assets/js/jquery-chat-master/js/jquery-1.11.3.min.js')}}></script>--}}
+    {{--<script src={{ asset('assets/js/jquery-chat-master/js/jquery-ui-1.10.4.custom.min.js')}}></script>--}}
+    {{--<script src={{ asset('assets/js/jquery-chat-master/js/jquery.slimscroll.min.js')}}></script>--}}
+    {{--<script src={{ asset('assets/js/jquery-chat-master/js/jquery.tipsy.js')}}></script>--}}
+    {{--<script src={{ asset('assets/js/jquery-chat-master/js/jquery.main.js')}}></script>--}}
+    {{--<script src={{ asset('assets/js/jquery-chat-master/config.js')}}></script>--}}
+    {{--<script src={{ asset('assets/js/jquery-chat-master/i18n_en.js')}}></script>--}}
 
 @stop
