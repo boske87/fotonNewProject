@@ -2,13 +2,13 @@ var conf =
 {
     domain: 'domain.ltd',
     server_type: 'socket.io',
-    server: 'jquery-chat.herokuapp.com',
-    port: '80',
+    server: '127.0.0.1',
+    port: '3005',
     debug: true,
     auto_login: false,
-    sound_active: true,
-    login_popup: true,
-    tools_disabled: false,
+    sound_active: false,
+    login_popup: false,
+    tools_disabled: true,
     search_case_sensitive: true,
     tools:
     {
@@ -23,7 +23,7 @@ var conf =
 
     bar:
     {
-        default_expand: true,
+        default_expand: false,
         icon_expand: 'ui-icon-arrowthickstop-1-e',
         icon_collapse: 'ui-icon-arrowthickstop-1-w'
     },

@@ -39,20 +39,20 @@
   conf_shortcuts_href,
   conf_shortcuts_icon,
   conf_shortcuts_target;
-
-  var xhr_dlogin = $.get( "views/dialog-login.html", function( dialog_login ) {
+  console.log(user_name);
+  var xhr_dlogin = $.get( "assets/js/jquery-chat-master/views/dialog-login.html", function( dialog_login ) {
     $( "body" ).append( dialog_login );
   });
 
-  var xhr_toolbar = $.get( "views/toolbar.html", function( toolbar ) {
+  var xhr_toolbar = $.get( "assets/js/jquery-chat-master/views/toolbar.html", function( toolbar ) {
     $( "body" ).append( toolbar );
   });
   
-  var xhr_mchat = $.get( "views/main-chat.html", function( main_chat ) {
+  var xhr_mchat = $.get( "assets/js/jquery-chat-master/views/main-chat.html", function( main_chat ) {
     $( "body" ).append( main_chat );
   });
 
-  var xhr_options = $.get( "views/options.html", function( options ) {
+  var xhr_options = $.get( "assets/js/jquery-chat-master/views/options.html", function( options ) {
     $( "body" ).append( options );
   });
 
@@ -257,8 +257,8 @@
               bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. user@example.com" );
      
               if ( bValid ) {
-                user_email = email.val();
-                user_name  = name.val();
+                user_email = "goran";
+                user_name  = "goran";
                 $( this ).dialog( "close" );
                 //Open chat
                 $( "#chat-title-button" ).trigger( "click" );
@@ -429,19 +429,28 @@
     });
 
     //Bar text button open chat
-    $( document ).on("click", "#chat-title-button", function() {
+      $( document ).ready(function() {
 
       if ( chat_stat == 0 ) {
-        
-        if (!user_name || !user_email) {
-          $( "#dialog-login" ).dialog( "open" );
-          return false;
-        }
-        
-        main_chat_init();
 
-        socket_connect();
-        socket_handle();
+          // var xhr_dlogin = $.get( "/mget-user", function( dialog_login ) {
+          //    console.log(dialog_login);
+          // });
+          $.ajax({
+              type: 'GET',
+              url: '/get-user',
+              success: function(data) {
+
+                  user_name = data.name;
+                  user_email = "asdasdasd";
+                  main_chat_init();
+
+                  socket_connect();
+                  socket_handle();
+                console.log(data.name)
+              }
+          });
+
         
         //TODO: alert( "do init connection" );
         //if connection was 'ok' then append the main chat
@@ -816,6 +825,7 @@
     $( document ).ready(function() {
       //Open chat by default on page ready
       if ( conf_auto_login == true )
+
         $( "#chat-title-button" ).trigger( "click" );
     });
 
@@ -1238,7 +1248,7 @@
 
     //Change theme function
     function main_set_theme( theme ) {
-      var theme_css = "themes/" + theme + "/jquery-ui.min.css";    
+      var theme_css = "assets/js/jquery-chat-master/themes/" + theme + "/jquery-ui.min.css";
       $( "#theme" ).attr( "href" , theme_css );
       return false;
     }
@@ -1330,7 +1340,9 @@
     }
 
       function socket_connect() {
+          console.log('http://' + conf_server + ':' + conf_port);
           socket = io.connect('http://' + conf_server + ':' + conf_port, {
+
               'connect timeout': 5000
           });
       }

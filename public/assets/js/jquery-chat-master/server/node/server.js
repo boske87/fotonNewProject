@@ -1,10 +1,12 @@
-var port = process.env.PORT || 3000,
+var port = process.env.PORT || 3005,
     express = require("express"),
     app = express(),
     server = require('http').Server(app),
     io = require("socket.io")(server),
     crypto = require('crypto'),
     users = {}, socks = {};
+
+
 
 // Avatar config
 //var avatar_url = "http://cdn.libravatar.org/avatar/";
@@ -20,7 +22,7 @@ io.on('connection', function (socket) {
 
 	// Event received by new user
 	socket.on('join', function (recv, fn) {
-
+		console.log(recv);
 		if (!recv.user) {
 			socket.emit('custom_error', { message: 'User not found or invalid' });
 			return;

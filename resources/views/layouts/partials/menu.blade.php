@@ -77,7 +77,7 @@
 
                 <div class="span2">
                     <img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig">
-                    <a href="/klub-foton">
+                    <a href="{{route('foton-klub')}}">
                         <span class="klub-foton">KLUB FOTON</span>
                     </a>
                 </div>
