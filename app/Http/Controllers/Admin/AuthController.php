@@ -28,4 +28,9 @@ class AuthController extends Controller {
         Auth::logout();
 
     }
+
+    public function getUser()
+    {
+        return response()->json(["name" => Auth::user()->name]);
+    }
 }

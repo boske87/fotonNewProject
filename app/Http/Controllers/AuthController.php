@@ -27,7 +27,10 @@ class AuthController extends Controller
             return response()->json(["result" => false]);
         }
     }
-
+    public function getUser()
+    {
+        return response()->json(["name" => Auth::user()->name]);
+    }
     public function checkEmail(Request $request)
     {
         $res = User::where('name', $request->get('username'))

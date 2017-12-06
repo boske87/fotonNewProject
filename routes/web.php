@@ -81,6 +81,7 @@ Route::post('/sendMailPrijava', ['as' => 'sendMailPrijava', 'uses' => 'IndexCont
 
 Auth::routes();
 Route::post('/main-login', ['as' => '/main-login', 'uses' => 'AuthController@authenticate']);
+Route::get('/get-user', ['as' => '/main-login', 'uses' => 'AuthController@getUser']);
 Route::post('/checkEmail', ['as' => '/checkEmail', 'uses' => 'AuthController@checkEmail']);
 Route::post('/login', ['as' => '/login', 'uses' => 'Admin\AuthController@authenticate']);
 
