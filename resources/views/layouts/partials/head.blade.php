@@ -3,7 +3,7 @@
 
 <head>
     {{--<base href="http://skolafotografije.com/">--}}
-    <base href="http://foton.app/">
+    {{--<base href="http://foton.app/">--}}
     <meta charset="UTF-8">
 
     <meta name="description" content="Skola Fotografije Foton" />
@@ -12,7 +12,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <base href="http://foton.app/">
+    {{--<base href="http://foton.app/">--}}
 
     <title>Skola Fotografije | Foton</title>
 
