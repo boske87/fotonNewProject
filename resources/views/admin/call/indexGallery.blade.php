@@ -33,7 +33,7 @@
                 @foreach($items as $item)
                     <tr id="{{ $item->id }}" class="{{ $item->deleted_at ? 'danger' : ''}}">
                         <td>
-                            <a class="fancybox" rel="group" href="{{ Image::load('img/gallery/mygallery'.$callGallery->userId.'/' . $item->main_image, ['h' => 10]) }}"><img src="{{ Image::load('gallery/mygallery'.$callGallery->userId.'/' . $item->main_image, ['h' => 10]) }}" width="150px" alt=""></a>
+                            <a class="fancybox" rel="group" href="{{ Image::load('img/gallery/galerija_zvanja'.$item->galleryId.'/' . $item->main_image, ['h' => 10]) }}"><img src="{{ Image::load('gallery/galerija_zvanja'.$item->galleryId.'/' . $item->main_image, ['h' => 10]) }}" width="150px" alt=""></a>
                         </td>
                         <td class="cms-column-actions">
                             <div class="btn-group btn-group-xs cms-table-actions">
