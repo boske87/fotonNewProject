@@ -40,19 +40,19 @@
   conf_shortcuts_icon,
   conf_shortcuts_target;
   console.log(user_name);
-  var xhr_dlogin = $.get( "assets/js/jquery-chat-master/views/dialog-login.html", function( dialog_login ) {
+  var xhr_dlogin = $.get( "/assets/js/jquery-chat-master/views/dialog-login.html", function( dialog_login ) {
     $( "body" ).append( dialog_login );
   });
 
-  var xhr_toolbar = $.get( "assets/js/jquery-chat-master/views/toolbar.html", function( toolbar ) {
+  var xhr_toolbar = $.get( "/assets/js/jquery-chat-master/views/toolbar.html", function( toolbar ) {
     $( "body" ).append( toolbar );
   });
   
-  var xhr_mchat = $.get( "assets/js/jquery-chat-master/views/main-chat.html", function( main_chat ) {
+  var xhr_mchat = $.get( "/assets/js/jquery-chat-master/views/main-chat.html", function( main_chat ) {
     $( "body" ).append( main_chat );
   });
 
-  var xhr_options = $.get( "assets/js/jquery-chat-master/views/options.html", function( options ) {
+  var xhr_options = $.get( "/assets/js/jquery-chat-master/views/options.html", function( options ) {
     $( "body" ).append( options );
   });
 
@@ -442,12 +442,12 @@
               success: function(data) {
 
                   user_name = data.name;
-                  user_email = "asdasdasd";
+                  user_email = data.name+'test';
                   main_chat_init();
 
                   socket_connect();
                   socket_handle();
-                console.log(data.name)
+                console.log(user_name,user_email);
               }
           });
 
@@ -1248,7 +1248,7 @@
 
     //Change theme function
     function main_set_theme( theme ) {
-      var theme_css = "assets/js/jquery-chat-master/themes/" + theme + "/jquery-ui.min.css";
+      var theme_css = "/assets/js/jquery-chat-master/themes/" + theme + "/jquery-ui.min.css";
       $( "#theme" ).attr( "href" , theme_css );
       return false;
     }

@@ -2,12 +2,12 @@ var conf =
 {
     domain: 'domain.ltd',
     server_type: 'socket.io',
-    server: 'jquery-chat.herokuapp.com',
-    port: '80',
+    server: '127.0.0.1',
+    port: '4000',
     debug: true,
     auto_login: true,
     sound_active: true,
-    login_popup: false,
+    login_popup: true,
     tools_disabled: true,
     search_case_sensitive: true,
     tools:
@@ -15,7 +15,7 @@ var conf =
         icon: 'ui-icon-wrench'
     },
 
-    options_disabled: false,
+    options_disabled: true,
     options:
     {
         icon: 'ui-icon-triangle-1-n'
@@ -23,7 +23,7 @@ var conf =
 
     bar:
     {
-        default_expand: true,
+        default_expand: false,
         icon_expand: 'ui-icon-arrowthickstop-1-e',
         icon_collapse: 'ui-icon-arrowthickstop-1-w'
     },
@@ -75,23 +75,6 @@ var conf =
 
     shortcuts:
     [
-        {
-            text: 'Home',
-            href: 'https://github.com/lovelle/jquery-chat/',
-            icon: 'ui-icon-home',
-            target: '_blank'
-        },
-        {
-            text: 'Mail',
-            href: 'https://gmail.com/',
-            icon: 'ui-icon-mail-closed',
-            target: '_blank'
-        },
-        {
-            text: 'Search',
-            href: 'https://google.com/',
-            icon: 'ui-icon-search',
-            target: '_blank'
-        }
+
     ]
 }
