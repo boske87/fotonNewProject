@@ -1,12 +1,10 @@
-var port = process.env.PORT || 3005,
+var port = process.env.PORT || 4000,
     express = require("express"),
     app = express(),
     server = require('http').Server(app),
-    io = require("socket.io")(server),
+    io = require("socket.io").listen(server),
     crypto = require('crypto'),
     users = {}, socks = {};
-
-
 
 // Avatar config
 //var avatar_url = "http://cdn.libravatar.org/avatar/";
@@ -22,7 +20,7 @@ io.on('connection', function (socket) {
 
 	// Event received by new user
 	socket.on('join', function (recv, fn) {
-		console.log(recv);
+
 		if (!recv.user) {
 			socket.emit('custom_error', { message: 'User not found or invalid' });
 			return;
@@ -45,6 +43,10 @@ io.on('connection', function (socket) {
 
 		// Add the new data user
 		users[socket.user] = {'uid': Uid.lastid, 'user': socket.user, 'name': recv.name, 'status': 'online', 'avatar': my_avatar}
+		console.log('-----------');
+		console.log(socket.user)
+		console.log('-----------------------------------------------');
+		console.log(users[socket.user])
 		socks[socket.user] = {'socket': socket}
 
 		// Send to me my own data to get my avatar for example, usefull in future for db things
@@ -61,24 +63,31 @@ io.on('connection', function (socket) {
 	socket.on('user_status', function (recv) {
 		if (users[socket.user]) {
 			users[socket.user].status = recv.status;
-			socket.broadcast.emit('chat', JSON.stringify( {'action': 'user_status', 'user': users[socket.user]} ));
+			console.log(JSON.stringify( {'action': 'user_status', 'user': users[socket.user]} ))
+			console.log('-------------------++++++++++++++++++');
+			console.log(users[socket.user])
+			io.sockets.socket(id).emit('chat', JSON.stringify( {'action': 'user_status', 'user': users[socket.user]} ));
 		}
 	});
 
 	// Event received when user is typing
 	socket.on('user_typing', function (recv) {
 		var id = socks[recv.user].socket.id;
-        io.sockets.connected[id].emit('chat', JSON.stringify({'action': 'user_typing', 'data': users[socket.user]}));
+		console.log('-------------------++++++++++++++++++');
+		var test = io.sockets.socket(id);
+		console.log(test);
+        io.sockets.socket(id).emit('chat', JSON.stringify({'action': 'user_typing', 'data': users[socket.user]}));
 	});
 
 	// Event received when user send message to another
 	socket.on('message', function (recv, fn) {
+		console.log(socket.user)
 		var d = new Date();
 		var id = socks[recv.user].socket.id;
 		var msg = {'msg': recv.msg, 'user': users[socket.user]};
 		if (typeof fn !== 'undefined')
 			fn(JSON.stringify( {'ack': 'true', 'date': d} ));
-		io.sockets.connected[id].emit('chat', JSON.stringify( {'action': 'message', 'data': msg, 'date': d} ));
+		io.sockets.socket(id).emit('chat', JSON.stringify( {'action': 'message', 'data': msg, 'date': d} ));
 	});
 
 	// Event received when user has disconnected
@@ -108,3 +117,4 @@ function get_avatar_url(user) {
 function random(low, high) {
     return Math.floor(Math.random() * (high - low) + low);
 }
+
