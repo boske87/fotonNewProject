@@ -2,7 +2,7 @@ var conf =
 {
     domain: 'domain.ltd',
     server_type: 'socket.io',
-    server: '127.0.0.1',
+    server: '185.183.182.52',
     port: '4000',
     debug: true,
     auto_login: true,
