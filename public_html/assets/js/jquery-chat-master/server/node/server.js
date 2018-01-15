@@ -71,11 +71,13 @@ io.on('connection', function (socket) {
 
 	// Event received when user send message to another
 	socket.on('message', function (recv, fn) {
+
 		var d = new Date();
 		var id = socks[recv.user].socket.id;
 		var msg = {'msg': recv.msg, 'user': users[socket.user]};
 		if (typeof fn !== 'undefined')
 			fn(JSON.stringify( {'ack': 'true', 'date': d} ));
+        console.log(JSON.stringify( {'action': 'message', 'data': msg, 'date': d} ));
 		io.sockets.connected[id].emit('chat', JSON.stringify( {'action': 'message', 'data': msg, 'date': d} ));
 	});
 
