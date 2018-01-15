@@ -40,19 +40,19 @@
   conf_shortcuts_icon,
   conf_shortcuts_target;
 
-  var xhr_dlogin = $.get( "views/dialog-login.html", function( dialog_login ) {
+    var xhr_dlogin = $.get( "/assets/js/jquery-chat-master/views/dialog-login.html", function( dialog_login ) {
     $( "body" ).append( dialog_login );
   });
 
-  var xhr_toolbar = $.get( "views/toolbar.html", function( toolbar ) {
+    var xhr_toolbar = $.get( "/assets/js/jquery-chat-master/views/toolbar.html", function( toolbar ) {
     $( "body" ).append( toolbar );
   });
-  
-  var xhr_mchat = $.get( "views/main-chat.html", function( main_chat ) {
+
+    var xhr_mchat = $.get( "/assets/js/jquery-chat-master/views/main-chat.html", function( main_chat ) {
     $( "body" ).append( main_chat );
   });
 
-  var xhr_options = $.get( "views/options.html", function( options ) {
+    var xhr_options = $.get( "/assets/js/jquery-chat-master/views/options.html", function( options ) {
     $( "body" ).append( options );
   });
 
