@@ -51,7 +51,7 @@
                     @include('admin.layouts.modules.file_input', [
                          'label' => 'Slika',
                          'inputName' => 'fotografija_lica',
-                         'directory' => 'img/gallery',
+                         'directory' => 'img/gallery/users/',
                          'hint'=>'Fotografija lica'
                        ])
 
