@@ -87,7 +87,7 @@ class UsersController extends Controller
     {
         User::destroy($id);
 
-        return redirect()->route('admin.prof')->withFlashMessage("Delete user successfully.")->withFlashType('success');
+        return redirect()->route('admin.users')->withFlashMessage("Delete user successfully.")->withFlashType('success');
     }
 
 
