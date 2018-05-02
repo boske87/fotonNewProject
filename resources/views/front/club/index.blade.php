@@ -161,7 +161,6 @@
             </div>
             <div class="modal-body">
 
-                <p>Korisnicko ime:</p><input type="text" name="name" id="userNameReg" class="input-block-level" placeholder="Korisnicko ime" required>
                 <p>Email adresa:</p><input type="text" name="email" id="emailNameReg" class="input-block-level" placeholder="Email address" required>
                 <p>Password:</p><input type="password" name="password" class="input-block-level" placeholder="Password" required>
                 <p>Ime i prezime:</p><input type="text" name="ime_prezime" class="input-block-level" placeholder="Ime i prezime">
@@ -199,7 +198,7 @@
             <h3 id="myModalLabel">Uloguj se</h3>
         </div>
         <div class="modal-body">
-            <p>Email adresa:</p><input type="text" name="email" id="userEmail" class="input-block-level" placeholder="Korisnicko ime" required>
+            <p>Email adresa:</p><input type="text" name="email" id="userEmail" class="input-block-level" placeholder="Email adresa" required>
             <p>Password:</p><input type="password" name="password" id="userPass" class="input-block-level" placeholder="Password" required>
         </div>
         <div class="modal-footer">
