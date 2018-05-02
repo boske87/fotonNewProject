@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Categorie;
+use App\Http\Requests\UserMainRequest;
 use App\User;
 use App\UserGallery;
 use App\UserGalleryImage;
@@ -37,6 +38,36 @@ class UsersController extends Controller
         );
         return view('admin.users.edit', compact('id','item','cat', 'userStatus', 'color'));
 
+    }
+
+    public function add(){
+        $cat = Categorie::pluck('name','id');
+        $userStatus = array(
+            0 => 'Nekativan',
+            1 => 'Aktivan'
+        );
+
+        $color = array(
+            0 => 'blue',
+            1 => 'green',
+            2 => 'yellow',
+            3 => 'red',
+            4 =>'purple'
+        );
+
+        return view('admin.users.create', compact('cat', 'userStatus', 'color'));
+    }
+
+    public function store(UserMainRequest $request)
+    {
+        $input = $request->all();
+
+        // upload
+        $input['main_image'] = $this->upload('main_image', 'img/gallery');
+
+        User::create($input);
+
+        return redirect()->route('admin.prof')->withFlashMessage("Insert image successfully.")->withFlashType('success');
     }
 
 
