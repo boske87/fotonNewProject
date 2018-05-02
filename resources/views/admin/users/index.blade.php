@@ -8,7 +8,7 @@
         <div class="cms-options-title-action">
             @include('admin.layouts.crud.flash_message')
             <h3 class="cms-options-title">Korisnici</h3>
-            {!! link_to_route('admin.prof.add', 'Add', null, ['class' => 'cms-options-action btn btn-lg btn-primary']) !!}
+            {!! link_to_route('admin.users.add', 'Add', null, ['class' => 'cms-options-action btn btn-lg btn-primary']) !!}
         </div>
 
     </div> <!-- =cms-options -->

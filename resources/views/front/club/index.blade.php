@@ -35,9 +35,9 @@
                     <div class="row">
                         <div class="span12">
                             <div id="galleria">
-                                {{--@foreach($advanceGallery as $one)--}}
-                                    {{--<img src="{{ Image::load('gallery/' . $one->main_image, ['h' => 10]) }}" alt="" />--}}
-                                {{--@endforeach--}}
+                                @foreach($items as $one)
+                                    <img src="{{ Image::load('galleryClub/' . $one->main_image, ['h' => 10]) }}" alt="" />
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -211,6 +211,8 @@
     </div>
 
     <script>
+        Galleria.loadTheme("{{ asset('assets/js/galleria.classic.min.js')}}");
+        Galleria.run("#galleria");
         $(document).ready(function() {
             $(function(){
                 if(window.location.hash) {
@@ -245,6 +247,7 @@
 
 
             $('#refForm').submit(function() {
+                alert('asdasdasd');
                 event.preventDefault();
                 var form = this;
                 var username = $('#userNameReg').val();

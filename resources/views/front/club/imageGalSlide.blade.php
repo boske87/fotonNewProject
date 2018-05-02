@@ -40,7 +40,10 @@
         <div class="comment-container container">
             <div class="comments-top">
                 <div class="profile-img-wrap">
-                    <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
+                    @if(Auth::user()->fotografija_lica !== NULL)
+                        <img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">
+
+                    @endif
                 </div>
                 <ul class="img-info">
                     <li>
