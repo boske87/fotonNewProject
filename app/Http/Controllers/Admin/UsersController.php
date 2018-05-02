@@ -67,7 +67,7 @@ class UsersController extends Controller
 
         User::create($input);
 
-        return redirect()->route('admin.prof')->withFlashMessage("Insert image successfully.")->withFlashType('success');
+        return redirect()->route('admin.users')->withFlashMessage("Insert new user successfully.")->withFlashType('success');
     }
 
 
@@ -76,7 +76,9 @@ class UsersController extends Controller
 
         $user = User::find($id);
         $input = $request->all();
-
+        // upload
+        if(isset($input['main_image']))
+            $input['main_image'] = $this->upload('main_image', 'img/gallery');
 
         $user->update($input);
 

@@ -26,7 +26,8 @@ class UserMainRequest extends FormRequest
         return [
             'main_image'    => 'required',
             'name' => 'required',
-            'ime_prezime' => 'required'
+            'ime_prezime' => 'required',
+            'email' => 'required'
         ];
     }
 }

@@ -199,7 +199,7 @@
             <h3 id="myModalLabel">Uloguj se</h3>
         </div>
         <div class="modal-body">
-            <p>Korisnicko ime:</p><input type="text" name="email" id="userEmail" class="input-block-level" placeholder="Korisnicko ime" required>
+            <p>Email adresa:</p><input type="text" name="email" id="userEmail" class="input-block-level" placeholder="Korisnicko ime" required>
             <p>Password:</p><input type="password" name="password" id="userPass" class="input-block-level" placeholder="Password" required>
         </div>
         <div class="modal-footer">
