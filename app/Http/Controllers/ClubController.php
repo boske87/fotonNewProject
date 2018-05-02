@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ClubGallery;
 use App\Comment;
 use App\Skippaz\Services\UploadService;
 use App\UserGallery;
@@ -17,7 +18,8 @@ class ClubController extends Controller
 
     public function index()
     {
-        return view('front.club.index');
+        $items = ClubGallery::orderby('ordering','asc')->get();
+        return view('front.club.index', compact('items'));
     }
 
     public function createGallery()

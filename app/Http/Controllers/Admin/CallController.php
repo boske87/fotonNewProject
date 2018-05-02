@@ -18,6 +18,7 @@ class CallController extends Controller
     use UploadService;
 
     public function index($id){
+//        dd(storage_path(),resource_path(),public_path());
         $items = CallGallery::where('userId', $id)->get();
 
         return view('admin.call.index', compact('items', 'id'));

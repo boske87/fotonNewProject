@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Skippaz\Services\UploadService;
 
+use App\Http\Requests\EmailRequest;
+use Illuminate\Support\Facades\Mail;
+
 
 class RegisterController extends Controller
 {
@@ -90,7 +93,13 @@ class RegisterController extends Controller
     public function register(Request $request) {
 
         $user = $this->create($request->all());
-//        dd($user);
+        $input = $request->all();
+        $data = $input;
+
+        Mail::send('emails.register', $data , function ($message) use ($input)  {
+            $message->from('prijava@skolafotografije.com', 'Kontakt');
+            $message->to('athlon87@gmail.com')->subject($input['naslov']);
+        });
 //        // Sending email, sms or doing anything you want
 //        $this->activationService->sendActivationMail($user);
 //
