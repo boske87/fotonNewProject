@@ -32,11 +32,11 @@
                     <fieldset>
 
                         <!-- Username Form Input -->
-                        <div class="form-group{!! $errors ->has('name') ? ' has-error' : '' !!}">
-                            {!! Form::label('username', 'Username', ['class' => 'col-sm-2 control-label']) !!}
+                        <div class="form-group{!! $errors ->has('email') ? ' has-error' : '' !!}">
+                            {!! Form::label('email', 'Email Adresa', ['class' => 'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                                {!! $errors ->first('name', '<span class="help-block">:message</span>') !!}
+                                {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                                {!! $errors ->first('email', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
@@ -69,7 +69,13 @@
                                 {!! $errors ->first('mesto_rodjenja', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
-
+                        <div class="form-group{!! $errors ->has('tel') ? ' has-error' : '' !!}">
+                            {!! Form::label('tel', 'Kontakt telefon', ['class' => 'col-sm-2 control-label']) !!}
+                            <div class="col-sm-10">
+                                {!! Form::text('tel', null, ['class' => 'form-control']) !!}
+                                {!! $errors ->first('tel', '<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
 
                         <!-- User Type Form Input -->
                         <div class="form-group{!! $errors ->has('user_type') ? ' has-error' : '' !!}">
