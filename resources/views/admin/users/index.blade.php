@@ -24,7 +24,7 @@
                 <tr>
                     <th>Ime i prezime</th>
                     <th>Status naloga</th>
-                    <th>Galerija</th>
+                    <th>Moja galerija</th>
                     <th>Galerija zvanja</th>
                     <th>Actions</th>
                 </tr>
@@ -38,8 +38,8 @@
                         @else
                             <td style="color: green">Aktivan</td>
                         @endif
-                        <td><a href="{{route('admin.user.gallery', $item->id)}}">Pogledaj galerije</a></td>
-                        <td><a href="{{route('admin.user.gallery.call', $item->id)}}">Pogledaj galerije zvanja</a></td>
+                        <td><a href="{{route('admin.user.gallery', $item->id)}}">Pogledaj moje galerije</a></td>
+                        <td><a href="{{route('admin.user.gallery.call', $item->id)}}">Pogledaj galerije za zvanja</a></td>
                         <td class="cms-column-actions">
                             <div class="btn-group btn-group-xs cms-table-actions">
                                 <a href="{{ route('admin.user', $item->id) }}" type="button" class="btn btn-default"><span class="entypo entypo-pencil"></span></a>

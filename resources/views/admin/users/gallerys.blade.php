@@ -7,7 +7,7 @@
     <div class="cms-options">
         <div class="cms-options-title-action">
             @include('admin.layouts.crud.flash_message')
-            <h3 class="cms-options-title">Galerije korisnika</h3>
+            <h3 class="cms-options-title">Moja galerija {{$user->ime_prezime}}</h3>
         </div>
 
     </div> <!-- =cms-options -->

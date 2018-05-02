@@ -6,6 +6,7 @@ use App\CallGallery;
 use App\CallGalleryImage;
 use App\Http\Requests\Admin\AddGallRequest;
 use App\Skippaz\Services\UploadService;
+use App\User;
 use App\UserGallery;
 use App\UserGalleryImage;
 use Illuminate\Http\Request;
@@ -20,8 +21,8 @@ class CallController extends Controller
     public function index($id){
 //        dd(storage_path(),resource_path(),public_path());
         $items = CallGallery::where('userId', $id)->get();
-
-        return view('admin.call.index', compact('items', 'id'));
+        $user = User::find($id);
+        return view('admin.call.index', compact('items', 'id', 'user'));
     }
 
     public function addGallery($id){
@@ -55,6 +56,7 @@ class CallController extends Controller
     {
         $callGallery = callGallery::find($id);
         $items = CallGalleryImage::where('galleryId',$id)->get();
+
 
         return view('admin.call.indexGallery', compact('items', 'id', 'callGallery'));
     }
