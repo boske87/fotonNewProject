@@ -50,7 +50,7 @@
                         </div>
                         @include('admin.layouts.modules.file_input', [
                          'label' => 'Slika',
-                         'inputName' => 'main_image',
+                         'inputName' => 'fotografija_lica',
                          'directory' => 'img/gallery',
                          'hint'=>'Fotografija lica'
                        ])

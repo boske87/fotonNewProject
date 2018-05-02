@@ -67,7 +67,7 @@ class UsersController extends Controller
         $input = $request->all();
 
         // upload
-        $input['fotografija_lica'] = $this->upload('main_image', 'img/gallery');
+        $input['fotografija_lica'] = $this->upload('fotografija_lica', 'img/gallery');
 
         User::create($input);
 
@@ -82,7 +82,7 @@ class UsersController extends Controller
         $input = $request->all();
         // upload
         if(isset($input['main_image']))
-            $input['fotografija_lica'] = $this->upload('main_image', 'img/gallery');
+            $input['fotografija_lica'] = $this->upload('fotografija_lica', 'img/gallery');
 
         $user->update($input);
 
