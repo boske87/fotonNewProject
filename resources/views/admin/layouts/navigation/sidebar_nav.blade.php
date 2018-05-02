@@ -6,7 +6,26 @@
         <a class="js-aside-toggle js-aside-toggle-off pull-right" href="#d"><span class="caret"></span></a>
     </h1>
 
+
+
     <div id="aside-nav" class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#aside-nav" href="#aside-nav-5">Klub foton</a>
+                </h3>
+            </div>
+            <div class="panel-collapse collapse in" id="aside-nav-5">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class=""><a href="{{route('admin.club')}}">Klub Foton gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- =aside-nav-views -->
+        </div>
+
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">

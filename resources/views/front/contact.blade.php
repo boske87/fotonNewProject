@@ -32,8 +32,19 @@
         <section class="featured kontakt">
             <div class="container">
                 <div class="row">
+
                     <div class="span5">
+
                         <br/><br/><br/>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <p style="font-weight: bold">
                             FOTON ŠKOLA FOTOGRAFIJE<br/>
                             tel: +381 64 11 59 800<br/>
@@ -61,6 +72,9 @@
                                 <label for="exampleInputPoruka1" style="font-weight: bold">Poruka</label>
                                 <textarea class="form-control" name="poruka" id="exampleInputPoruka1" required></textarea>
                             </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6LeQOFYUAAAAAKavx2jWOMVERxRcIKoTnK_dw-eg"></div>
+                            </div>
                             <button type="submit" class="submit-contact" style="font-weight: bold">POŠALJI</button>
                         </form>
                     </div>
@@ -82,9 +96,12 @@
 
 </section>
 <!-- End class="main" -->
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript">
+
+
     jQuery(function($) {
-    // Asynchronously Load the map API 
+    // Asynchronously Load the map API
     var script = document.createElement('script');
     script.src = "//maps.googleapis.com/maps/api/js?sensor=false&callback=initialize&?v=3&key=AIzaSyBYDkj2KlRcX8VrhdeZWOP1h7MvkL1HV8c";
     document.body.appendChild(script);
@@ -96,28 +113,28 @@ function initialize() {
     var mapOptions = {
         mapTypeId: 'roadmap'
     };
-                    
+
     // Display a map on the page
     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     map.setTilt(45);
-        
+
     // Multiple Markers
     var markers = [
         ['Skola fotografije, Beograd', 44.798570, 20.477826],
         ['Skola fotografije, Beograd', 44.8159888,20.4659168]
     ];
-                        
+
     // Info Window Content
     var infoWindowContent = [
         ['<div class="info_content">' +
         '<h3>Skola fotografije</h3>' +
         '<p>Skola fotografije.</p>' +        '</div>']
     ];
-        
+
     // Display multiple markers on a map
     var infoWindow = new google.maps.InfoWindow(), marker, i;
-    
-    // Loop through our array of markers & place each one on the map  
+
+    // Loop through our array of markers & place each one on the map
     for( i = 0; i < markers.length; i++ ) {
         var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
         bounds.extend(position);
@@ -126,8 +143,8 @@ function initialize() {
             map: map,
             title: markers[i][0]
         });
-        
-        // Allow each marker to have an info window    
+
+        // Allow each marker to have an info window
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 infoWindow.setContent(infoWindowContent[i][0]);
@@ -144,7 +161,7 @@ function initialize() {
         this.setZoom(14);
         google.maps.event.removeListener(boundsListener);
     });
-    
+
 }
 </script>
 

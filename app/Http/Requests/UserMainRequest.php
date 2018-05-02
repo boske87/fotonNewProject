@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmailRequest extends FormRequest
+class UserMainRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,9 @@ class EmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'poruka'    => 'required',
-            'naslov' => 'required',
-            'email' => 'required',
-            'g-recaptcha-response' => 'required',
+            'main_image'    => 'required',
+            'name' => 'required',
+            'ime_prezime' => 'required'
         ];
     }
 }

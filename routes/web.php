@@ -40,6 +40,8 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
     Route::get('/vesti', ['as' => 'foton-klub.vesti', 'uses' => 'ClubExtraController@news']);
     Route::get('/vest/{slug}', ['as' => 'foton-klub.vest', 'uses' => 'ClubExtraController@oneNews']);
 
+    Route::get('/vesti', ['as' => 'foton-klub.vesti', 'uses' => 'ClubExtraController@news']);
+
     Route::get('/vesti-brisanje/{id}', ['as' => 'foton-klub.vesti-brisanje', 'uses' => 'ClubExtraController@newsDelete']);
 
     Route::post('/vesti/add', ['as' => 'foton-klub.vesti.add', 'uses' => 'ClubExtraController@storeNews']);
@@ -87,11 +89,20 @@ Route::post('/login', ['as' => '/login', 'uses' => 'Admin\AuthController@authent
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'] ], function () {
 
+    Route::get('/klub', ['as' => 'admin.club', 'uses' => 'Admin\ClubController@gallery']);
+    Route::post('/klub-gallery-add', ['as' => 'admin.club-gallery-add', 'uses' => 'Admin\ClubController@basicGalleryAddStore']);
+    Route::get('/klub-gallery-add', ['as' => 'admin.club-gallery-add', 'uses' => 'Admin\ClubController@basicGalleryAdd']);
+    Route::delete('/klub-gallery-delete/{id}', ['as' => 'admin.club-gallery-delete', 'uses' => 'Admin\ClubController@basicGalleryDelete']);
+
     Route::get('/users', ['as' => 'admin.users', 'uses' => 'Admin\UsersController@index']);
     Route::get('/user/{id}', ['as' => 'admin.user', 'uses' => 'Admin\UsersController@edit']);
     Route::get('/user/gallery/{id}', ['as' => 'admin.user.gallery', 'uses' => 'Admin\UsersController@gallery']);
     Route::get('/user/oneGallery/{id}', ['as' => 'admin.user.one-gallery', 'uses' => 'Admin\UsersController@oneGallery']);
     Route::delete('/user/oneGallery/{id}', ['as' => 'admin.user.one-gallery', 'uses' => 'Admin\UsersController@deleteImage']);
+
+    Route::get('/users/add', ['as' => 'admin.users.add', 'uses' => 'Admin\UsersController@add']);
+
+    Route::post('/users/add', ['as' => 'admin.users.add', 'uses' => 'Admin\UsersController@store']);
 
 
     //galerija zvanja
