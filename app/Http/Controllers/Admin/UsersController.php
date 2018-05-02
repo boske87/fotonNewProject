@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Categorie;
 use App\Http\Requests\UserMainRequest;
+use App\Skippaz\Admin\AdminTrait;
+use App\Skippaz\Services\UploadService;
 use App\User;
 use App\UserGallery;
 use App\UserGalleryImage;
@@ -12,6 +14,8 @@ use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
+    use UploadService;
+    use AdminTrait;
     public function index()
     {
         $items = User::where('type',0)->get();
