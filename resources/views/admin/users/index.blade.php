@@ -33,7 +33,7 @@
                 @foreach($items as $item)
                     <tr id="{{ $item->id }}" class="{{ $item->deleted_at ? 'danger' : ''}}">
                         <td>{{$item->ime_prezime}}</td>
-                        @if($item->status == 0)
+                        @if($item->status == 1)
                             <td style="color: red">Neaktivan </td>
                         @else
                             <td style="color: green">Aktivan</td>

@@ -50,8 +50,8 @@
                         </div>
                         @include('admin.layouts.modules.file_input', [
                          'label' => 'Slika',
-                         'inputName' => 'main_image',
-                         'directory' => 'img/gallery',
+                         'inputName' => 'fotografija_lica',
+                         'directory' => 'img/gallery/users/',
                          'hint'=>'Fotografija lica'
                        ])
                         <div class="form-group{!! $errors ->has('datum_rodjenja') ? ' has-error' : '' !!}">
