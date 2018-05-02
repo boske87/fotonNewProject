@@ -7,8 +7,8 @@
     <div class="cms-options">
         <div class="cms-options-title-action">
             @include('admin.layouts.crud.flash_message')
-            <h3 class="cms-options-title">Galerije zvanja korisnika</h3>
-            <a href="{{route('admin.user.gallery.call.add',$id)}}" class="cms-options-action btn btn-lg btn-primary">Nova galerija zvanja</a>
+            <h3 class="cms-options-title">Galerija zvanja {{$user->ime_prezime}}</h3>
+            <a href="{{route('admin.user.gallery.call.add',$id)}}" class="cms-options-action btn btn-lg btn-primary">Novi album</a>
         </div>
 
     </div> <!-- =cms-options -->

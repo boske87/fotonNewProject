@@ -18,7 +18,7 @@ class UsersController extends Controller
     use AdminTrait;
     public function index()
     {
-        $items = User::where('type',0)->get();
+        $items = User::where('type',0)->orderBy('ime_prezime', 'desc')->get();
 
         return view('admin.users.index', compact('items'));
     }
@@ -99,8 +99,10 @@ class UsersController extends Controller
 
     public function gallery($id){
         $items = UserGallery::where('userId', $id)->get();
+        $user = User::find($id);
 
-        return view('admin.users.gallerys', compact('items'));
+
+        return view('admin.users.gallerys', compact('items', 'user'));
 
     }
 
