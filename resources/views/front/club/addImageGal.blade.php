@@ -30,7 +30,7 @@
                         $('#fine-uploader-manual-trigger').fineUploader({
                             template: 'qq-template-manual-trigger',
                             request: {
-                                endpoint: 'http://foton.app/foton-klub/dodavanje-slika-u-galeriju',
+                                endpoint: 'http://185.183.182.52/foton-klub/dodavanje-slika-u-galeriju',
                                 params: {
                                     '_token': $('meta[name="csrf-token"]').attr('content'),
                                     'gal_id': $('#gal_id').val()
