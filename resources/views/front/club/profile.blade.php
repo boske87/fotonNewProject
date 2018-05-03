@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-
+<style>
+    html {
+        overflow-y: scroll;
+    }
+</style>
     <section class="background-new">
         <div class="container">
             @include('layouts.partials.side')
