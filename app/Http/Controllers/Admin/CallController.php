@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\CallGallery;
 use App\CallGalleryImage;
+
 use App\Http\Requests\Admin\AddGallRequest;
 use App\Skippaz\Services\UploadService;
 use App\User;
@@ -29,6 +31,8 @@ class CallController extends Controller
 
         return view('admin.call.addGallery', compact('id'));
     }
+
+
 
     public function storeGallery(AddGallRequest $request, $id)
     {

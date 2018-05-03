@@ -94,6 +94,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'] ], function () {
     Route::get('/klub-gallery-add', ['as' => 'admin.club-gallery-add', 'uses' => 'Admin\ClubController@basicGalleryAdd']);
     Route::delete('/klub-gallery-delete/{id}', ['as' => 'admin.club-gallery-delete', 'uses' => 'Admin\ClubController@basicGalleryDelete']);
 
+    //basic
+    Route::get('/klub-text/{id}', ['as' => 'admin.club.text', 'uses' => 'Admin\ClubController@text']);
+    Route::patch('klub-update/{id}', ['as' => 'admin.club.text.update', 'uses' => 'Admin\ClubController@basicUpdate']);
+
     Route::get('/users', ['as' => 'admin.users', 'uses' => 'Admin\UsersController@index']);
     Route::get('/user/{id}', ['as' => 'admin.user', 'uses' => 'Admin\UsersController@edit']);
     Route::get('/user/gallery/{id}', ['as' => 'admin.user.gallery', 'uses' => 'Admin\UsersController@gallery']);

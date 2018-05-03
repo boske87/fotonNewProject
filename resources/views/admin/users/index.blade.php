@@ -26,6 +26,7 @@
                     <th>Status naloga</th>
                     <th>Moja galerija</th>
                     <th>Galerija zvanja</th>
+                    <th>Vreme registrovanja</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -34,10 +35,11 @@
                     <tr id="{{ $item->id }}" class="{{ $item->deleted_at ? 'danger' : ''}}">
                         <td>{{$item->ime_prezime}}</td>
                         @if($item->status == 1)
-                            <td style="color: red">Neaktivan </td>
+                            <td style="color: red">Pasivan </td>
                         @else
                             <td style="color: green">Aktivan</td>
                         @endif
+                        <td>{{$item->created_at}}</td>
                         <td><a href="{{route('admin.user.gallery', $item->id)}}">Pogledaj moje galerije</a></td>
                         <td><a href="{{route('admin.user.gallery.call', $item->id)}}">Pogledaj galerije za zvanja</a></td>
                         <td class="cms-column-actions">

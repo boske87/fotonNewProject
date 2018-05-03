@@ -24,8 +24,7 @@ class UserMainRequest extends FormRequest
     public function rules()
     {
         return [
-            'main_image'    => 'required',
-            'name' => 'required',
+            'fotografija_lica'    => 'required',
             'ime_prezime' => 'required',
             'email' => 'required'
         ];

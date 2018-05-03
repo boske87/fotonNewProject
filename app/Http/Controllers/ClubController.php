@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ClubGallery;
+use App\ClubText;
 use App\Comment;
 use App\Skippaz\Services\UploadService;
 use App\UserGallery;
@@ -19,7 +20,9 @@ class ClubController extends Controller
     public function index()
     {
         $items = ClubGallery::orderby('ordering','asc')->get();
-        return view('front.club.index', compact('items'));
+        $text = ClubText::findOrFail(1);
+
+        return view('front.club.index', compact('items','text'));
     }
 
     public function createGallery()

@@ -18,9 +18,9 @@
             <li class="color-circles">
                 <ul>
                     @if(Auth::user()->status==0)
-                        <li class="yellow"></li>
-                        @else
                         <li class="green"></li>
+                        @else
+                        <li class="yellow"></li>
                         @endif
                 </ul>
             </li>
