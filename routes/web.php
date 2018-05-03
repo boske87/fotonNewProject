@@ -16,6 +16,7 @@
 //});
 
 Route::get('/', ['as' => '/login', 'uses' => 'IndexController@index']);
+Route::get('/logout', ['as' => '/logout', 'uses' => 'IndexController@logout']);
 
 Route::get('/pocetni-nivo', ['as' => '/pocetni-nivo', 'uses' => 'IndexController@basic']);
 Route::get('/napredni-nivo', ['as' => '/napredni-nivo', 'uses' => 'IndexController@advance']);

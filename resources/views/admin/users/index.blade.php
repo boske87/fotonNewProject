@@ -39,9 +39,10 @@
                         @else
                             <td style="color: green">Aktivan</td>
                         @endif
-                        <td>{{$item->created_at}}</td>
+
                         <td><a href="{{route('admin.user.gallery', $item->id)}}">Pogledaj moje galerije</a></td>
                         <td><a href="{{route('admin.user.gallery.call', $item->id)}}">Pogledaj galerije za zvanja</a></td>
+                        <td>{{$item->created_at}}</td>
                         <td class="cms-column-actions">
                             <div class="btn-group btn-group-xs cms-table-actions">
                                 <a href="{{ route('admin.user', $item->id) }}" type="button" class="btn btn-default"><span class="entypo entypo-pencil"></span></a>

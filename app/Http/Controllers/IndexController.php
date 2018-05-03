@@ -11,6 +11,7 @@ use App\HomeGallery;
 use App\HomeText;
 use App\ProfMain;
 use App\ProfText;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmailRequest;
 use Illuminate\Support\Facades\Mail;
@@ -25,7 +26,10 @@ class IndexController extends Controller
         return view('front.home', compact('prof','front', 'frontGallery'));
     }
 
-
+    public function logout(){
+        Auth::logout();
+        return redirect('/admin');
+    }
     public function basic()
     {
         $basicText = BasicText::find(1);

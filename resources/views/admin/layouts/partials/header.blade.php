@@ -27,7 +27,7 @@
                     </button>
                     <ul class="dropdown-menu">
 {{--                        <li><a href="{{ route('admin.my_account', Crypt::encrypt(Request::fullUrl()) ) }}">My Account</a></li>--}}
-                        <li><a href="">Log out</a></li>
+                        <li><a href="{{route('logout')}}">Log out</a></li>
                     </ul>
                 </div>
             </div>
