@@ -19,6 +19,7 @@
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">
                         <li class=""><a href="{{route('admin.club')}}">Klub Foton gallery</a></li>
+                        <li class=""><a href="{{route('admin.club.text', 1)}}">Klub Foton text</a></li>
                     </ul>
                 </div>
             </div>

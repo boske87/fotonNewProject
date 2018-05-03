@@ -40,6 +40,15 @@
                             </div>
                         </div>
 
+                        <!-- Username Form Input -->
+                        <div class="form-group{!! $errors ->has('password') ? ' has-error' : '' !!}">
+                            {!! Form::label('password', 'Sifra', ['class' => 'col-sm-2 control-label']) !!}
+                            <div class="col-sm-10">
+                                {!! Form::text('password', null, ['class' => 'form-control']) !!}
+                                {!! $errors ->first('password', '<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
+
                         <!-- Password Form Input -->
                         <div class="form-group{!! $errors ->has('ime_prezime') ? ' has-error' : '' !!}">
                             {!! Form::label('ime_prezime', 'Ime i prezime', ['class' => 'col-sm-2 control-label']) !!}

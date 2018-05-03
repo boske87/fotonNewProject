@@ -8,6 +8,7 @@ use App\Skippaz\Admin\AdminTrait;
 use App\Skippaz\Services\UploadService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\ClubText;
 
 class ClubController extends Controller
 {
@@ -27,6 +28,25 @@ class ClubController extends Controller
     public function basicGalleryAdd()
     {
         return view('admin.club_admin.gallery-add');
+    }
+
+    public function text($id)
+    {
+        $homeText = ClubText::find($id);
+
+        return view('admin.club_admin.text', compact('id','homeText'));
+    }
+
+    public function basicUpdate($id, Request $request)
+    {
+
+        $homeText = ClubText::firstOrCreate(['id'=>$id]);
+
+        $input = $request->all();
+
+        $homeText->update($input);
+
+        return redirect()->route('admin.club.text', '1')->withFlashMessage("Updated successfully.")->withFlashType('success');
     }
 
     public function basicGalleryAddStore(ClubGalleryRequest $request)
