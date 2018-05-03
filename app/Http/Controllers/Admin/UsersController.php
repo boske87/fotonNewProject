@@ -29,7 +29,7 @@ class UsersController extends Controller
         $cat = Categorie::pluck('name','id');
 
         $userStatus = array(
-            0 => 'Nekativan',
+            0 => 'Pasivan',
             1 => 'Aktivan'
         );
 
@@ -47,7 +47,7 @@ class UsersController extends Controller
     public function add(){
         $cat = Categorie::pluck('name','id');
         $userStatus = array(
-            0 => 'Nekativan',
+            0 => 'Pasivan',
             1 => 'Aktivan'
         );
 
