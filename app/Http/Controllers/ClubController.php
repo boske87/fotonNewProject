@@ -91,6 +91,7 @@ class ClubController extends Controller
 
     public function imageOne($id, $idImage)
     {
+
         $gallery = UserGallery::leftjoin('users', 'usersGallery.userId','=','users.id')->first();
 
         $comments = Comment::where('galleryId', $id)
@@ -118,6 +119,8 @@ class ClubController extends Controller
         }
 
         UserGalleryImage::where('id',$item->id)->Increment('view', 1);
+
+
 
         return view('front.club.imageGalSlide',compact('excludeImage', 'gallery', 'id','idImage','item', 'new_com'));
     }

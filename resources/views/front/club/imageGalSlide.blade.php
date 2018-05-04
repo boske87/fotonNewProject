@@ -62,7 +62,7 @@
                 <div class="profile-comment-info">
                     <ul>
                         <li><span id="pregledi">{{$item->view}}</span><span>pregleda</span></li>
-                        <li><span id="komentara">{{$new_com[$item->id]}}</span><span>komentara</span></li>
+                        <li><span id="komentara">{{isset ($new_com[$item->id]) ? $new_com[$item->id] : 0}}</span><span>komentara</span></li>
                     </ul>
                 </div>
             </div>
