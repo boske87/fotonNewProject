@@ -65,6 +65,7 @@ class ClubController extends Controller
     {
         $myGal = Auth::user()->userGallery;
         $callGal = Auth::user()->callGallery;
+//        dd($callGal);
         return view('front.club.profile', compact('callGal', 'myGal'));
     }
     public function galleryOne($id)
