@@ -40,8 +40,8 @@
                             <td style="color: green">Aktivan</td>
                         @endif
 
-                        <td><a href="{{route('admin.user.gallery', $item->id)}}">Pogledaj moje galerije</a></td>
-                        <td><a href="{{route('admin.user.gallery.call', $item->id)}}">Pogledaj galerije za zvanja</a></td>
+                        <td><a href="{{route('admin.user.gallery', $item->id)}}">Pogledaj moje albume</a></td>
+                        <td><a href="{{route('admin.user.gallery.call', $item->id)}}">Pogledaj albume za zvanja</a></td>
                         <td>{{$item->created_at}}</td>
                         <td class="cms-column-actions">
                             <div class="btn-group btn-group-xs cms-table-actions">
