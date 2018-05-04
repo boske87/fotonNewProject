@@ -18,7 +18,7 @@
                                 <div class="vesti-box">
                                     <div class="gallery-img">
                                         <a href="#">
-                                            <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
+                                            <img src="{{ Image::load('gallery/galerija_zvanja'.$oneGal->userId.'/' . $oneGal->userGalleryImage[0]->main_image, ['h' => 10]) }}">
                                         </a>
                                     </div>
                                     <div class="vesti-info">
@@ -48,7 +48,7 @@
                                 <div class="vesti-box">
                                     <div class="gallery-img">
                                         <a href="#">
-                                            <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
+                                            <img src="{{ Image::load('gallery/mygallery'.$oneGal->userId.'/' . $oneGal->userGalleryImage[0]->main_image, ['h' => 10]) }}">
                                         </a>
                                     </div>
                                     <div class="vesti-info">
