@@ -15,7 +15,7 @@
                 <h4 class="modal-title">Vesti</h4>
             </div>
             <div class="modal-body">
-				<p>{!! $popUp->text !!}</p>
+                <p>{!! $popUp->text !!}</p>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="row" style="width: 70% !important; margin-left: 15%; margin-top: 5%">
-                            <a href="{{route('foton-klub.moja-galerija', $gal->id)}}" style="text-align: center" class="btn btn-primary">Pogledajte Vasu galeriju</a>
+                            <a href="{{route('foton-klub.moja-galerija', $gal->id)}}" style="text-align: center" class="btn btn-primary">Idem u ceo album</a>
                         </div>
                     </div>
 

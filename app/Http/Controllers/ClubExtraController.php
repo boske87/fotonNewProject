@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ClubNews;
 use App\Comment;
 use App\News;
+use App\NewsPopUp;
 use App\UserGalleryImage;
 use DB;
 use Illuminate\Http\Request;
@@ -39,9 +40,9 @@ class ClubExtraController extends Controller
 
     public function news()
     {
-
+        $popUp = NewsPopUp::find(1);
         $news = ClubNews::orderBy('created_at', 'desc')->get();
-        return view('front.club.news', compact('news'));
+        return view('front.club.news', compact('news','popUp'));
     }
 
     public function storeNews(Request $request)

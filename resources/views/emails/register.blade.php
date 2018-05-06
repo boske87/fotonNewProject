@@ -1,7 +1,4 @@
-Ime: {{ @$ime }}
-<br>
-Naslov: {{ @$naslov }}
-<br>
-Email: {{ @$email }}
-<br>
-Poruka: {{ @$poruka }}
+Postovani,
+
+Hvala na registraciji, odgovorićemo čim budemo mogli
+

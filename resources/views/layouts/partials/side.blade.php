@@ -17,7 +17,7 @@
         <ul class="img-info">
             <li class="color-circles">
                 <ul>
-                    @if(Auth::user()->status==0)
+                    @if(Auth::user()->status==1)
                         <li class="green"></li>
                         @else
                         <li class="yellow"></li>

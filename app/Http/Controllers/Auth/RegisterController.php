@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\RegisterRequest;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -71,10 +72,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // upload
-        $data['main_image'] = $this->upload('main_image', 'img/gallery/users/');
+        if(isset($data['main_image'])) {
+            $data['main_image'] = $this->upload('main_image', 'img/gallery/users/');
+        }
+
 
         return User::create([
-            'name' => $data['name'],
+            'name' => str_replace(' ', '-', $data['ime_prezime']),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'ime_prezime' => $data['ime_prezime'],
@@ -90,7 +94,7 @@ class RegisterController extends Controller
     }
 
 
-    public function register(Request $request) {
+    public function register(RegisterRequest $request) {
 
         $user = $this->create($request->all());
         $input = $request->all();
@@ -98,7 +102,7 @@ class RegisterController extends Controller
 
         Mail::send('emails.register', $data , function ($message) use ($input)  {
             $message->from('prijava@skolafotografije.com', 'Kontakt');
-            $message->to('athlon87@gmail.com')->subject($input['naslov']);
+            $message->to('athlon87@gmail.com')->subject('Registracija');
         });
 //        // Sending email, sms or doing anything you want
 //        $this->activationService->sendActivationMail($user);

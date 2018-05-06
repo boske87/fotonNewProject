@@ -34,7 +34,6 @@
                             </div>
                         @endforeach
                     @else
-
                         <p style="width: 35%; margin-left: 15%" class="alert alert-warning">There are no items.</p>
                     @endif
                 </div>
