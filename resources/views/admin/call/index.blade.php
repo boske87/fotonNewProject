@@ -15,6 +15,7 @@
 @stop
 
 @section('index_content')
+
     <span id="tableName" style="display: none; visibility: hidden;">frontGallery</span>
     <div class="table-responsive">
         @if($items->count()>0)

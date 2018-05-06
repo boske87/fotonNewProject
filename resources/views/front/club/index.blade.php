@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+
     <meta name="csrf-token" content="{!! csrf_token() !!}" />
     <!-- Content section -->
     <section class="main silver-bg" style="background-color: white !important;">
@@ -148,11 +149,20 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">Registruj se</h3>
             <div class="modal-body">
-                <h5>Uspesno ste se registrovali.</h5>
+                <h5>Hvala na registraciji, odgovorićemo čim budemo mogli.</h5>
             </div>
         </div>
 
     </div>
+
+
+    @if(!empty($errors->all()))
+        <script>
+            $(document).ready(function(){
+                $("#myModal").modal();
+            });
+        </script>
+    @endif
     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         {!! Form::open(['route' => 'register', 'files' => true, 'id'=>'refForm']) !!}
             <div class="modal-header">
@@ -246,7 +256,7 @@
 
 
             $('#refForm').submit(function() {
-                alert('asdasdasd');
+
                 event.preventDefault();
                 var form = this;
                 var username = $('#userNameReg').val();
