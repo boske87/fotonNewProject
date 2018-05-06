@@ -32,7 +32,7 @@
 
                                             @endif </div>
 
-                                        <input type="text" onClick="window.location.href='{{route('foton-klub.galerija.slika',[$id, $one->id])}}'" placeholder="Napišite komentar222..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
+                                        <input type="text" onClick="window.location.href='{{route('foton-klub.galerija.slika',[$id, $one->id])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
                                     </div>
                                 </div>
                             </div>

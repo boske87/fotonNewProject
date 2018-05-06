@@ -28,7 +28,7 @@
                 @foreach($items as $item)
                     <tr id="{{ $item->id }}" class="{{ $item->deleted_at ? 'danger' : ''}}">
                         <td>
-                            <a class="fancybox" rel="group" href="{{ Image::load('mygallery'.$item->id.'/' . $item->main_image, ['h' => 10]) }}"><img src="{{ Image::load('gallery/' . $item->main_image, ['h' => 10]) }}" width="150px" alt=""></a>
+                            <a class="fancybox" rel="group" href="{{ Image::load('gallery/mygallery'.$gal->userId.'/' . $item->main_image, ['h' => 10]) }}"><img src="{{ Image::load('gallery/' . $item->main_image, ['h' => 10]) }}" width="150px" alt=""></a>
                         </td>
                         <td class="cms-column-actions">
                             <div class="btn-group btn-group-xs cms-table-actions">
