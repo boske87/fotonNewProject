@@ -92,7 +92,7 @@
     <link rel='stylesheet' href={{ asset('assets/js/jquery-chat-master/css/tipsy.css')}} />
     <link rel='stylesheet' href={{ asset('assets/js/jquery-chat-master/css/chat.css')}} />
 
-    <script src='https://jquery-chat.herokuapp.com/socket.io/socket.io.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js'></script>
     <script src={{ asset('assets/js/jquery-chat-master/js/jquery-1.11.3.min.js')}}></script>
     <script src={{ asset('assets/js/jquery-chat-master/js/jquery-ui-1.10.4.custom.min.js')}}></script>
     <script src={{ asset('assets/js/jquery-chat-master/js/jquery.slimscroll.min.js')}}></script>
