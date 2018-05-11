@@ -8,6 +8,8 @@ use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Image;
+
 
 class ClubCallController extends Controller
 {
@@ -17,6 +19,8 @@ class ClubCallController extends Controller
 //        dd($items);
         $gallery = CallGallery::find($id);
         $user_id = Auth::user()->id;
+
+//        dd($gallery);
 
         $new_com = array();
         $comments = DB::table('comments')
@@ -82,6 +86,11 @@ class ClubCallController extends Controller
             ->get();
 
         $image = CallGalleryImage::find($imageId);
+
+        foreach ($images as $one) {
+//            $one->fotografija_lica = Image::load('/gallery/users/'.$one->fotografija_lica, ['h' => 10]);
+        }
+
 //        $user =
         return response()->json(["result" => $images, 'image' => $image]);
     }

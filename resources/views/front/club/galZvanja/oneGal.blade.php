@@ -15,7 +15,7 @@
                                 <div class="vesti-box">
                                     <div class="gallery-img">
                                         <a href="{{route('foton-klub.galerija-zvanja.slika',[$id, $one->id])}}">
-                                            <img src="{{ Image::load('gallery/mygallery'.$user_id.'/' . $one->main_image, ['h' => 10]) }}">
+                                            <img src="{{ Image::load('gallery/galerija_zvanja'.$gallery->id.'/' . $one->main_image, ['h' => 10]) }}">
                                         </a>
                                     </div>
                                     <div class="vesti-info single">
@@ -25,9 +25,14 @@
                                         </div>
                                         <div class="single-comment-box comment-box">
                                             <div class="profile-img-wrap">
-                                                <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&amp;s=5d75945cff11708b3c95cac6ea3d26bd">
-                                            </div>
-                                            <input type="text" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
+                                                @if(Auth::user()->fotografija_lica !== NULL)
+                                                    <img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">
+                                                @else
+                                                    <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&amp;s=5d75945cff11708b3c95cac6ea3d26bd">
+
+                                                @endif
+                                                   </div>
+                                            <input type="text" onClick="window.location.href='{{route('foton-klub.galerija-zvanja.slika',[$id, $one->id])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
                                         </div>
                                     </div>
                                 </div>

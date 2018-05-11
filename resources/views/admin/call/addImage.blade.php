@@ -10,7 +10,7 @@
 
     <div class="cms-options">
         <div class="cms-options-title-action">
-            <p class="cms-options-title lead"> Dodavanje slika u galeriju zvanja</p>
+            <p class="cms-options-title lead"> Dodavanje slika u album zvanja</p>
         </div>
     </div>
     @include('admin.layouts.crud.flash_message')

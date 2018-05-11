@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="span12">
                     <div id="galleria">
-                        <img id="{{$item->id}}" src="{{ Image::load('gallery/galerija_zvanja'.$gallery->userId.'/' . $item->main_image, ['h' => 10]) }}" alt="" />
+                        <img id="{{$item->id}}" src="{{ Image::load('gallery/galerija_zvanja'.$item->galleryId.'/' . $item->main_image, ['h' => 10]) }}" alt="" />
                         @foreach($excludeImage as $one)
                             <img id="{{$one->id}}" src="{{ Image::load('img/gallery/mygallery'.$gallery->userId.'/' . $one->main_image, ['h' => 10]) }}" alt="" />
                         @endforeach
@@ -40,7 +40,7 @@
         <div class="comment-container container">
             <div class="comments-top">
                 <div class="profile-img-wrap">
-                    <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
+                    <img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">
                 </div>
                 <ul class="img-info">
                     <li>
@@ -51,8 +51,8 @@
 
                     <li class="color-circles">
                         <ul>
-                            <li class="green">1</li>
-                            <li class="txt"><span>F2 | AFIAP</span></li>
+                            <li style="background-color:{{Auth::user()->color}}"></li>
+                            <li class="txt"><span>{{Auth::user()->titula}}</span></li>
                         </ul>
                     </li>
                 </ul>
@@ -75,7 +75,7 @@
                     <li>
                         <div class="comments-bottom-info">
                             <div class="profile-img-wrap">
-                                <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
+                                <img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">
                             </div>
                             <ul class="img-info">
                                 <li>
@@ -83,8 +83,8 @@
                                 </li>
                                 <li class="color-circles">
                                     <ul>
-                                        <li class="green">1</li>
-                                        <li class="txt"><span>F2 | AFIAP</span></li>
+                                        <li style="background-color:{{Auth::user()->color}}"></li>
+                                        <li class="txt" style="width: 50%; text-align: left"><span>{{Auth::user()->titula}}</span></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -122,7 +122,7 @@
                             $('#ul_comments').append('<li>\n' +
                                 '<div class="comments-bottom-info">\n' +
                                 '<div class="profile-img-wrap">\n' +
-                                '<img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">\n' +
+                                '<img src="/img/gallery/users/'+data.result[x].fotografija_lica+'">\n' +
                                 '</div>\n' +
                                 '<ul class="img-info">\n' +
                                 '<li>\n' +
@@ -130,8 +130,8 @@
                                 '</li>\n' +
                                 '<li class="color-circles">\n' +
                                 '<ul>\n' +
-                                '<li class="green">1</li>\n' +
-                                ' <li class="txt"><span>F2 | AFIAP</span></li>\n' +
+                                '<li style="background-color:'+data.result[x].color+';"></li>\n' +
+                                ' <li class="txt" style="width: 50%; text-align: left"><span>'+data.result[x].titula+'</span></li>\n' +
                                 '</ul>\n' +
                                 '</li>\n' +
                                 '</ul>\n' +
@@ -169,7 +169,7 @@
                     $('#ul_comments').append('<li>\n' +
                         '<div class="comments-bottom-info">\n' +
                         '<div class="profile-img-wrap">\n' +
-                        '<img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">\n' +
+                        '<img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">\n' +
                         '</div>\n' +
                         '<ul class="img-info">\n' +
                         '<li>\n' +
@@ -177,8 +177,8 @@
                         '</li>\n' +
                         '<li class="color-circles">\n' +
                         '<ul>\n' +
-                        '<li class="green">1</li>\n' +
-                        ' <li class="txt"><span>F2 | AFIAP</span></li>\n' +
+                        '<li style="background-color:{{Auth::user()->color}};"></li>\n' +
+                        ' <li class="txt" style="width: 50%; text-align: left"><span>{{Auth::user()->titula}}</span></li>\n' +
                         '</ul>\n' +
                         '</li>\n' +
                         '</ul>\n' +

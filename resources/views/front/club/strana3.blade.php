@@ -10,9 +10,15 @@
                 <div class="row">
                     @if($items->count()>0)
 
-                        @foreach($items as $one)
+                        @foreach($items as $key=>$one)
                             <div class="spanx">
+
                             <div class="vesti-box">
+                                @if($key==0)
+                                <div style="background-color: white; text-align: left; overflow-wrap: break-word;">
+                                    <p style="margin-left: 5px">{{$gallery->desc_gal}}</p>
+                                </div>
+                                @endif
                                 <div class="gallery-img">
                                     <a href="{{route('foton-klub.galerija.slika',[$id, $one->id])}}">
                                         <img src="{{ Image::load('gallery/mygallery'.$user_id.'/' . $one->main_image, ['h' => 10]) }}">

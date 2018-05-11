@@ -88,7 +88,7 @@ Route::get('/get-user', ['as' => '/main-login', 'uses' => 'AuthController@getUse
 Route::post('/checkEmail', ['as' => '/checkEmail', 'uses' => 'AuthController@checkEmail']);
 Route::post('/login', ['as' => '/login', 'uses' => 'Admin\AuthController@authenticate']);
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth'] ], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::get('/klub', ['as' => 'admin.club', 'uses' => 'Admin\ClubController@gallery']);
     Route::post('/klub-gallery-add', ['as' => 'admin.club-gallery-add', 'uses' => 'Admin\ClubController@basicGalleryAddStore']);
@@ -129,7 +129,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'] ], function () {
 
     Route::post('/user/gallery/call/add/image/{id}', ['as' => 'admin.user.gallery.call.add.image', 'uses' => 'Admin\CallController@storeGalleryImage']);
     Route::delete('/user/gallery/call/view/{id}', ['as' => 'admin.user.gallery.call.view', 'uses' => 'Admin\CallController@deleteImage']);
-
 
 
     Route::patch('users/update/{id}', ['as' => 'admin.users.update', 'uses' => 'Admin\UsersController@update']);
@@ -202,7 +201,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'] ], function () {
     Route::patch('/news-pop-up/update/{id}', ['as' => 'admin.news-pop-up.update', 'uses' => 'Admin\NewsController@updatePopUp']);
 
 
-
     //gallery
     Route::get('/gallery', ['as' => 'admin.gallery', 'uses' => 'Admin\GalleryController@index']);
     Route::get('/gallery/add', ['as' => 'admin.gallery.add', 'uses' => 'Admin\GalleryController@add']);
@@ -211,7 +209,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'] ], function () {
 
     Route::get('/gallery-text', ['as' => 'admin.gallery-text', 'uses' => 'Admin\GalleryController@text']);
     Route::patch('/gallery-text/add', ['as' => 'admin.gallery-text.add', 'uses' => 'Admin\GalleryController@textStore']);
-
 
 
     //links

@@ -48,7 +48,7 @@ class CallController extends Controller
     public function galleryImageDelete($id)
     {
 
-        callGallery::where('id', $id)->delete();
+        CallGallery::where('id', $id)->delete();
 
         CallGalleryImage::where('galleryId',$id)->delete();
 
