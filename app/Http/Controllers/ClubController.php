@@ -19,6 +19,9 @@ class ClubController extends Controller
 
     public function index()
     {
+        if(Auth::user()){
+            return redirect(route("foton-klub.my-profile"));
+        }
         $items = ClubGallery::orderby('ordering','asc')->get();
         $text = ClubText::findOrFail(1);
 
@@ -57,7 +60,6 @@ class ClubController extends Controller
     public function stepOne()
     {
         $myGal = Auth::user()->userGallery;
-
         return view('front.club.one', compact('myGal'));
     }
 
@@ -66,12 +68,12 @@ class ClubController extends Controller
         $myGal = Auth::user()->userGallery;
         $callGal = Auth::user()->callGallery;
 //        dd($callGal);
+//        dd($callGal);
         return view('front.club.profile', compact('callGal', 'myGal'));
     }
     public function galleryOne($id)
     {
         $items = UserGalleryImage::where('galleryId', $id)->get();
-//        dd($items);
         $gallery = UserGallery::find($id);
         $user_id = Auth::user()->id;
 
@@ -85,7 +87,6 @@ class ClubController extends Controller
         foreach ($comments as $one) {
             $new_com [$one->imageId] = $one->comments;
         }
-
 
         return view('front.club.strana3', compact('items', 'id', 'gallery','user_id','new_com'));
     }

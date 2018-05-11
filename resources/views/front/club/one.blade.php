@@ -14,16 +14,16 @@
                                                  <div class="span4">
                                           <div class="vesti-box">
                                                  <div class="gallery-img">
-                                                        <a href="#">
+                                                        <a href="{{route('foton-klub.moja-galerija', $oneGal->id)}}">
 
                                                                <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
                                                         </a>
                                                  </div>
                                                  <div class="vesti-info">
-                                                        <h2><a href="#"> {{$oneGal->galleryName}}</a></h2>
-                                                        <span class="vesti-datum">12.12.2017</span>
+                                                        <h2><a href="{{route('foton-klub.moja-galerija', $oneGal->id)}}"> {{$oneGal->galleryName}}</a></h2>
+                                                        <span class="vesti-datum">{{isset($oneGal->time) ? $oneGal->time : ''}}</span>
                                                         <p>
-                                                               {!! substr($oneGal->desc_gal,0,100) !!}...
+                                                               {!! substr($oneGal->desc_gal,0,30) !!}...
                                                         </p>
                                                         <a href="{{route('foton-klub.moja-galerija', $oneGal->id)}}">SAZNAJ VIŠE &rarr;</a><br/>
                                                         <hr/>

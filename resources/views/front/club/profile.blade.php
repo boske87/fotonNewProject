@@ -19,7 +19,7 @@
                                     <div class="gallery-img">
                                         <a href="{{route('foton-klub.galerija-zvanja', $oneGal->id)}}">
                                             @if(isset($oneGal->userGalleryImage[0]->main_image))
-                                            <img src="{{ Image::load('gallery/galerija_zvanja'.$oneGal->userId.'/' . $oneGal->userGalleryImage[0]->main_image, ['h' => 10]) }}">
+                                            <img src="{{ Image::load('gallery/galerija_zvanja'.$oneGal->id.'/' . $oneGal->userGalleryImage[0]->main_image, ['h' => 10]) }}">
                                             @else
                                                 <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&s=5d75945cff11708b3c95cac6ea3d26bd">
                                             @endif

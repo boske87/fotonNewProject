@@ -21,7 +21,7 @@
             <table id="sortable-table" class="table">
                 <thead>
                 <tr>
-                    <th>Ime galerije</th>
+                    <th>Ime albuma</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
