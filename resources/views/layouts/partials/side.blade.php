@@ -52,7 +52,6 @@
                 <li><a href="#">Dokumenti</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="{{route('foton-klub.vesti')}}">Vesti</a></li>
-                <li><a href=""><span data-toggle="modal" data-target="#myModalNews">Dodajte novu vest</span></a></li>
                 <li><a href="#">Linkovi</a></li>
                 <li class="message-nav"><a href="#">Poruke <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
             </ul>
