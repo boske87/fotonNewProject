@@ -77,6 +77,8 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
 
     Route::get('/komentarisane-fotografije', ['as' => 'foton-klub.komentarisane-fotografije', 'uses' => 'ClubExtraController@commentsImage']);
 
+    Route::get('/album-brisanje/{id}', ['as' => 'foton-klub.album-brisanje', 'uses' => 'ClubController@deleteGall']);
+
 });
 
 Route::post('/sendMail', ['as' => 'sendMail', 'uses' => 'IndexController@sendMail']);

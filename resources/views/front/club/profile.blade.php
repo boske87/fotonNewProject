@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+
 <style>
     html {
         overflow-y: scroll;
@@ -42,7 +43,10 @@
 
                 <hr>
                 <h1>MOJA GALERIJA</h1>
-
+                <div class="row" style="width: 70% !important; margin-left: 15%; margin-top: 5%">
+                    <button  onclick="window.location.href='{{route('foton-klub.dodavanje-nove-galerije')}}'"
+                             style="text-align: center; margin-bottom: 5%" class="btn btn-primary">Napravite novi album</button>
+                </div>
                 <div class="row">
                     @if($myGal->count()>0)
                         @foreach($myGal as $oneGal)
@@ -64,6 +68,7 @@
                                         <p>
 
                                         </p>
+                                        <a href="{{route('foton-klub.album-brisanje', $oneGal->id)}}" style="color: red">OBRISI GALERIJU &rarr;</a><br/>
                                         <hr/>
                                     </div>
                                 </div>

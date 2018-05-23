@@ -31,6 +31,9 @@
                         <td>{{$item->galleryName}}</td>
                         <td class="cms-column-actions">
                             <div class="btn-group btn-group-xs cms-table-actions">
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['admin.gallery.delete', $item->id], 'onsubmit' => "return confirm('Are you sure you want to DELETE this item?')"]) !!}
+                                <button type="submit" class="btn btn-default"><span class="entypo entypo-cross"></span></button>
+                                {!! Form::close() !!}
                                 <a href="{{ route('admin.user.one-gallery', $item->id) }}" type="button" class="btn btn-default"><span class="entypo entypo-pencil"></span></a>
                             </div>
                         </td>
