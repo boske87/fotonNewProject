@@ -76,12 +76,12 @@
                 </div>
 
                 <div class="span2">
+
                     <ul class="nav navbar-nav">
                         @if(Auth::user())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig"></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('logout-club')}}">Logout <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                             </ul>
                         </li>
                         @endif

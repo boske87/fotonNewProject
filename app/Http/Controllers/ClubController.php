@@ -148,7 +148,6 @@ class ClubController extends Controller
 
     public function updateAjax($type, $imageId, Request $request)
     {
-
         if($type == 'view') {
             UserGalleryImage::where('id',$imageId)->Increment('view', 1);
         }
@@ -161,6 +160,13 @@ class ClubController extends Controller
                 'comment' => $request->get('comment')
             ]);
         }
+    }
+
+
+    public function deleteGall($id)
+    {
+        UserGallery::destroy($id);
+        return redirect()->back();
     }
 
 }

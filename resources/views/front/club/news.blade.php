@@ -4,7 +4,10 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#myModal").modal('show');
+            if ($ .cookie("popup_1_2") == null) {
+                $('#myModal').modal('show');
+                $.cookie("popup_1_2", "2");
+            }
         });
     </script>
     <div id="myModal" class="modal fade">
@@ -26,6 +29,10 @@
             @include('layouts.partials.side')
             <div class="container-small">
                 <div class="row">
+                    <div class="row" style="width: 70% !important; margin-left: 15%; margin-top: 5%">
+                        <button
+                                 style="text-align: center; margin-bottom: 5%" class="btn btn-primary"><a href=""><span data-toggle="modal" data-target="#myModalNews">Dodajte novu vest</span></a></button>
+                    </div>
                     @if($news->count()>0)
                         @foreach($news as $oneGal)
                             <div class="span4">

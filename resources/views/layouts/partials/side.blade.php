@@ -42,8 +42,6 @@
             <div class="mobile-side-nav main-menu-button">Profile Navigation</div>
             <ul>
                 <li><a href="{{route('foton-klub.my-profile')}}">Moj nalog</a></li>
-                <li><a href="{{route('foton-klub.galerije')}}">Moja galerija</a></li>
-                <li><a href="{{route('foton-klub.dodavanje-nove-galerije')}}">Napravite novi album</a></li>
                 <li><a href="#">Članovi</a></li>
                 <li><a href="#">Grupe</a></li>
                 <li><a href="#">Sekcije</a></li>
