@@ -55,6 +55,7 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
     Route::get('/getComents/{imageId}/{galleryId}', ['as' => 'foton-klub.getComents', 'uses' => 'ClubController@getComments']);
 
     Route::post('/updateImageAjax/{type}/{imageId}', ['as' => 'foton-klub.updateImageAjax', 'uses' => 'ClubController@updateAjax']);
+    Route::post('/updateGallAjaxText/{type}/{gallId}', ['as' => 'foton-klub.updateImageAjax', 'uses' => 'ClubController@updateGallAjax']);
 
     //galerija zvanja
     Route::get('/galerija-zvanja/{id}', ['as' => 'foton-klub.galerija-zvanja', 'uses' => 'ClubCallController@galleryOne']);
@@ -67,6 +68,9 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
 
 
     Route::get('/dodavanje-nove-galerije', ['as' => 'foton-klub.dodavanje-nove-galerije', 'uses' => 'ClubController@createGallery']);
+
+    Route::get('/dodavanje-nove-slike-album/{gallId}', ['as' => 'foton-klub.dodavanje-nove-slike-album', 'uses' => 'ClubController@addImageGallery']);
+
     Route::post('/dodavanje-galerije', ['as' => 'foton-klub.dodavanje-galerije', 'uses' => 'ClubController@storeGallery']);
 
     Route::post('/dodavanje-slika-u-galeriju', ['as' => 'foton-klub.dodavanje-u-galerije', 'uses' => 'ClubController@createGalleryImage']);

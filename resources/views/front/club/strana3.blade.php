@@ -3,10 +3,13 @@
 @section('content')
 
     <section class="background-new">
+        <meta name="csrf-token" content="{!! csrf_token() !!}" />
         <div class="container">
             @include('layouts.partials.side')
             <div class="container-small">
                 <h3>{{$gallery->galleryName}}</h3>
+                <button  onclick="window.location.href='{{route('foton-klub.dodavanje-nove-slike-album', $gallery->id)}}'"
+                         style="text-align: center; margin-bottom: 5%" class="btn btn-primary">Dodajte novu sliku u album</button>
                 <div class="row">
                     @if($items->count()>0)
 
@@ -16,7 +19,7 @@
                             <div class="vesti-box">
                                 @if($key==0)
                                 <div style="background-color: white; text-align: left; overflow-wrap: break-word;">
-                                    <p style="margin-left: 5px">{{$gallery->desc_gal}}</p>
+                                    <p id="alDesc" contenteditable="true" id="album_desc" style="margin-left: 5px">{{$gallery->desc_gal}}</p>
                                 </div>
                                 @endif
                                 <div class="gallery-img">
@@ -53,5 +56,24 @@
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function(){
+            var contents = $('#alDesc').html();
+            $( "#alDesc" ).blur(function() {
+                if (contents!=$(this).html()){
+                    $.ajax({
+                        type: 'POST',
+                        url: '/foton-klub/updateGallAjaxText/moja/' + '{{$gallery->id}}',
+                        data: {
+                            '_token': $('meta[name="csrf-token"]').attr('content'),
+                            'text': $(this).html()
+                        }
 
+                    });
+                    contents = $(this).html();
+                }
+
+            });
+        });
+    </script>
 @stop
