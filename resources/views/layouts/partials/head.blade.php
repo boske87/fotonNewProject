@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/tfingi-megamenu/tfingi-megamenu-frontend.css')}}" />
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    @if(Request::path() == 'foton-klub/dodavanje-galerije')
+    @if(Request::path() == 'foton-klub/dodavanje-galerije' || \Request::route()->getName() == 'foton-klub.dodavanje-nove-slike-album')
 
         @include('layouts.partials.upload')
         @elseif(Request::path() == 'foton-klub/my-profile')
@@ -32,6 +32,7 @@
 
         <script type="text/javascript" src="{{ asset('assets/js/jquery-1.10.2.min.js')}}"></script>
     @endif
+
 
 
     <script src="{{ asset('assets/js/galleria-1.4.2.js')}}"></script>

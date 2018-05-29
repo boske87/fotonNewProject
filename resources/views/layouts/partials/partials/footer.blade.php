@@ -54,7 +54,7 @@
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <![endif]-->
-@if(Request::path() != 'foton-klub/dodavanje-galerije' || Request::path() != 'foton-klub/my-profile')
+@if(Request::path() != 'foton-klub/dodavanje-galerije' || Request::path() != 'foton-klub/my-profile' || \Request::route()->getName() != 'foton-klub.dodavanje-nove-slike-album')
     <script type="text/javascript" src="{{ asset('assets/js/jquery-1.10.2.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery-migrate-1.2.1.min.js')}}"></script>
 @endif

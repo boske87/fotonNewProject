@@ -9,9 +9,9 @@
                 <div class="row">
 
                     <div class="row">
-                        <h2>Dodajte slike u galeriju</h2>
+                        <h2>Napravite novu galeriju</h2>
 
-                        <meta name="csrf-token" content="{!! csrf_token() !!}" />
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input id="gal_id" type="hidden" name="gal_id" value="{{ $gal->id }}">
                         <div id="fine-uploader-manual-trigger">
 

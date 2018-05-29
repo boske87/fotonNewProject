@@ -33,6 +33,12 @@ class ClubController extends Controller
         return view('front.club.createGal');
     }
 
+    public function addImageGallery($id, Request $request)
+    {
+        $gal = UserGallery::find($id);
+        return view('front.club.addImageGal', compact('gal'));
+    }
+
     public function storeGallery(Request $request)
     {
 
@@ -73,7 +79,7 @@ class ClubController extends Controller
     }
     public function galleryOne($id)
     {
-        $items = UserGalleryImage::where('galleryId', $id)->get();
+        $items = UserGalleryImage::where('galleryId', $id)->orderby('id','desc')->get();
         $gallery = UserGallery::find($id);
         $user_id = Auth::user()->id;
 
@@ -167,6 +173,15 @@ class ClubController extends Controller
     {
         UserGallery::destroy($id);
         return redirect()->back();
+    }
+
+
+    public function updateGallAjax($type, $gallId, Request $request)
+    {
+
+        $gallery = UserGallery::find($gallId);
+
+        $gallery->update(['desc_gal'=>$request->input('text')]);
     }
 
 }
