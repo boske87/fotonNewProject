@@ -81,7 +81,7 @@
                 <div class="span2 " style="width: 155px">
                     <ul class="nav navbar-nav">
                         <a href="{{route('foton-klub')}}">
-                            <span class="klub-foton">KLUB FOTON</span>
+                            <span class="klub-foton">FOTON KLUB</span>
                         </a>
 
                     </ul>
