@@ -244,7 +244,7 @@
                     },
                     success: function(data) {
                         if(data.result === true){
-                            window.location.href = "foton-klub/my-profile";
+                            window.location.href = "foton-klub/vesti";
                             console.log(data);
                         } else{
                             alert('Pogresni login parametri, pokusajte opet')

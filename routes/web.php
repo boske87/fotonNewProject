@@ -17,7 +17,7 @@
 
 Route::get('/', ['as' => '/login', 'uses' => 'IndexController@index']);
 Route::get('/logout', ['as' => '/logout', 'uses' => 'IndexController@logout']);
-Route::get('/logout-club', ['as' => 'logout-club', 'uses' => 'IndexController@logoutClub']);
+Route::get('/logout-club', ['as' => 'logout-club', 'uses' => 'ClubController@logoutClub']);
 
 Route::get('/pocetni-nivo', ['as' => '/pocetni-nivo', 'uses' => 'IndexController@basic']);
 Route::get('/napredni-nivo', ['as' => '/napredni-nivo', 'uses' => 'IndexController@advance']);
@@ -82,6 +82,12 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
     Route::get('/komentarisane-fotografije', ['as' => 'foton-klub.komentarisane-fotografije', 'uses' => 'ClubExtraController@commentsImage']);
 
     Route::get('/album-brisanje/{id}', ['as' => 'foton-klub.album-brisanje', 'uses' => 'ClubController@deleteGall']);
+
+    Route::get('/slika-brisanje/{id}', ['as' => 'foton-klub.slika-brisanje', 'uses' => 'ClubController@deleteImage']);
+
+    Route::get('/clanovi', ['as' => 'foton-klub.clanovi', 'uses' => 'MemberController@memberList']);
+
+
 
 });
 

@@ -24,7 +24,7 @@
                        </span>
 
                 </div>
-                <div class="span8">
+                <div class="span8" >
 
                     <a href="#" class="main-menu-button">Navigation</a>
                     <!-- Begin Menu Container -->
@@ -65,8 +65,11 @@
                                 <li>
                                     <a href="/kontakt"  class="">Kontakt</a>
                                 </li>
-                                <li data-width="400">
+                                <li data-width="300">
                                     <a href="/linkovi" class="">Linkovi</a>
+                                </li>
+                                <li data-width="300">
+                                    <a href="{{route('logout-club')}}" class="">Izloguj se</a>
                                 </li>
                             </ul>
                         </div>
@@ -75,19 +78,12 @@
 
                 </div>
 
-                <div class="span2">
-
+                <div class="span2 " style="width: 155px">
                     <ul class="nav navbar-nav">
-                        @if(Auth::user())
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig"></a>
-                            <ul class="dropdown-menu">
-                            </ul>
-                        </li>
-                        @endif
                         <a href="{{route('foton-klub')}}">
                             <span class="klub-foton">KLUB FOTON</span>
                         </a>
+
                     </ul>
 
 
@@ -95,4 +91,6 @@
             </div>
 
         </div>
+
     </nav>
+</div>

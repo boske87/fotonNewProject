@@ -42,10 +42,15 @@
             <div class="mobile-side-nav main-menu-button">Profile Navigation</div>
             <ul>
                 <li><a href="{{route('foton-klub.my-profile')}}">Moj nalog</a></li>
-                <li><a href="#">Članovi</a></li>
+                <li><a href="{{route('foton-klub.clanovi')}}">Članovi</a></li>
                 <li><a href="#">Grupe</a></li>
                 <li><a href="#">Sekcije</a></li>
-                <li><a href="{{route('foton-klub.nove-fotografije')}}">Nove fotografije <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
+                <li><a href="{{route('foton-klub.nove-fotografije')}}">Nove fotografije
+                        @if($newImage>0)
+                            <img src="{{ asset('assets/img/message.png')}}"  class="message-img">
+                            @endif
+
+                    </a></li>
                 <li><a href="{{route('foton-klub.komentarisane-fotografije')}}">Komentarisane fotografije <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
                 <li><a href="#">Komentari profesora <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
                 <li><a href="#">Izložbe i konkursi <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>

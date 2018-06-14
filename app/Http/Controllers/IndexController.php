@@ -30,10 +30,9 @@ class IndexController extends Controller
         Auth::logout();
         return redirect('/admin');
     }
-    public function logoutClub(){
-        Auth::logout();
-        return redirect('/foton-klub');
-    }
+
+
+
     public function basic()
     {
         $basicText = BasicText::find(1);

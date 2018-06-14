@@ -37,11 +37,11 @@ class User extends Authenticatable
     }
 
     public function userGallery(){
-        return $this->hasMany('App\UserGallery', 'userId', 'id');
+        return $this->hasMany('App\UserGallery', 'userId', 'id')->orderBy('id','DESC');
     }
 
     public function callGallery(){
-        return $this->hasMany('App\CallGallery', 'userId', 'id');
+        return $this->hasMany('App\CallGallery', 'userId', 'id')->orderBy('id','DESC');
     }
 
 }

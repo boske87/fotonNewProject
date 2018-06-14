@@ -18,9 +18,27 @@ class ClubExtraController extends Controller
     use UploadService;
     public function newImage()
     {
-        $items = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)->get();
+        $items = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)
+            ->groupBy('id')
+            ->get();
 
-        return view('front.club.newImage', compact('items'));
+        $new_com = array();
+
+        $commentsCount = DB::table('comments')
+            ->select('imageId', DB::raw('count(*) as comments'))
+            ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
+            ->where('usersGalleryImage.created_at','>=', Auth::user()->last_login)
+            ->where('typeId', 0)
+            ->groupBy('imageId')
+            ->get();
+
+        foreach ($commentsCount as $one) {
+
+            $new_com [$one->imageId] = $one->comments;
+        }
+
+//        dd($items);
+        return view('front.club.newImage', compact('items', 'new_com'));
     }
 
     public function newsDelete($id)

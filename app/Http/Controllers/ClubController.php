@@ -20,12 +20,19 @@ class ClubController extends Controller
     public function index()
     {
         if(Auth::user()){
-            return redirect(route("foton-klub.my-profile"));
+            return redirect(route("foton-klub.vesti"));
         }
         $items = ClubGallery::orderby('ordering','asc')->get();
         $text = ClubText::findOrFail(1);
 
         return view('front.club.index', compact('items','text'));
+    }
+
+    public function logoutClub()
+    {
+
+        Auth::logout();
+        return redirect('/foton-klub');
     }
 
     public function createGallery()
@@ -172,6 +179,13 @@ class ClubController extends Controller
     public function deleteGall($id)
     {
         UserGallery::destroy($id);
+        return redirect()->back();
+    }
+
+    public function deleteImage($id)
+    {
+        UserGalleryImage::destroy($id);
+
         return redirect()->back();
     }
 

@@ -2,6 +2,8 @@
 
 
 use App\ProfMain;
+use App\UserGalleryImage;
+use Auth;
 use Illuminate\Contracts\View\View;
 
 class MenuComposer {
@@ -22,7 +24,16 @@ class MenuComposer {
     public function compose(View $view)
     {
         $prof = ProfMain::get();
-        $view->with(['prof'=>$prof]);
+        $newImage = array();
+        if(Auth::user()){
+            $newImage = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)
+                ->groupBy('id')
+                ->get()->count();
+        }
+
+
+
+        $view->with(['prof'=>$prof, 'newImage' => $newImage]);
 
     }
 }

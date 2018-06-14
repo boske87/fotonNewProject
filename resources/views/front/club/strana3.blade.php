@@ -42,8 +42,15 @@
                                             @endif </div>
 
                                         <input type="text" onClick="window.location.href='{{route('foton-klub.galerija.slika',[$id, $one->id])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
+
+
                                     </div>
+
                                 </div>
+                                    <div style="margin-top: 2%">
+                                        <a onclick="return confirm('Da li sigurno zelite da obrisete sliku?');" href="{{route('foton-klub.slika-brisanje', $one->id)}}" style="color: red">OBRISI SLIKU &rarr;</a><br/>
+                                    </div>
+
                             </div>
                         </div>
                         @endforeach
