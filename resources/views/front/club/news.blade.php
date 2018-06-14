@@ -48,7 +48,7 @@
                                         <p>
                                             {!! substr($oneGal->desc,0,30) !!}...
                                         </p>
-                                            <a href="{{route('foton-klub.vesti-brisanje', $oneGal->id)}}" style="color: red">OBRISI VEST &rarr;</a><br/>
+                                            <a onclick="return confirm('Da li sigurno zelite da obrisete vest?');" href="{{route('foton-klub.vesti-brisanje', $oneGal->id)}}" style="color: red">OBRISI VEST &rarr;</a><br/>
                                         <a href="{{route('foton-klub.vest', $oneGal->slug)}}">SAZNAJ VIŠE &rarr;</a><br/>
                                         <hr/>
                                     </div>

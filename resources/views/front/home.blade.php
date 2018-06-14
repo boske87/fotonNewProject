@@ -180,7 +180,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <img src="{{asset('assets//img/klub-foton.png')}}" alt="BKlub Foton">
+                            <a href="{{route('foton-klub')}}"> <img src="{{asset('assets//img/klub-foton.png')}}" alt="BKlub Foton"> </div></a>
                         </div>
                         <div class="span12 vrh">
                             <p>
