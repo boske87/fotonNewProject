@@ -23,7 +23,6 @@
                                         <p>
 
                                         </p>
-                                        <a href="">SAZNAJ VIŠE &rarr;</a><br/>
                                         <hr/>
                                     </div>
                                 </div>
