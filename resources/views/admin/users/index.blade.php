@@ -1,7 +1,7 @@
 @extends('admin/layouts/crud/index')
 
 @section('index_header')
-    <h1>Profesori</h1>
+    <h1>Korisnici</h1>
 
 
     <div class="cms-options">

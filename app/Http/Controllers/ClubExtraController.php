@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ClubNews;
 use App\Comment;
+use App\Exh;
 use App\News;
 use App\NewsPopUp;
 use App\UserGalleryImage;
@@ -51,9 +52,26 @@ class ClubExtraController extends Controller
     {
         $items = Comment::where('comments.typeId', 0)
             ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
+            ->leftjoin('users', 'comments.userId','=','users.id')
+            ->where('comments.created_at','>=', Auth::user()->last_login)
+            ->where('users.type', 1)
             ->groupBy('comments.imageId')
             ->orderby('comments.id', 'desc')
             ->get();
+
+        $new_com = array();
+
+        $comments = DB::table('comments')
+            ->select('imageId', DB::raw('count(*) as comments'))
+            ->where('typeId', 0)
+            ->groupBy('imageId')
+            ->get();
+
+        foreach ($comments as $one) {
+            $new_com [$one->imageId] = $one->comments;
+        }
+//        dd($items);
+        return view('front.club.commentProf', compact('items', 'new_com'));
     }
 
     public function news()
@@ -86,9 +104,11 @@ class ClubExtraController extends Controller
     {
         $items = Comment::where('comments.typeId', 0)
             ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
+            ->where('comments.created_at','>=', Auth::user()->last_login)
             ->groupBy('comments.imageId')
             ->orderby('comments.id', 'desc')
             ->get();
+
         $new_com = array();
 
         $comments = DB::table('comments')
@@ -104,5 +124,44 @@ class ClubExtraController extends Controller
         return view('front.club.commentImage', compact('items', 'new_com'));
 
     }
+
+
+    public function exhibitions() {
+        $items = Exh::orderBy('created_at', 'DESC')->get();
+
+
+        return view('front.club.izlozbe', compact('items'));
+    }
+
+    public function exhibitionsAdd(Request $request){
+        $input = $request->all();
+
+
+        $input['userId'] = Auth::user()->id;
+
+        Exh::create($input);
+
+        return redirect()->route('foton-klub.izlozbe-konkursi')->withFlashType('success');
+
+    }
+
+    public function exhibitionsDelete($id) {
+        Exh::find($id)->delete();
+        return redirect()->route('foton-klub.izlozbe-konkursi')->withFlashType('success');
+    }
+
+    public function exhibitionsEdit($id, Request $request) {
+
+        $homeText = Exh::find($id);
+        $input['userId'] = Auth::user()->id;
+
+        $input = $request->all();
+
+        $homeText->update($input);
+
+        return redirect()->route('foton-klub.izlozbe-konkursi')->withFlashType('success');
+    }
+
+
 
 }

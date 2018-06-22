@@ -1,6 +1,7 @@
 <?php namespace App\Http\ViewComposers;
 
 
+use App\Comment;
 use App\ProfMain;
 use App\UserGalleryImage;
 use Auth;
@@ -25,15 +26,32 @@ class MenuComposer {
     {
         $prof = ProfMain::get();
         $newImage = array();
+        $newImageComments = array();
+        $newImageCommentsProf = array();
         if(Auth::user()){
             $newImage = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)
                 ->groupBy('id')
+                ->get()->count();
+            $newImageComments = Comment::where('comments.typeId', 0)
+                ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
+                ->where('comments.created_at','>=', Auth::user()->last_login)
+                ->groupBy('comments.imageId')
+                ->orderby('comments.id', 'desc')
+                ->get()->count();
+
+            $newImageCommentsProf = Comment::where('comments.typeId', 0)
+                ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
+                ->leftjoin('users', 'comments.userId','=','users.id')
+                ->where('comments.created_at','>=', Auth::user()->last_login)
+                ->where('users.type', 1)
+                ->groupBy('comments.imageId')
+                ->orderby('comments.id', 'desc')
                 ->get()->count();
         }
 
 
 
-        $view->with(['prof'=>$prof, 'newImage' => $newImage]);
+        $view->with(['prof'=>$prof, 'newImage' => $newImage, 'newImageComments'=>$newImageComments, 'newImageCommentsProf'=> $newImageCommentsProf]);
 
     }
 }

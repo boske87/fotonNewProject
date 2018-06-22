@@ -39,21 +39,38 @@
             @endif
         </ul>
         <nav class="side-bar-nav">
-            <div class="mobile-side-nav main-menu-button">Profile Navigation</div>
-            <ul>
+
+            <div id="profileNav" class="mobile-side-nav main-menu-button">Profile Navigation</div>
+            <ul id="profileNavUl">
                 <li><a href="{{route('foton-klub.my-profile')}}">Moj nalog</a></li>
                 <li><a href="{{route('foton-klub.clanovi')}}">Članovi</a></li>
                 <li><a href="#">Grupe</a></li>
                 <li><a href="#">Sekcije</a></li>
                 <li><a href="{{route('foton-klub.nove-fotografije')}}">Nove fotografije
-                        @if($newImage>0)
-                            <img src="{{ asset('assets/img/message.png')}}"  class="message-img">
-                            @endif
-
+                        @if($newImage > 0)
+                            <div style=" background-image: url({{ asset('assets/img/message.png')}});background-size: contain;background-position: bottom;background-repeat: repeat-x;" class="message-img">
+                                <label style=" color: white;
+    text-align: -webkit-center;">{{$newImage}}</label>
+                            </div>
+                        @endif
                     </a></li>
-                <li><a href="{{route('foton-klub.komentarisane-fotografije')}}">Komentarisane fotografije <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
-                <li><a href="#">Komentari profesora <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
-                <li><a href="#">Izložbe i konkursi <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
+                <li><a href="{{route('foton-klub.komentarisane-fotografije')}}">Komentarisane fotografije
+                        @if($newImageComments > 0)
+                            <div style=" background-image: url({{ asset('assets/img/message.png')}});background-size: contain;background-position: bottom;background-repeat: repeat-x;" class="message-img">
+                                <label style=" color: white;
+    text-align: -webkit-center;">{{$newImageComments}}</label>
+                            </div>
+                        @endif
+                    </a></li>
+                <li><a href="{{route('foton-klub.komentari-profesora')}}">Komentari profesora
+                        @if($newImageCommentsProf > 0)
+                            <div style=" background-image: url({{ asset('assets/img/message.png')}});background-size: contain;background-position: bottom;background-repeat: repeat-x;" class="message-img">
+                                <label style=" color: white;
+    text-align: -webkit-center;">{{$newImageCommentsProf}}</label>
+                            </div>
+                        @endif
+                    </a></li>
+                <li><a href="{{route('foton-klub.izlozbe-konkursi')}}">Izložbe i konkursi </a></li>
                 <li><a href="#">Dokumenti</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="{{route('foton-klub.vesti')}}">Vesti</a></li>
@@ -85,3 +102,20 @@
         {!! Form::close() !!}
     </div>
 </aside>
+
+<script>
+    $('#profileNav').click(function() {
+        $('#profileNavUl').addClass(function( index, currentClass ) {
+        var addedClass;
+        if(currentClass == ''){
+            $('#profileNavUl').addClass('main-menu selected');
+        } else {
+            $('#profileNavUl').removeClass('main-menu selected');
+        }
+        console.log(currentClass);
+
+        // return addedClass;
+    });
+
+    });
+</script>
