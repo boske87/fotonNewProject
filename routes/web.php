@@ -17,6 +17,7 @@
 
 Route::get('/', ['as' => '/login', 'uses' => 'IndexController@index']);
 Route::get('/logout', ['as' => '/logout', 'uses' => 'IndexController@logout']);
+Route::post('/pass-reset', ['as' => '/pass-reset', 'uses' => 'AuthController@sendResetLinkEmailAjax']);
 Route::get('/logout-club', ['as' => 'logout-club', 'uses' => 'ClubController@logoutClub']);
 
 Route::get('/pocetni-nivo', ['as' => '/pocetni-nivo', 'uses' => 'IndexController@basic']);
@@ -80,6 +81,14 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
     Route::get('/komentari-profesora', ['as' => 'foton-klub.komentari-profesora', 'uses' => 'ClubExtraController@profCommImage']);
 
     Route::get('/komentarisane-fotografije', ['as' => 'foton-klub.komentarisane-fotografije', 'uses' => 'ClubExtraController@commentsImage']);
+
+    Route::get('/izlozbe-konkursi', ['as' => 'foton-klub.izlozbe-konkursi', 'uses' => 'ClubExtraController@exhibitions']);
+
+    Route::post('/izlozbe-konkursi', ['as' => 'foton-klub.izlozbe-konkursi', 'uses' => 'ClubExtraController@exhibitionsAdd']);
+
+    Route::patch('/izlozbe-konkursi-izmena/{id}', ['as' => 'foton-klub.izlozbe-konkursi-izmena', 'uses' => 'ClubExtraController@exhibitionsEdit']);
+
+    Route::get('/izlozbe-konkursi-brisanje/{id}', ['as' => 'foton-klub.izlozbe-konkursi-brisanje', 'uses' => 'ClubExtraController@exhibitionsDelete']);
 
     Route::get('/album-brisanje/{id}', ['as' => 'foton-klub.album-brisanje', 'uses' => 'ClubController@deleteGall']);
 

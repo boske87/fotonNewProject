@@ -11,6 +11,7 @@ class AuthController extends Controller {
 
     public function login()
     {
+
         return view('admin.login');
     }
 
@@ -18,7 +19,9 @@ class AuthController extends Controller {
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password , 'type' => 1])) {
             // Authentication passed...
-            return redirect()->intended('dashboard');
+            return redirect('/admin/users');
+        } else{
+            return redirect()->back()->withErrors(['email' => 'Greska', 'password' => 'Greska']);
         }
     }
 

@@ -210,10 +210,32 @@
         <div class="modal-body">
             <p>Email adresa:</p><input type="text" name="email" id="userEmail" class="input-block-level" placeholder="Email adresa" required>
             <p>Password:</p><input type="password" name="password" id="userPass" class="input-block-level" placeholder="Password" required>
+            <a id="forgetPass" href="" data-toggle="modal" data-target="#myModalForget">Zaboravljena lozinka</a>
         </div>
         <div class="modal-footer">
+
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             <button id="loginBtn" class="btn btn-primary">Submit</button>
+        </div>
+
+        {{--{!! Form::close() !!}--}}
+    </div>
+
+    <div id="myModalForget" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        {{--{!! Form::open(['route' => '/main-login']) !!}--}}
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Zaboravljena lozinka</h3>
+        </div>
+        <div class="modal-body">
+            <p>Email adresa:</p><input type="text"  name="email" id="resetEmail" class="input-block-level" placeholder="Email adresa" required>
+            <p id="errorRes" style="color: red"></p>
+            <p id="sucRes" style="color: green"></p>
+        </div>
+        <div class="modal-footer">
+
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button id="resetBtn" class="btn btn-primary">Submit</button>
         </div>
 
         {{--{!! Form::close() !!}--}}
@@ -230,6 +252,33 @@
                 }
             });
 
+
+            $('#forgetPass').click(function() {
+                $('#myModalLogin').modal('hide');
+            });
+
+            $('#resetBtn').click(function() {
+                var email = $('#resetEmail').val();
+                var d = {
+                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                    'email': email
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '/pass-reset',
+                    data: d,
+                    dataType:'json',
+                    success: function(data) {
+                        if(data == true) {
+                            $('#sucRes').html('Proverite vas email, poslali smo vam upustva za reset lozinke.')
+                            $('#errorRes').html()
+                        } else {
+                            $('#errorRes').html('Nismo pronasli korisnika sa tom email adressom, pokusajte ponovo.')
+                        }
+                        console.log(data)
+                    }
+                });
+            });
 
             $('#loginBtn').click(function() {
                 var username = $('#userEmail').val();

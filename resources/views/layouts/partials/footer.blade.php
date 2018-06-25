@@ -60,7 +60,7 @@
 @endif
 
 
-{{--<script type="text/javascript" src="{{ asset('assets/js/jquery-ui-1.10.2.custom.js')}}"></script>--}}
+<script type="text/javascript" src="{{ asset('assets/js/jquery-ui-1.10.2.custom.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.easing-1.3.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.isotope.min.js')}}"></script>
@@ -70,7 +70,7 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery.gmap3.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.tweet.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/imagesloaded.js')}}"></script>
-{{--<script type="text/javascript" src="{{ asset('assets/js/la_boutique.js')}}"></script>--}}
+<script type="text/javascript" src="{{ asset('assets/js/la_boutique.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/tfingi-megamenu/tfingi-megamenu-frontend.js')}}"></script>
 
 <!-- bxSlider Javascript file -->
