@@ -68,9 +68,7 @@
                                 <li data-width="300">
                                     <a href="/linkovi" class="">Linkovi</a>
                                 </li>
-                                <li data-width="300">
-                                    <a href="{{route('logout-club')}}" class="">Izloguj se</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -78,8 +76,11 @@
 
                 </div>
 
-                <div class="span2 " style="width: 155px">
+                <div class="span2 " >
                     <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#"><img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig"></a>
+                        </li>
                         <a href="{{route('foton-klub')}}">
                             <span class="klub-foton">FOTON KLUB</span>
                         </a>

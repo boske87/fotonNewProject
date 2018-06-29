@@ -147,7 +147,7 @@
     <div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">Registruj se</h3>
+            <h3 id="myModalLabel">Uspesna regitracija</h3>
             <div class="modal-body">
                 <h5>Hvala na registraciji, odgovorićemo čim budemo mogli.</h5>
             </div>

@@ -1,11 +1,25 @@
 @extends('layouts.main')
 
 @section('content')
+    <script>
+
+    </script>
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=zl2nfrilkbuswcy0bq3e2yn01ai2mye24ykyn9r2xse9kvcd"></script>
-    <script>tinymce.init({ selector:'textarea',plugins: 'link image code', convert_urls: false, content_css: [
+    <script>tinymce.init({ selector:'textarea',plugins: 'link code', convert_urls: false,
+            'anchor_bottom': false,
+            'anchor_top': false,
+            content_css: [
                 '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
                 '//www.tinymce.com/css/codepen.min.css'
-            ]});</script>
+            ]});
+        $(document).ready(function(){
+        $(document).on('focusin', function(e) {
+            if ($(e.target).closest(".mce-window").length) {
+                e.stopImmediatePropagation();
+            }
+            });
+        });
+    </script>
 
     <section class="background-new">
         <div class="container">
@@ -23,7 +37,7 @@
                             <div class="span4">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
-                                        asdasdasdasd
+
                                     </div>
                                     <div class="vesti-info">
                                         <h2>{!! $oneGal->head !!}</h2>

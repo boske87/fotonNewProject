@@ -80,7 +80,6 @@ class CallController extends Controller
 
     public function storeGalleryImageFromMyGallery(Request $request,$id)
     {
-
         $userImages = UserGalleryImage::whereIn('id',$request->get('image'))->get();
         $items = UserGallery::find($id);
 
@@ -89,8 +88,13 @@ class CallController extends Controller
 
                 $input['main_image'] = $oneImage->main_image;
                 if(file_exists(public_path('img/gallery/mygallery'.Input::get('userId').'/'.$oneImage->main_image))){
+
+                    if(!file_exists(public_path('img/gallery/galerija_zvanja'.$id.'/')) ){
+                       mkdir(public_path('img/gallery/galerija_zvanja'.$id.'/'));
+                    }
+
                     $success = \File::copy(public_path('img/gallery/mygallery'.Input::get('userId').'/'.$oneImage->main_image)
-                        ,public_path('img/gallery/galerija_zvanja'.Input::get('userId').'/'.$oneImage->main_image));
+                        ,public_path('img/gallery/galerija_zvanja'.$id.'/'.$oneImage->main_image));
                 }
 
                 CallGalleryImage::create([
