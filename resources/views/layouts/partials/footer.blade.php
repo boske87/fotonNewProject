@@ -32,10 +32,12 @@
                     <p>
                         FOTON KLUB
                     <hr/>
-                    <a href="#">Registruj se</a>
+                    @if(!Auth::user())
+                        <a href="#">Registruj se</a>
+                    @endif
                     <img src="{{asset('assets/img/plus.png')}}" width="20">
                     <hr/>
-                    <a href="#">Moj nalog</a>
+                    <a href="{{route('foton-klub.my-profile')}}">Moj nalog</a>
                     <img src="{{asset('assets/img/peo.png')}}" width="20">
                     <hr/>
                     </p>
