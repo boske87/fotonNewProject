@@ -48,7 +48,6 @@ class ClubController extends Controller
 
     public function storeGallery(Request $request)
     {
-
             $gal = UserGallery::create([
                 'galleryName' => $request->get('galleryName'),
                 'desc_gal' => $request->get('desc_gal'),

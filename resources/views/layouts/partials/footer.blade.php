@@ -70,7 +70,9 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery.gmap3.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.tweet.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/imagesloaded.js')}}"></script>
+@if(Request::path()!='foton-klub/my-profile')
 <script type="text/javascript" src="{{ asset('assets/js/la_boutique.js')}}"></script>
+@endif
 <script type="text/javascript" src="{{ asset('assets/js/tfingi-megamenu/tfingi-megamenu-frontend.js')}}"></script>
 
 <!-- bxSlider Javascript file -->

@@ -1,6 +1,6 @@
 var conf =
 {
-    domain: 'domain.ltd',
+    domain: '185.183.182.52',
     server_type: 'socket.io',
     server: '185.183.182.52',
     port: '4000',

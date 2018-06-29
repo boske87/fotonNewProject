@@ -102,6 +102,7 @@ class UsersController extends Controller
         $user = User::find($id);
 
 
+
         return view('admin.users.gallerys', compact('items', 'user'));
 
     }

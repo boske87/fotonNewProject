@@ -104,6 +104,11 @@ class RegisterController extends Controller
             $message->from('prijava@skolafotografije.com', 'Kontakt');
             $message->to('athlon87@gmail.com')->subject('Registracija');
         });
+
+        Mail::send('emails.admin', $data , function ($message) use ($input)  {
+            $message->from('prijava@skolafotografije.com', 'Kontakt');
+            $message->to('skolafotografije@gmail.com')->subject('Registracija');
+        });
 //        // Sending email, sms or doing anything you want
 //        $this->activationService->sendActivationMail($user);
 //
