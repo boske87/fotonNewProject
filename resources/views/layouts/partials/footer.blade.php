@@ -34,9 +34,9 @@
                     <hr/>
                     @if(!Auth::user())
                         <a href="#">Registruj se</a>
+                        <img src="{{asset('assets/img/plus.png')}}" width="20">
+                        <hr/>
                     @endif
-                    <img src="{{asset('assets/img/plus.png')}}" width="20">
-                    <hr/>
                     <a href="{{route('foton-klub.my-profile')}}">Moj nalog</a>
                     <img src="{{asset('assets/img/peo.png')}}" width="20">
                     <hr/>
