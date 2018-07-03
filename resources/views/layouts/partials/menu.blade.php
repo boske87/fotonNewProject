@@ -70,7 +70,7 @@
                                 </li>
                                 @if(Auth::user())
 								<li >
-                                    <a href="" class="">Log off</a>
+                                    <a href="{{route('logout-club')}}" class="">Log off</a>
                                 </li>
                                     @endif
                             </ul>
