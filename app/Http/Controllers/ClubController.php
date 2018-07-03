@@ -106,7 +106,8 @@ class ClubController extends Controller
     public function imageOne($id, $idImage)
     {
 
-        $gallery = UserGallery::leftjoin('users', 'usersGallery.userId','=','users.id')->first();
+        $gallery = UserGallery::leftjoin('users', 'usersGallery.userId','=','users.id')
+            ->where('usersGallery.id',$id)->first();
 
         $comments = Comment::where('galleryId', $id)
             ->where('typeId', 0)

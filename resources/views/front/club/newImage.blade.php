@@ -26,7 +26,12 @@
                                         </div>
                                         <div class="single-comment-box comment-box">
                                             <div class="profile-img-wrap">
-                                                <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&amp;s=5d75945cff11708b3c95cac6ea3d26bd">
+                                                @if(Auth::user()->fotografija_lica !== NULL)
+                                                    <img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">
+                                                @else
+                                                    <img src="http://skolafotografije.com/img/gallery/2016_04_01_Tomina_izlozba_2.jpg?h=10&amp;s=5d75945cff11708b3c95cac6ea3d26bd">
+
+                                                @endif
                                             </div>
                                             <input type="text" onClick="window.location.href='{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
                                         </div>
