@@ -68,9 +68,11 @@
                                 <li data-width="300">
                                     <a href="/linkovi" class="">Linkovi</a>
                                 </li>
+                                @if(Auth::user())
 								<li >
-                                    <a href="" class="">Izloguj se</a>
+                                    <a href="" class="">Log off</a>
                                 </li>
+                                    @endif
                             </ul>
                         </div>
                     </div>
@@ -80,20 +82,22 @@
 
                 <div class="span2 user-menu " >
                     <ul class="nav navbar-nav">
+                        @if(Auth::user())
                         <li>
                             <a class="toggle-menu-js" href="#"><img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig"></a>
 							<ul class="toggle-menu">
-							<li><a href="#">MOJ NALOG</a></li>
-							<li><a href="#">Članovi</a></li>
+							<li><a href="{{route('foton-klub.my-profile')}}">MOJ NALOG</a></li>
+							<li><a href="{{route('foton-klub.clanovi')}}">Članovi</a></li>
 							<li><a href="#">Grupe</a></li>
-							<li><a href="#">Nove fotogarfije</a></li>
-							<li><a href="#">Komentarisane fotogarfije</a></li>
-							<li><a href="#">Komentari profesora</a></li>
+							<li><a href="{{route('foton-klub.nove-fotografije')}}">Nove fotogarfije</a></li>
+							<li><a href="{{route('foton-klub.komentarisane-fotografije')}}">Komentarisane fotogarfije</a></li>
+							<li><a href="{{route('foton-klub.komentari-profesora')}}">Komentari profesora</a></li>
 							<li><a href="#">Dokumenti</a></li>
-							<li><a href="#">Konkursi i službe</a></li>
-							<li><a href="#">Vreme...</a></li>
+							<li><a href="{{route('foton-klub.izlozbe-konkursi')}}">Konkursi i izložbe</a></li>
+							<li><a href="{{route('foton-klub.vesti')}}">Vesti</a></li>
 							</ul>
                         </li>
+                        @endif
                         <a href="{{route('foton-klub')}}">
                             <span class="klub-foton">FOTON KLUB</span>
                         </a>
