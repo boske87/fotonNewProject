@@ -1,0 +1,8 @@
+
+> realtime-chat@0.0.8 start /var/www/html/foton/public/assets/js/jquery-chat-master/server/node
+> node server.js
+
+info: socket.io started
+jqchat listening on 0.0.0.04000
+debug: client authorized
+info: handshake authorized brA3wLd402o1hO6QN2Up

@@ -24,7 +24,7 @@
                        </span>
 
                 </div>
-                <div class="span8">
+                <div class="span8" >
 
                     <a href="#" class="main-menu-button">Navigation</a>
                     <!-- Begin Menu Container -->
@@ -57,7 +57,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="/galerija-fotografija"  class="">Galerija </a>
+                                    <a href="/galerija-fotografija"  class="">Galerija</a>
                                 </li>
                                 <li>
                                     <a href="/vesti"  class="">Vesti</a>
@@ -65,8 +65,11 @@
                                 <li>
                                     <a href="/kontakt"  class="">Kontakt</a>
                                 </li>
-                                <li data-width="400">
+                                <li data-width="300">
                                     <a href="/linkovi" class="">Linkovi</a>
+                                </li>
+								<li >
+                                    <a href="" class="">Izloguj se</a>
                                 </li>
                             </ul>
                         </div>
@@ -75,13 +78,32 @@
 
                 </div>
 
-                <div class="span2">
-                    <img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig">
-                    <a href="{{route('foton-klub')}}">
-                        <span class="klub-foton">FOTON KLUB </span>
-                    </a>
+                <div class="span2 " >
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a class="toggle-menu-js" href="#"><img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig"></a>
+                        </li>
+                        <a href="{{route('foton-klub')}}">
+                            <span class="klub-foton">FOTON KLUB</span>
+                        </a>
+
+                    </ul>
+			<ul class="toggle-menu">
+				<li><a href="#">MOJ NALOG</a></li>
+				<li><a href="#">Članovi</a></li>
+				<li><a href="#">Grupe</a></li>
+				<li><a href="#">Nove fotogarfije</a></li>
+				<li><a href="#">Komentarisane fotogarfije</a></li>
+				<li><a href="#">Komentari profesora</a></li>
+				<li><a href="#">Dokumenti</a></li>
+				<li><a href="#">Konkursi i službe</a></li>
+				<li><a href="#">Vreme...</a></li>
+				</ul>
+
                 </div>
             </div>
 
         </div>
+
     </nav>
+</div>

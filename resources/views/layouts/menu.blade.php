@@ -12,7 +12,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="span2 inline-block logo-image">
+                <div class="span2 inline-block">
                     <a href="/" class="logo-img">
                         <img src="{{ asset('assets/img/logo-foton.png')}}" class="foton-logo" alt="foton logo">
                     </a>
@@ -71,6 +71,7 @@
 								<li >
                                     <a href="" class="">Izloguj se</a>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -78,28 +79,17 @@
 
                 </div>
 
-                <div class="span2 user-menu " >
+                <div class="span2 " >
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="toggle-menu-js" href="#"><img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig"></a>
-							<ul class="toggle-menu">
-							<li><a href="#">MOJ NALOG</a></li>
-							<li><a href="#">Članovi</a></li>
-							<li><a href="#">Grupe</a></li>
-							<li><a href="#">Nove fotogarfije</a></li>
-							<li><a href="#">Komentarisane fotogarfije</a></li>
-							<li><a href="#">Komentari profesora</a></li>
-							<li><a href="#">Dokumenti</a></li>
-							<li><a href="#">Konkursi i službe</a></li>
-							<li><a href="#">Vreme...</a></li>
-							</ul>
+                            <a class="open-menu-js" href="#"><img src="{{ asset('assets/img/fig.png')}}" alt="fig" class="fig"></a>
                         </li>
                         <a href="{{route('foton-klub')}}">
                             <span class="klub-foton">FOTON KLUB</span>
                         </a>
 
                     </ul>
-			
+
 
                 </div>
             </div>
@@ -108,11 +98,3 @@
 
     </nav>
 </div>
-<script>
-$( document ).ready(function() {
-   $('.toggle-menu-js').click(function(){
-	   $(this).siblings('.toggle-menu').toggle();
-	   
-   });
-});
-</script>

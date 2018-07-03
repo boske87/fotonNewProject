@@ -6156,3 +6156,78 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+.wrapper .navigation .container{
+	width:auto;
+	max-width:1220px;
+}
+
+.toggle-menu{
+    background-color: #000000;
+    position: absolute;
+    top: 53px;
+    left:-17px;
+    list-style: none;
+    padding: 20px;
+	display:none;
+	width:128px;
+}
+.toggle-menu:before{
+	content: "";
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #000000;
+    position: absolute;
+    top: -10px;
+    left: 28px;
+}
+.span2 .nav.navbar-nav li{
+	position:relative;
+}
+.toggle-menu li{
+	text-align:left;
+    font-size: 11px;
+    padding: 3px 0;
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
+.toggle-menu li a{
+	color:#ffffff;
+	text-decoration:none;
+}
+.toggle-menu li a:hover{
+	color:#1abc9c;
+}
+
+
+@media (max-width: 768px){
+	.navigation .row > div{
+		width:100%;
+	}
+}
+@media (min-width: 769px){
+.wrapper .navigation .container .span2.user-menu{
+	min-width:170px;
+	float:right;
+	margin:0;
+	margin-left:-5px;
+}
+.logo-image{
+	min-width:170px;
+	padding-left:20px
+}
+.wrapper .navigation .container .span8{
+	width:auto;
+	max-width:calc(100% - 400px);
+//    left: 12px;
+	}
+}
+@media (max-width: 760px){
+	.toggle-menu{
+		left:2px;
+	}
+	.toggle-menu:before{
+		    left: 12px;
+	}
+}
