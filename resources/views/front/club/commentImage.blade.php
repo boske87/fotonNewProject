@@ -15,7 +15,7 @@
                                 <div class="vesti-box">
                                     <div class="gallery-img">
                                         <a href="{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id])}}">
-                                            <img src="{{ Image::load('gallery/mygallery'.$one->userId.'/' . $one->main_image, ['h' => 10]) }}">
+                                            <img src="{{ Image::load('gallery/mygallery'.$one->userGalleryImage->userId.'/' . $one->main_image, ['h' => 10]) }}">
                                         </a>
                                     </div>
                                     <div class="vesti-info single">
