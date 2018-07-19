@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\ClubNews;
 use App\Comment;
 use App\Exh;
+use App\Gallery;
 use App\News;
 use App\NewsPopUp;
+use App\UserGallery;
 use App\UserGalleryImage;
 use DB;
 use Illuminate\Http\Request;
@@ -110,6 +112,14 @@ class ClubExtraController extends Controller
             ->orderby('comments.id', 'desc')
             ->get();
 
+        $gall = UserGallery::all();
+
+        foreach ($gall as $oneGal){
+            $galle [$oneGal->id] = $oneGal->userId;
+        }
+
+
+
         $new_com = array();
 
         $comments = DB::table('comments')
@@ -122,7 +132,7 @@ class ClubExtraController extends Controller
             $new_com [$one->imageId] = $one->comments;
         }
 //        dd($items);
-        return view('front.club.commentImage', compact('items', 'new_com'));
+        return view('front.club.commentImage', compact('items', 'new_com', 'galle'));
 
     }
 
