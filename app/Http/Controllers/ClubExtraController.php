@@ -21,6 +21,7 @@ class ClubExtraController extends Controller
     {
         $items = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)
             ->groupBy('id')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $new_com = array();
