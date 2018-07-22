@@ -19,7 +19,7 @@
                             <div class="vesti-box">
                                 @if($key==0)
                                 <div style="background-color: white; text-align: left; overflow-wrap: break-word;">
-                                    <p id="alDesc" contenteditable="true" id="album_desc" style="margin-left: 5px">{{$gallery->desc_gal}}</p>
+                                    <p id="alDesc" contenteditable="true" id="album_desc" style="margin-left: 5px">{!! $gallery->desc_gal !!}</p>
                                 </div>
                                 @endif
                                 <div class="gallery-img">
@@ -64,10 +64,22 @@
         </div>
     </section>
     <script>
+
         $(document).ready(function(){
+            $('p[contenteditable]').keydown(function(e) {
+                // trap the return key being pressed
+                if (e.keyCode === 13) {
+                    // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
+                    document.execCommand('insertHTML', false, '<br><br>');
+                    // prevent the default behaviour of return key pressed
+                    return false;
+                }
+            });
+
             var contents = $('#alDesc').html();
             $( "#alDesc" ).blur(function() {
                 if (contents!=$(this).html()){
+                    console.log($(this).html());
                     $.ajax({
                         type: 'POST',
                         url: '/foton-klub/updateGallAjaxText/moja/' + '{{$gallery->id}}',

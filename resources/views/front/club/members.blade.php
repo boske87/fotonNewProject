@@ -11,7 +11,9 @@
                 <div class="row">
                     @if($members->count()>0)
                         @foreach($members as $oneGal)
-                            <div class="span4">
+                            <div class="span4" style="
+    width: 25%;
+">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
                                         <a href="">

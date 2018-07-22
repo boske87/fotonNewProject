@@ -25,9 +25,11 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 @foreach($items as $item_array)
 
                     @foreach($item_array->userGalleryImage as $item)
+                        @if(!isset($allImage[$item->main_image]))
                         <tr id="{{ $item->id }}" class="{{ $item->deleted_at ? 'danger' : ''}}">
                             <td>
                                 <a class="fancybox" rel="group" href="{{ Image::load('gallery/mygallery'.$item_array->userId.'/' . $item->main_image, ['h' => 10]) }}"><img src="{{ Image::load('gallery/mygallery'.$item_array->userId.'/' . $item->main_image, ['h' => 10]) }}" width="150px" alt=""></a>
@@ -38,6 +40,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endif
                     @endforeach
                 @endforeach
                 </tbody>
@@ -46,7 +49,7 @@
                 <div class="col-sm-offset-2 col-sm-6">
                     {!! Form::hidden('_token',csrf_token()) !!}
                     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                    <a href="{{route('admin.gallery')}}" class="btn btn-link pull-right">Cancel</a>
+                    <a href="{{url()->previous()}}" class="btn btn-link pull-right">Cancel</a>
                 </div>
             </div>
             {!! Form::close() !!}

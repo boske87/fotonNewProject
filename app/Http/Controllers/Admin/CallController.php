@@ -74,8 +74,15 @@ class CallController extends Controller
     public function addGalleryImageFromMyGallery($id)
     {
         $items = UserGallery::where('userId', $id)->get();
+
+
+        $callGallery = callGallery::find(Input::get('callGalId'));
+        foreach ($callGallery->userGalleryImage as $o) {
+            $allImage [$o->main_image] = $o->main_image;
+        }
+
         $callGalId = Input::get('callGalId');
-        return view('admin.call.fromMyGallery', compact('id','items', 'callGalId'));
+        return view('admin.call.fromMyGallery', compact('id','items', 'callGalId', 'allImage'));
     }
 
     public function storeGalleryImageFromMyGallery(Request $request,$id)

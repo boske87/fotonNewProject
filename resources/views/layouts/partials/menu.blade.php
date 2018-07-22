@@ -99,7 +99,7 @@
                         </li>
                         @endif
                         <a href="{{route('foton-klub')}}">
-                            <span class="klub-foton">FOTON KLUB</span>
+                            <span style="font-family: RobotoRegular" class="klub-foton">FOTON KLUB</span>
                         </a>
 
                     </ul>
