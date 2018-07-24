@@ -6,6 +6,7 @@ use App\ClubGallery;
 use App\ClubText;
 use App\Comment;
 use App\Skippaz\Services\UploadService;
+use App\User;
 use App\UserGallery;
 use App\UserGalleryImage;
 use Illuminate\Http\Request;
@@ -87,7 +88,8 @@ class ClubController extends Controller
     {
         $items = UserGalleryImage::where('galleryId', $id)->orderby('id','desc')->get();
         $gallery = UserGallery::find($id);
-        $user_id = Auth::user()->id;
+
+        $user_id = $gallery->userId;
 
         $new_com = array();
         $comments = DB::table('comments')
@@ -134,10 +136,9 @@ class ClubController extends Controller
         }
 
         UserGalleryImage::where('id',$item->id)->Increment('view', 1);
+        $user = User::find($gallery->userId);
 
-
-
-        return view('front.club.imageGalSlide',compact('excludeImage', 'gallery', 'id','idImage','item', 'new_com'));
+        return view('front.club.imageGalSlide',compact('excludeImage', 'gallery', 'id','idImage','item', 'new_com', 'user'));
     }
     public function strana4()
     {

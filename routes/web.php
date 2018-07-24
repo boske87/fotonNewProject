@@ -35,6 +35,8 @@ Route::get('/vest/{slug}', ['as' => 'vest', 'uses' => 'NewsController@news']);
 Route::get('/foton-klub', ['as' => 'foton-klub', 'uses' => 'ClubController@index']);
 Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function () {
 
+    Route::get('/korisnik/{id}', ['as' => 'foton-klub.korisnik', 'uses' => 'UserExtraController@index']);
+
     Route::get('/galerije', ['as' => 'foton-klub.galerije', 'uses' => 'ClubController@stepOne']);
     Route::get('/moja-galerija/{id}', ['as' => 'foton-klub.moja-galerija', 'uses' => 'ClubController@galleryOne']);
     Route::get('/galerija/{id}/slika/{idImage}', ['as' => 'foton-klub.galerija.slika', 'uses' => 'ClubController@imageOne']);

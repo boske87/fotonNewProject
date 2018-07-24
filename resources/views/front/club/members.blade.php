@@ -16,12 +16,12 @@
 ">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
-                                        <a href="">
+                                        <a href="{{route('foton-klub.korisnik', $oneGal->id)}}">
                                             <img src="{{ Image::load('/gallery/users/'.$oneGal->fotografija_lica, ['h' => 10]) }}">
                                         </a>
                                     </div>
                                     <div class="vesti-info">
-                                        <h2><a href=""> {{$oneGal->ime_prezime}}</a></h2>
+                                        <h2><a href="{{route('foton-klub.korisnik', $oneGal->id)}}"> {{$oneGal->ime_prezime}}</a></h2>
                                         <p>
 
                                         </p>

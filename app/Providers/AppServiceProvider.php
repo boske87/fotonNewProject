@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composers([
-            'App\Http\ViewComposers\MenuComposer' => ['layouts.partials.menu', 'layouts.partials.side'],
+            'App\Http\ViewComposers\MenuComposer' => ['layouts.partials.menu', 'layouts.partials.side', 'front.club.otherView.side'],
         ]);
     }
 

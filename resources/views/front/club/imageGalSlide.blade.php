@@ -40,8 +40,8 @@
         <div class="comment-container container">
             <div class="comments-top">
                 <div class="profile-img-wrap">
-                    @if(Auth::user()->fotografija_lica !== NULL)
-                        <img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">
+                    @if($user->fotografija_lica !== NULL)
+                        <img src="{{ Image::load('/gallery/users/'.$user->fotografija_lica, ['h' => 10]) }}">
 
                     @endif
                 </div>
