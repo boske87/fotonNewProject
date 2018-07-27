@@ -5,6 +5,9 @@ namespace App\Skippaz\Services;
 use File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
+use Intervention\Image\Image;
+use Spatie\Glide\GlideImage;
+use Intervention\Image\ImageManagerStatic as ImageNew;
 
 
 trait UploadService {
@@ -36,7 +39,8 @@ trait UploadService {
                     $yearMonth = date('Y') . '/' . date('m');
                     $directory .= '/' . $yearMonth;
                 }
-                $path = public_path('/'.$directory);
+
+                $path = public_path($directory);
 
 
                 // check if exists
@@ -44,6 +48,23 @@ trait UploadService {
 
 
                 $move = $file->move($path, $fileName);
+                $move2 = ImageNew::make($move->getRealPath());
+
+                $he = $move2->height();
+                $wi = $move2->width();
+
+                if($he<$wi){
+                    $move2->resize(1280, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                } else {
+                    $move2->resize(null, 1280, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                $move2->save();
+
+//
                 if ($move)
                 {
                     return $yearMonth ? $yearMonth . '/' . $fileName : $fileName;

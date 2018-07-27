@@ -8,7 +8,9 @@
         <div class="cms-options-title-action">
             @include('admin.layouts.crud.flash_message')
             <h3 class="cms-options-title">{{$callGallery->galleryName}}</h3>
-            <a href="{{route('admin.user.gallery.call.add.image',$id)}}" class="cms-options-action btn btn-lg btn-primary">Dodavanje slika</a>
+
+            <a href="{{route('admin.user.gallery.call.add.imageMulti',$id)}}" class="cms-options-action btn btn-lg btn-primary">Dodavanje vise slika</a>
+            <a href="{{route('admin.user.gallery.call.add.image',$id)}}" class="cms-options-action btn btn-lg btn-primary">Dodavanje slike</a>
             <a href="{{route('admin.user.gallery.call.add.image.my-gallery',[$callGallery->userId, 'callGalId'=>$callGallery->id])}}" class="cms-options-action btn btn-lg btn-primary">Dodavanje slika iz moje galerije</a>
         </div>
         <div class="cms-options-filter">

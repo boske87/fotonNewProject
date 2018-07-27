@@ -73,7 +73,7 @@ class ClubExtraController extends Controller
         foreach ($comments as $one) {
             $new_com [$one->imageId] = $one->comments;
         }
-//        dd($items);
+//        dd($new_com);
         return view('front.club.commentProf', compact('items', 'new_com'));
     }
 

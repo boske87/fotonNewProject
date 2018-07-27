@@ -11,7 +11,9 @@
                     @if($items->count()>0)
 
                         @foreach($items as $one)
+                            {{dd($one->userGalleryImage)}}
                             @if(isset($one->userGalleryImage->userId))
+
                                 <div class="spanx">
                                     <div class="vesti-box">
                                         <div class="gallery-img">

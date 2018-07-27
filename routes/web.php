@@ -144,6 +144,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/user/gallery/call/view/{id}', ['as' => 'admin.user.gallery.call.view', 'uses' => 'Admin\CallController@galleryImage']);
     Route::get('/user/gallery/call/add/image/{id}', ['as' => 'admin.user.gallery.call.add.image', 'uses' => 'Admin\CallController@addGalleryImage']);
 
+    Route::get('/user/gallery/call/add/imageMulti/{id}', ['as' => 'admin.user.gallery.call.add.imageMulti', 'uses' => 'Admin\CallController@addGalleryImageMulti']);
+    Route::post('/user/gallery/call/add/imageMulti/{id}', ['as' => 'admin.user.gallery.call.add.imageMulti', 'uses' => 'Admin\CallController@addImageToGalleryMulti']);
+
     Route::get('/user/gallery/call/add/image/my-gallery/{id}',
         ['as' => 'admin.user.gallery.call.add.image.my-gallery', 'uses' => 'Admin\CallController@addGalleryImageFromMyGallery']);
 

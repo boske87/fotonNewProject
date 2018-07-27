@@ -71,6 +71,26 @@ class CallController extends Controller
         return view('admin.call.addImage', compact('id'));
     }
 
+    public function addGalleryImageMulti($id)
+    {
+
+        return view('admin.call.multiImage', compact('id'));
+    }
+
+    public function addImageToGalleryMulti($id, Request $request)
+    {
+        $input = $request->all();
+        // upload
+        $input['main_image'] = $this->upload('qqfile', 'img/gallery/galerija_zvanja'.$id.'/');
+        $rr = CallGalleryImage::create([
+            'main_image' => $input['main_image'],
+            'galleryId' => $id
+        ]);
+
+        return response()->json(["success" => $rr]);
+
+    }
+
     public function addGalleryImageFromMyGallery($id)
     {
         $items = UserGallery::where('userId', $id)->get();

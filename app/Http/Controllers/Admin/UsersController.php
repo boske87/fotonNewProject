@@ -18,7 +18,7 @@ class UsersController extends Controller
     use AdminTrait;
     public function index()
     {
-        $items = User::where('type',0)->orderBy('ime_prezime', 'desc')->get();
+        $items = User::where('type',0)->orderBy('ime_prezime', 'asc')->get();
 
         return view('admin.users.index', compact('items'));
     }

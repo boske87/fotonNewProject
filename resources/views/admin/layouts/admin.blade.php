@@ -21,8 +21,8 @@
 
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-        <script src="{{ asset('assets/admin/js/vendor/jquery/jquery-1.10.2.min.js')}}"></script>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        {{--<script src="{{ asset('assets/admin/js/vendor/jquery/jquery-1.10.2.min.js')}}"></script>--}}
         <script src="{{ asset('assets/admin/js/vendor/bootstrap/bootstrap.js')}}"></script>
         <script src="{{ asset('assets/admin/js/vendor/sticky-kit/jquery.sticky-kit.min.js')}}"></script>
         <script src="{{ asset('assets/admin/js/scripts.js')}}"></script>
@@ -53,6 +53,7 @@
     </head>
 
     <body>
+
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
