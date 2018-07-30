@@ -35,7 +35,7 @@
         <h6 style="margin-top: 10px">{{ $user->ime_prezime }}{{$user->paketKategorija}}</h6>
         <ul class="color-circles">
             @if($user->paketKategorija !== NULL)
-                <li class="{{$user->category->color}}" style="background-color: {{Auth::user()->color}};line-height: 45px; width: 45px; height: 45px !important;">{{$user->titula}}</li>
+                <li class="{{$user->category->color}}" style="background-color: {{$user->color}};line-height: 45px; width: 45px; height: 45px !important;">{{$user->titula}}</li>
             @endif
         </ul>
         <nav class="side-bar-nav">
