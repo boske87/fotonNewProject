@@ -159,7 +159,21 @@
             </div>
             <!-- =aside-nav-views -->
         </div>
-
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#aside-nav" href="#aside-nav-4">Dokumenta</a>
+                </h3>
+            </div>
+            <div class="panel-collapse collapse in" id="aside-nav-4">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class=""><a href="{{route('admin.docs')}}">Dokumenta Foton Klub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- =aside-nav-views -->
+        </div>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
