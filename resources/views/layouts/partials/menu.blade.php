@@ -92,7 +92,7 @@
 							<li><a href="{{route('foton-klub.nove-fotografije')}}">Nove fotogarfije</a></li>
 							<li><a href="{{route('foton-klub.komentarisane-fotografije')}}">Komentarisane fotogarfije</a></li>
 							<li><a href="{{route('foton-klub.komentari-profesora')}}">Komentari profesora</a></li>
-							<li><a href="#">Dokumenti</a></li>
+							<li><a href="{{route('foton-klub.dokumenta')}}">Dokumenti</a></li>
 							<li><a href="{{route('foton-klub.izlozbe-konkursi')}}">Konkursi i izložbe</a></li>
 							<li><a href="{{route('foton-klub.vesti')}}">Vesti</a></li>
 							</ul>

@@ -71,11 +71,10 @@
                         @endif
                     </a></li>
                 <li><a href="{{route('foton-klub.izlozbe-konkursi')}}">Izložbe i konkursi </a></li>
-                <li><a href="#">Dokumenti</a></li>
+                <li><a href="{{route('foton-klub.dokumenta')}}">Dokumenti</a></li>
                 <li><a href="#">Forum</a></li>
                 <li><a href="{{route('foton-klub.vesti')}}">Vesti</a></li>
                 <li><a href="#">Linkovi</a></li>
-                <li class="message-nav"><a href="#">Poruke <img src="{{ asset('assets/img/message.png')}}" class="message-img"></a></li>
             </ul>
         </nav>
     </div>

@@ -40,7 +40,11 @@
         <div class="comment-container container">
             <div class="comments-top">
                 <div class="profile-img-wrap">
+                    @if(app('request')->has('userId'))
+                        <img src="{{ Image::load('/gallery/users/'.$user->fotografija_lica, ['h' => 10]) }}">
+                    @else
                     <img src="{{ Image::load('/gallery/users/'.Auth::user()->fotografija_lica, ['h' => 10]) }}">
+                    @endif
                 </div>
                 <ul class="img-info">
                     <li>

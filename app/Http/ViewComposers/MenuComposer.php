@@ -3,6 +3,7 @@
 
 use App\Comment;
 use App\ProfMain;
+use App\User;
 use App\UserGalleryImage;
 use Auth;
 use Illuminate\Contracts\View\View;
@@ -28,6 +29,12 @@ class MenuComposer {
         $newImage = array();
         $newImageComments = array();
         $newImageCommentsProf = array();
+
+        if(app('request')->has('userId')) {
+            $user = User::find(app('request')->input('userId'));
+
+        }
+
         if(Auth::user()){
             $newImage = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)
                 ->groupBy('id')
@@ -50,8 +57,10 @@ class MenuComposer {
         }
 
 
-
-        $view->with(['prof'=>$prof, 'newImage' => $newImage, 'newImageComments'=>$newImageComments, 'newImageCommentsProf'=> $newImageCommentsProf]);
-
+        if(app('request')->has('userId')) {
+            $view->with(['prof'=>$prof, 'newImage' => $newImage, 'user' => $user,'newImageComments'=>$newImageComments, 'newImageCommentsProf'=> $newImageCommentsProf]);
+        } else{
+            $view->with(['prof'=>$prof, 'newImage' => $newImage, 'newImageComments'=>$newImageComments, 'newImageCommentsProf'=> $newImageCommentsProf]);
+        }
     }
 }

@@ -21,6 +21,7 @@ class ClubExtraController extends Controller
     use UploadService;
     public function newImage()
     {
+
         $items = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)
             ->groupBy('id')
             ->orderBy('created_at', 'desc')
@@ -48,6 +49,20 @@ class ClubExtraController extends Controller
     public function newsDelete($id)
     {
         ClubNews::find($id)->delete();
+        return redirect()->route('foton-klub.vesti')->withFlashType('success');
+    }
+
+
+    public function newsEdit($id, Request $request) {
+
+        $homeText = ClubNews::find($id);
+
+        $input['userId'] = Auth::user()->id;
+
+        $input = $request->all();
+
+        $homeText->update($input);
+
         return redirect()->route('foton-klub.vesti')->withFlashType('success');
     }
 
@@ -138,6 +153,7 @@ class ClubExtraController extends Controller
 
 
     public function exhibitions() {
+
         $items = Exh::orderBy('created_at', 'DESC')->get();
 
 

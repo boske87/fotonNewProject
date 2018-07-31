@@ -48,6 +48,8 @@
                                         <p>
                                             {!! substr($oneGal->desc,0,30) !!}...
                                         </p>
+                                        <a href="#" data-toggle="modal" data-target="#myModalIzmena{{$oneGal->id}}"
+                                           style="color: green">IZMENI &rarr;</a><br/>
                                             <a onclick="return confirm('Da li sigurno zelite da obrisete vest?');" href="{{route('foton-klub.vesti-brisanje', $oneGal->id)}}" style="color: red">OBRISI VEST &rarr;</a><br/>
                                         <a href="{{route('foton-klub.vest', $oneGal->slug)}}">SAZNAJ VIŠE &rarr;</a><br/>
                                         <hr/>
@@ -71,4 +73,24 @@
         </div>
     </section>
 
+    @if($news->count()>0)
+        @foreach($news as $oneGal)
+            <div id="myModalIzmena{{$oneGal->id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                {!! Form::open(['method' => 'PATCH','route' => ['foton-klub.vesti-edit', $oneGal->id ]]) !!}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Izmeni vesti</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Naslov:</p><input value="{{$oneGal->head}}" type="text" name="head" class="input-block-level" placeholder="Naslov...." required>
+                    <p>Opis:</p><textarea name="desc" class="input-block-level">{{$oneGal->desc}}</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+                {!! Form::close() !!}
+            </div>
+        @endforeach
+    @endif
 @stop

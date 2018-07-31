@@ -49,6 +49,8 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
 
     Route::get('/vesti-brisanje/{id}', ['as' => 'foton-klub.vesti-brisanje', 'uses' => 'ClubExtraController@newsDelete']);
 
+    Route::patch('/vesti-edit/{id}', ['as' => 'foton-klub.vesti-edit', 'uses' => 'ClubExtraController@newsEdit']);
+
     Route::post('/vesti/add', ['as' => 'foton-klub.vesti.add', 'uses' => 'ClubExtraController@storeNews']);
     Route::get('/strana3', ['as' => 'foton-klub.strana2', 'uses' => 'ClubController@strana3']);
     Route::get('/strana4', ['as' => 'foton-klub.strana2', 'uses' => 'ClubController@strana4']);
@@ -90,6 +92,7 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
 
     Route::patch('/izlozbe-konkursi-izmena/{id}', ['as' => 'foton-klub.izlozbe-konkursi-izmena', 'uses' => 'ClubExtraController@exhibitionsEdit']);
 
+
     Route::get('/izlozbe-konkursi-brisanje/{id}', ['as' => 'foton-klub.izlozbe-konkursi-brisanje', 'uses' => 'ClubExtraController@exhibitionsDelete']);
 
     Route::get('/album-brisanje/{id}', ['as' => 'foton-klub.album-brisanje', 'uses' => 'ClubController@deleteGall']);
@@ -97,6 +100,8 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
     Route::get('/slika-brisanje/{id}', ['as' => 'foton-klub.slika-brisanje', 'uses' => 'ClubController@deleteImage']);
 
     Route::get('/clanovi', ['as' => 'foton-klub.clanovi', 'uses' => 'MemberController@memberList']);
+
+    Route::get('/dokumenta', ['as' => 'foton-klub.dokumenta', 'uses' => 'DocsController@index']);
 
 
 
@@ -113,6 +118,11 @@ Route::post('/checkEmail', ['as' => '/checkEmail', 'uses' => 'AuthController@che
 Route::post('/login', ['as' => '/login', 'uses' => 'Admin\AuthController@authenticate']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+
+    Route::get('/docs', ['as' => 'admin.docs', 'uses' => 'Admin\DocsController@index']);
+    Route::get('/docs-add', ['as' => 'admin.docs-add', 'uses' => 'Admin\DocsController@add']);
+    Route::post('/docs-add', ['as' => 'admin.docs-add', 'uses' => 'Admin\DocsController@addStore']);
+    Route::delete('/docs-delete/{id}', ['as' => 'admin.docs-delete', 'uses' => 'Admin\DocsController@docDelete']);
 
     Route::get('/klub', ['as' => 'admin.club', 'uses' => 'Admin\ClubController@gallery']);
     Route::post('/klub-gallery-add', ['as' => 'admin.club-gallery-add', 'uses' => 'Admin\ClubController@basicGalleryAddStore']);

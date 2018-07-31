@@ -18,7 +18,7 @@
                             <div class="span4">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
-                                        <a href="{{route('foton-klub.galerija-zvanja', $oneGal->id)}}">
+                                        <a href="{{route('foton-klub.galerija-zvanja', array($oneGal->id,'userId='.$oneGal->userId))}}">
                                             @if(isset($oneGal->userGalleryImage[0]->main_image))
                                                 <img src="{{ Image::load('gallery/galerija_zvanja'.$oneGal->id.'/' . $oneGal->userGalleryImage[0]->main_image, ['h' => 10]) }}">
                                             @else
@@ -27,7 +27,7 @@
                                         </a>
                                     </div>
                                     <div class="vesti-info">
-                                        <h2><a href="{{route('foton-klub.galerija-zvanja', $oneGal->id)}}"> {{$oneGal->galleryName}}</a></h2>
+                                        <h2><a href="{{route('foton-klub.galerija-zvanja', array($oneGal->id,'userId='.$oneGal->userId))}}"> {{$oneGal->galleryName}}</a></h2>
                                         <span class="vesti-datum">{{$oneGal->time}}</span>
                                         <p>
                                         </p>
@@ -51,7 +51,7 @@
                                 <div class="vesti-box">
 
                                     <div class="gallery-img">
-                                        <a href="{{route('foton-klub.moja-galerija', $oneGal->id)}}">
+                                        <a href="{{route('foton-klub.moja-galerija', array($oneGal->id,'userId='.$oneGal->userId))}}">
                                             @if(isset($oneGal->userGalleryImage[0]->main_image))
                                                 <img src="{{ Image::load('gallery/mygallery'.$oneGal->userId.'/' . $oneGal->userGalleryImage[0]->main_image, ['h' => 10]) }}">
                                             @else
@@ -60,7 +60,7 @@
                                         </a>
                                     </div>
                                     <div class="vesti-info">
-                                        <h2><a href="{{route('foton-klub.moja-galerija', $oneGal->id)}}"> {{$oneGal->galleryName}}</a></h2>
+                                        <h2><a href="{{route('foton-klub.moja-galerija', array($oneGal->id,'userId='.$oneGal->userId))}}"> {{$oneGal->galleryName}}</a></h2>
                                         <span class="vesti-datum">{{$oneGal->time}}</span>
                                         <p>
 

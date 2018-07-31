@@ -4,7 +4,11 @@
 
     <section class="background-new">
         <div class="container">
+            @if(app('request')->has('userId'))
+                @include('front.club.otherView.side')
+                @else
             @include('layouts.partials.side')
+            @endif
             <div class="container-small">
                 <h3>{{$gallery->galleryName}}</h3>
                 <div class="row">
@@ -14,7 +18,13 @@
                             <div class="spanx">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
-                                        <a href="{{route('foton-klub.galerija-zvanja.slika',[$id, $one->id])}}">
+                                        @if(app('request')->has('userId'))
+
+                                            <a href="{{route('foton-klub.galerija-zvanja.slika',[$id, $one->id, 'userId='.app('request')->input('userId')])}}">
+                                        @else
+                                                    <a href="{{route('foton-klub.galerija-zvanja.slika',[$id, $one->id])}}">
+                                        @endif
+
                                             <img src="{{ Image::load('gallery/galerija_zvanja'.$gallery->id.'/' . $one->main_image, ['h' => 10]) }}">
                                         </a>
                                     </div>
@@ -32,7 +42,12 @@
 
                                                 @endif
                                                    </div>
+                                            @if(app('request')->has('userId'))
+                                                <input type="text" onClick="window.location.href='{{route('foton-klub.galerija-zvanja.slika',[$id, $one->id, 'userId='.app('request')->input('userId')])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
+
+                                            @else
                                             <input type="text" onClick="window.location.href='{{route('foton-klub.galerija-zvanja.slika',[$id, $one->id])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

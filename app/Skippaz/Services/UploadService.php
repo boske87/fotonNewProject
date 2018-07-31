@@ -28,7 +28,7 @@ trait UploadService {
             if (Input::hasFile($inputName))
             {
                 $file = Input::file($inputName);
-
+                $type = $file->getMimeType();
                 // filename
                 $fileName = str_replace(' ', '_', Str::ascii($file->getClientOriginalName()));
 
@@ -48,22 +48,24 @@ trait UploadService {
 
 
                 $move = $file->move($path, $fileName);
-                $move2 = ImageNew::make($move->getRealPath());
 
-                $he = $move2->height();
-                $wi = $move2->width();
+                if($type!="application/pdf")
+                {
+                    $move2 = ImageNew::make($move->getRealPath());
 
-                if($he<$wi){
-                    $move2->resize(1280, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-                } else {
-                    $move2->resize(null, 1280, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
+                    $he = $move2->height();
+                    $wi = $move2->width();
+                    if($he<$wi){
+                        $move2->resize(1280, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                    } else {
+                        $move2->resize(null, 1280, function ($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                    }
+                    $move2->save();
                 }
-                $move2->save();
-
 //
                 if ($move)
                 {

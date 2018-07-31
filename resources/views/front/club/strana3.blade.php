@@ -5,7 +5,11 @@
     <section class="background-new">
         <meta name="csrf-token" content="{!! csrf_token() !!}" />
         <div class="container">
-            @include('layouts.partials.side')
+            @if(app('request')->has('userId'))
+                @include('front.club.otherView.side')
+            @else
+                @include('layouts.partials.side')
+            @endif
             <div class="container-small">
                 <h3>{{$gallery->galleryName}}</h3>
                 <button  onclick="window.location.href='{{route('foton-klub.dodavanje-nove-slike-album', $gallery->id)}}'"
@@ -23,7 +27,7 @@
                                 </div>
                                 @endif
                                 <div class="gallery-img">
-                                    <a href="{{route('foton-klub.galerija.slika',[$id, $one->id])}}">
+                                    <a href="{{route('foton-klub.galerija.slika',[$id, $one->id, 'userId='.app('request')->input('userId')])}}">
                                         <img src="{{ Image::load('gallery/mygallery'.$user_id.'/' . $one->main_image, ['h' => 10]) }}">
                                     </a>
                                 </div>
