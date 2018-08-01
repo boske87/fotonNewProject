@@ -98,7 +98,7 @@
                 <div class="container" >
                     <div class="row" style="margin-bottom: 50px">
                         <div class="row" style="margin-top: 70px;margin-bottom: 40px">
-                            @if(isset($docs1))
+                            @if(isset($docs1) && !empty($docs1))
                             <div class="span2 offset2">
                                 <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
 
