@@ -55,8 +55,8 @@
 
                     <li class="color-circles">
                         <ul>
-                            <li style="background-color:{{Auth::user()->color}}"></li>
-                            <li class="txt"><span>{{Auth::user()->titula}}</span></li>
+                            <li style="background-color:{{$gallery->color}}"></li>
+                            <li class="txt"><span>{{$gallery->titula}}</span></li>
                         </ul>
                     </li>
                 </ul>
