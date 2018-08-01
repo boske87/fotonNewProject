@@ -21,6 +21,7 @@ class ClubController extends Controller
 
     public function index()
     {
+        $docs1 = array();
         if(Auth::user()){
             return redirect(route("foton-klub.vesti"));
         }
@@ -28,8 +29,12 @@ class ClubController extends Controller
         $text = ClubText::findOrFail(1);
 
         $docs = Doc::where('front', 1)->orderby('id','desc')->get();
-        $docs1 = $docs[0];
-        unset($docs[0]);
+        if(isset($docs[0]))
+        {
+            $docs1 = $docs[0];
+            unset($docs[0]);
+        }
+
 
 
         return view('front.club.index', compact('items','text', 'docs', 'docs1'));
