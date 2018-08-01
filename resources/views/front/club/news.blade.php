@@ -4,7 +4,11 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            if ($ .cookie("popup_1_2") == null) {
+            var CookieSet = jQuery.cookie('popup_1_2');
+            console.log(CookieSet);
+            console.log(CookieSet == "null");
+            if (CookieSet == "null") {
+                console.log('asdasds');
                 $('#myModal').modal('show');
                 $.cookie("popup_1_2", "2");
             }

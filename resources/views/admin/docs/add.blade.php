@@ -23,7 +23,7 @@
                     <fieldset>
 
                         {!! Form::open(['route' => 'admin.docs-add', 'files' => true, 'class' => 'form-horizontal']) !!}
-
+                        <input type="hidden" name="front" value="{{isset($type) ? 1 : 0}}">
                         @include('admin.layouts.modules.file_input', [
                                          'label' => 'PDF',
                                          'inputName' => 'file',

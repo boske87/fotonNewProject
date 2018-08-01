@@ -116,6 +116,15 @@
                         </div>
                     </div>
 
+                    <!-- First Name Form Input -->
+                    <div class="form-group{!! $errors ->has('optionDesc') ? ' has-error' : '' !!}">
+                        {!! Form::label('optionDesc', 'Opis(ostala zvanja, kraci tekst)', ['class' => 'col-sm-2 control-label']) !!}
+                        <div class="col-sm-10">
+                            {!! Form::textarea('optionDesc', $item->optionDesc, ['class' => 'form-control']) !!}
+                            {!! $errors ->first('optionDesc', '<span class="help-block">:message</span>') !!}
+                        </div>
+                    </div>
+
 
                 </fieldset>
             </div>

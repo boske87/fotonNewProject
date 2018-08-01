@@ -165,10 +165,11 @@
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#aside-nav" href="#aside-nav-4">Dokumenta</a>
                 </h3>
             </div>
-            <div class="panel-collapse collapse in" id="aside-nav-4">
+            <div class="panel-collapse collapse in" id="aside-nav-6">
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">
                         <li class=""><a href="{{route('admin.docs')}}">Dokumenta Foton Klub</a></li>
+                        <li class=""><a href="{{route('admin.docs-front')}}">Dokumenta Sajt</a></li>
                     </ul>
                 </div>
             </div>

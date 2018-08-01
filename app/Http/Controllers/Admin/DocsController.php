@@ -36,7 +36,10 @@ class DocsController extends Controller
 
         Doc::create($input);
 
-        return redirect()->route('admin.docs')->withFlashMessage("Insert doc successfully.")->withFlashType('success');
+        if($input['front'] == 1)
+            return redirect()->route('admin.docs-front')->withFlashMessage("Insert doc successfully.")->withFlashType('success');
+        else
+            return redirect()->route('admin.docs')->withFlashMessage("Insert doc successfully.")->withFlashType('success');
     }
 
     public function docDelete($id)
@@ -50,8 +53,36 @@ class DocsController extends Controller
     public function indexFront()
     {
         $items = Doc::where('front', 1)->get();
+        $title = 'Dokumenti web sajt';
 
 
-        return view();
+        return view('admin.docs.index', compact('items', 'title'));
+    }
+
+    public function addFront()
+    {
+        $type = 1;
+        return view('admin.docs.add', compact('type'));
+    }
+
+    public function addStoreFront(Request $request)
+    {
+        $input = $request->all();
+
+        // upload
+        $input['file'] = $this->upload('file', 'img/docs');
+
+        Doc::create($input);
+        if($input['front'] == 1)
+            return redirect()->route('admin.docs-front')->withFlashMessage("Insert doc successfully.")->withFlashType('success');
+        else
+            return redirect()->route('admin.docs')->withFlashMessage("Insert doc successfully.")->withFlashType('success');
+    }
+
+    public function docDeleteFront($id)
+    {
+        Doc::destroy($id);
+
+        return redirect()->route('admin.docs-front')->withFlashMessage("Delete doc successfully.")->withFlashType('success');
     }
 }

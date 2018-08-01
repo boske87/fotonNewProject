@@ -98,23 +98,18 @@
                 <div class="container" >
                     <div class="row" style="margin-bottom: 50px">
                         <div class="row" style="margin-top: 70px;margin-bottom: 40px">
-                            <div class="span3 offset2">
+                            <div class="span2 offset2">
                                 <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
 
-                                <a>Pravilnik kluba foton</a>
+                                <a target="_blank" href="/img/docs/{{$docs1->file}}">{{$docs1->name}}</a>
                             </div>
-                            <div class="span2">
-                                <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
-                                <a>Pristupnica</a>
-                            </div>
-                            <div class="span2">
-                                <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
-                                <a>Lorem ipsum</a>
-                            </div>
-                            <div class="span2">
-                                <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
-                                <a>Lorem ipsum</a>
-                            </div>
+
+                            @foreach($docs as $one)
+                                <div class="span2">
+                                    <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
+                                    <a target="_blank" href="/img/docs/{{$one->file}}">{{$one->name}}</a>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="span12 text-center">
                             <div class="nivo-img">

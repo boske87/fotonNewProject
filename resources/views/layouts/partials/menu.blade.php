@@ -70,7 +70,7 @@
                                 </li>
                                 @if(Auth::user())
 								<li >
-                                    <a href="{{route('logout-club')}}" class="">Log off</a>
+                                    <a id="logOffCoo" href="{{route('logout-club')}}" class="">Log off</a>
                                 </li>
                                     @endif
                             </ul>
@@ -114,6 +114,9 @@
 </div>
 <script>
 $( document ).ready(function() {
+    $('#logOffCoo').click(function () {
+        $.cookie("popup_1_2", null);
+    })
    $('.toggle-menu-js').click(function(){
 	   $(this).siblings('.toggle-menu').toggle();
 	   

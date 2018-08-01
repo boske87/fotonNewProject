@@ -29,7 +29,7 @@
                     <div id="galleria">
                         <img id="{{$item->id}}" src="{{ Image::load('gallery/galerija_zvanja'.$item->galleryId.'/' . $item->main_image, ['h' => 10]) }}" alt="" />
                         @foreach($excludeImage as $one)
-                            <img id="{{$one->id}}" src="{{ Image::load('img/gallery/mygallery'.$gallery->userId.'/' . $one->main_image, ['h' => 10]) }}" alt="" />
+                            <img id="{{$one->id}}" src="{{ Image::load('gallery/galerija_zvanja'.$item->galleryId.'/' . $one->main_image, ['h' => 10]) }}" alt="" />
                         @endforeach
                     </div>
                 </div>

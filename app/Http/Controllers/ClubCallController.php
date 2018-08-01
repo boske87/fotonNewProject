@@ -68,7 +68,7 @@ class ClubCallController extends Controller
         foreach ($comments as $one) {
             $new_com [$one->imageId] = $one->comments;
         }
-
+        
 
         CallGalleryImage::where('id',$item->id)->Increment('view', 1);
 
@@ -84,6 +84,7 @@ class ClubCallController extends Controller
             ->where('imageId', $imageId)
             ->where('typeId', 1)
             ->get();
+
 
         $image = CallGalleryImage::find($imageId);
 

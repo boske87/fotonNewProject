@@ -103,6 +103,14 @@ Route::group(['prefix' => 'foton-klub', 'middleware' => ['is-admin']], function 
 
     Route::get('/dokumenta', ['as' => 'foton-klub.dokumenta', 'uses' => 'DocsController@index']);
 
+    Route::get('/links', ['as' => 'foton-klub.links', 'uses' => 'DocsController@links']);
+
+    Route::post('/links', ['as' => 'foton-klub.links', 'uses' => 'DocsController@linksAdd']);
+
+    Route::patch('/links-izmena/{id}', ['as' => 'foton-klub.links-izmena', 'uses' => 'DocsController@linksEdit']);
+
+
+    Route::get('/links-brisanje/{id}', ['as' => 'foton-klub.links-brisanje', 'uses' => 'DocsController@linksDelete']);
 
 
 });
@@ -123,6 +131,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/docs-add', ['as' => 'admin.docs-add', 'uses' => 'Admin\DocsController@add']);
     Route::post('/docs-add', ['as' => 'admin.docs-add', 'uses' => 'Admin\DocsController@addStore']);
     Route::delete('/docs-delete/{id}', ['as' => 'admin.docs-delete', 'uses' => 'Admin\DocsController@docDelete']);
+
+    Route::get('/docs-front', ['as' => 'admin.docs-front', 'uses' => 'Admin\DocsController@indexFront']);
+    Route::get('/docs-add-front', ['as' => 'admin.docs-add-front', 'uses' => 'Admin\DocsController@addFront']);
+    Route::post('/docs-add-front', ['as' => 'admin.docs-add-front', 'uses' => 'Admin\DocsController@addStoreFront']);
+    Route::delete('/docs-delete-front/{id}', ['as' => 'admin.docs-delete-front', 'uses' => 'Admin\DocsController@docDeleteFront']);
+
+
 
     Route::get('/klub', ['as' => 'admin.club', 'uses' => 'Admin\ClubController@gallery']);
     Route::post('/klub-gallery-add', ['as' => 'admin.club-gallery-add', 'uses' => 'Admin\ClubController@basicGalleryAddStore']);

@@ -18,7 +18,7 @@ class User extends Authenticatable
         'name', 'email', 'password','ime_prezime','datum_rodjenja','mesto_rodjenja','tel',
         'zavrseno_obrazovanje','trenutno_zaposlenje','zavrsena_skola_fotografije',
         'fotografske_titule_zvanja_diplome','fotografija_lica','umetnicke_aktivnosti',
-        'status','type','paketKategorija', 'last_login', 'titula', 'color'
+        'status','type','paketKategorija', 'last_login', 'titula', 'color', 'optionDesc'
     ];
 
     /**

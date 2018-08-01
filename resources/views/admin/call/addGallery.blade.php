@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="form-group{!! $errors ->has('desc_gal') ? ' has-error' : '' !!}">
-                                {!! Form::label('desc_gal', 'Opis galerije', ['class' => 'col-sm-2 control-label']) !!}
+                                {!! Form::label('desc_gal', 'Opis albuma', ['class' => 'col-sm-2 control-label']) !!}
                                 <div class="col-sm-6">
                                     {!! Form::textarea('desc_gal',null, ['id'=>'text', 'class' => 'form-control', 'rows' => 4]) !!}
                                     {!! $errors ->first('desc_gal', '<span class="help-block">:message</span>') !!}

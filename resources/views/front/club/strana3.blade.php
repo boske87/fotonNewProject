@@ -11,7 +11,7 @@
                 @include('layouts.partials.side')
             @endif
             <div class="container-small">
-                <h3>{{$gallery->galleryName}}</h3>
+                <h3 style="font-size: 33px !important;">{{$gallery->galleryName}}</h3>
                 <button  onclick="window.location.href='{{route('foton-klub.dodavanje-nove-slike-album', $gallery->id)}}'"
                          style="text-align: center; margin-bottom: 5%" class="btn btn-primary">Dodajte novu sliku u album</button>
                 <div class="row">
@@ -22,12 +22,16 @@
 
                             <div class="vesti-box">
                                 @if($key==0)
-                                <div style="background-color: white; text-align: left; overflow-wrap: break-word;">
-                                    <p id="alDesc" contenteditable="true" id="album_desc" style="margin-left: 5px">{!! $gallery->desc_gal !!}</p>
-                                </div>
+                                    <div style="background-color: white; text-align: left; overflow-wrap: break-word;">
+                                        <p style="font-size: 23px !important;" id="alDesc" contenteditable="true" id="album_desc" style="margin-left: 5px">{!! $gallery->desc_gal !!}</p>
+                                    </div>
                                 @endif
                                 <div class="gallery-img">
+                                    @if(app('request')->has('userId'))
                                     <a href="{{route('foton-klub.galerija.slika',[$id, $one->id, 'userId='.app('request')->input('userId')])}}">
+                                        @else
+                                            <a href="{{route('foton-klub.galerija.slika',[$id, $one->id])}}">
+                                                @endif
                                         <img src="{{ Image::load('gallery/mygallery'.$user_id.'/' . $one->main_image, ['h' => 10]) }}">
                                     </a>
                                 </div>

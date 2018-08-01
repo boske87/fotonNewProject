@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ClubGallery;
 use App\ClubText;
 use App\Comment;
+use App\Doc;
 use App\Skippaz\Services\UploadService;
 use App\User;
 use App\UserGallery;
@@ -26,7 +27,12 @@ class ClubController extends Controller
         $items = ClubGallery::orderby('ordering','asc')->get();
         $text = ClubText::findOrFail(1);
 
-        return view('front.club.index', compact('items','text'));
+        $docs = Doc::where('front', 1)->orderby('id','desc')->get();
+        $docs1 = $docs[0];
+        unset($docs[0]);
+
+
+        return view('front.club.index', compact('items','text', 'docs', 'docs1'));
     }
 
     public function logoutClub()

@@ -10,13 +10,16 @@
             @include('layouts.partials.side')
             @endif
             <div class="container-small">
-                <h3>{{$gallery->galleryName}}</h3>
+                <h3>{{$gallery->galleryName}}22</h3>
                 <div class="row">
                     @if($items->count()>0)
 
                         @foreach($items as $one)
                             <div class="spanx">
                                 <div class="vesti-box">
+                                    <div style="background-color: white; text-align: left; overflow-wrap: break-word;">
+                                        <p style="font-size: 23px !important;" id="alDesc" contenteditable="true" id="album_desc" style="margin-left: 5px">{!! $gallery->desc_gal !!}</p>
+                                    </div>
                                     <div class="gallery-img">
                                         @if(app('request')->has('userId'))
 

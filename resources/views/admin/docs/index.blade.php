@@ -7,8 +7,19 @@
     <div class="cms-options">
         <div class="cms-options-title-action">
             @include('admin.layouts.crud.flash_message')
-            <h3 class="cms-options-title">Dokumenti Foton Klub</h3>
-            <a href="{{url('admin/docs-add')}}" class="cms-options-action btn btn-lg btn-primary">Add</a>
+            <h3 class="cms-options-title">
+            @if(isset($title))
+                {{$title}}
+                @else
+
+                Dokumenti Foton Klub</h3>
+                @endif
+                </h3>
+            @if(isset($title))
+            <a href="{{url('admin/docs-add-front')}}" class="cms-options-action btn btn-lg btn-primary">Add</a>
+            @else
+                <a href="{{url('admin/docs-add')}}" class="cms-options-action btn btn-lg btn-primary">Add</a>
+            @endif
         </div>
         <div class="cms-options-filter">
 
@@ -40,8 +51,13 @@
                         </td>
                         <td class="cms-column-actions">
                             <div class="btn-group btn-group-xs cms-table-actions">
+                                @if(isset($title))
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['admin.docs-delete-front', $item->id], 'onsubmit' => "return confirm('Are you sure you want to DELETE this item?')"]) !!}
+
+                                @else
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['admin.docs-delete', $item->id], 'onsubmit' => "return confirm('Are you sure you want to DELETE this item?')"]) !!}
-                                <button type="submit" class="btn btn-default"><span class="entypo entypo-cross"></span></button>
+                                @endif
+                                    <button type="submit" class="btn btn-default"><span class="entypo entypo-cross"></span></button>
                                 {!! Form::close() !!}
                             </div>
                         </td>
