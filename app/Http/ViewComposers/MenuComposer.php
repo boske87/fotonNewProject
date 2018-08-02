@@ -45,6 +45,14 @@ class MenuComposer {
                 ->groupBy('comments.imageId')
                 ->orderby('comments.id', 'desc')
                 ->get()->count();
+            $itemsCall = Comment::where('comments.typeId', 1)
+                ->leftjoin('callGalleryImage', 'comments.imageId','=','callGalleryImage.id')
+                ->where('comments.created_at','>=', Auth::user()->last_login)
+                ->groupBy('comments.imageId')
+                ->orderby('comments.id', 'desc')
+                ->get()->count();
+
+            $newImageComments = $newImageComments + $itemsCall;
 
             $newImageCommentsProf = Comment::where('comments.typeId', 0)
                 ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CallGallery;
 use App\ClubNews;
 use App\Comment;
 use App\Exh;
@@ -120,6 +121,8 @@ class ClubExtraController extends Controller
 
     public function commentsImage()
     {
+
+        //user gall
         $items = Comment::where('comments.typeId', 0)
             ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
             ->where('comments.created_at','>=', Auth::user()->last_login)
@@ -134,7 +137,6 @@ class ClubExtraController extends Controller
         }
 
 
-
         $new_com = array();
 
         $comments = DB::table('comments')
@@ -146,8 +148,36 @@ class ClubExtraController extends Controller
         foreach ($comments as $one) {
             $new_com [$one->imageId] = $one->comments;
         }
-//        dd($items);
-        return view('front.club.commentImage', compact('items', 'new_com', 'galle'));
+
+
+        //call gall
+
+        $itemsCall = Comment::where('comments.typeId', 1)
+            ->leftjoin('callGalleryImage', 'comments.imageId','=','callGalleryImage.id')
+            ->where('comments.created_at','>=', Auth::user()->last_login)
+            ->groupBy('comments.imageId')
+            ->orderby('comments.id', 'desc')
+            ->get();
+
+        $gallCall = CallGallery::all();
+
+        foreach ($gallCall as $oneGal){
+            $galleCall [$oneGal->id] = $oneGal->userId;
+        }
+
+        $new_comCall = array();
+
+        $commentsCall = DB::table('comments')
+            ->select('imageId', DB::raw('count(*) as comments'))
+            ->where('typeId', 1)
+            ->groupBy('imageId')
+            ->get();
+
+        foreach ($commentsCall as $one) {
+            $new_comCall [$one->imageId] = $one->comments;
+        }
+
+        return view('front.club.commentImage', compact('items', 'new_com', 'galle','itemsCall', 'new_comCall', 'galleCall'));
 
     }
 
