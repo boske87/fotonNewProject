@@ -94,7 +94,7 @@ class ClubExtraController extends Controller
 
     public function news()
     {
-        $popUp = NewsPopUp::find(1);
+        $popUp = NewsPopUp::find(2);
         $news = ClubNews::orderBy('created_at', 'desc')->get();
         return view('front.club.news', compact('news','popUp'));
     }

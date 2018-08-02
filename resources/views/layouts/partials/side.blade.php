@@ -74,7 +74,7 @@
                 <li><a href="{{route('foton-klub.dokumenta')}}">Dokumenti</a></li>
                 <li><a href="http://185.183.182.52:8084/" target="_blank">Forum</a></li>
                 <li><a href="{{route('foton-klub.vesti')}}">Vesti</a></li>
-                <li><a href="#">Linkovi</a></li>
+                <li><a href="{{route('foton-klub.links')}}">Linkovi</a></li>
             </ul>
         </nav>
     </div>

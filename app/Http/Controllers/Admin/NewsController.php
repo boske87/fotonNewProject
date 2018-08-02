@@ -87,7 +87,7 @@ class NewsController extends Controller
 
         $popUp->update($input);
 
-        return redirect()->route('admin.news', 1)->withFlashMessage("Updated successfully.")->withFlashType('success');
+        return redirect()->route('admin.news-pop-up.edit', $id)->withFlashMessage("Updated successfully.")->withFlashType('success');
     }
 
 

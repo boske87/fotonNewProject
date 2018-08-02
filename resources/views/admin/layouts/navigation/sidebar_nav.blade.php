@@ -153,6 +153,7 @@
 
                         <li class=""><a href="{{route('admin.news')}}">Vesti</a></li>
                         <li class=""><a href="{{route('admin.news-pop-up.edit', 1)}}">Pop up vesti</a></li>
+                        <li class=""><a href="{{route('admin.news-pop-up.edit', 2)}}">Pop up klub vesti</a></li>
 
                     </ul>
                 </div>

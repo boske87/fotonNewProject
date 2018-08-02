@@ -14,9 +14,9 @@
                             <div class="span4" style="width: 25%;">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
-                                        <a href="/img/docs/{{$oneGal->file}}" target="_blank"><img width="50px" src="{{asset('assets/img/docs.png')}}"> </a>
+                                        <a href="/img/docs/{{$oneGal->file}}" target="_blank"><img width="50px" src="{{asset('assets/img/PDFNN.jpg')}}"> </a>
                                     </div>
-                                    <div class="vesti-info">
+                                    <div class="vesti-info" style="margin-top: 10%">
                                         <h2><a href="/img/docs/{{$oneGal->file}}"> {{$oneGal->name}}</a></h2>
                                         <p>
                                         </p>

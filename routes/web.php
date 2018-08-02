@@ -252,6 +252,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/news-pop-up/{id}', ['as' => 'admin.news-pop-up.edit', 'uses' => 'Admin\NewsController@editPopUp']);
     Route::patch('/news-pop-up/update/{id}', ['as' => 'admin.news-pop-up.update', 'uses' => 'Admin\NewsController@updatePopUp']);
 
+//    Route::get('/news-pop-up-club/{id}', ['as' => 'admin.news-pop-up-club.edit', 'uses' => 'Admin\NewsController@editPopUpClub']);
+//    Route::patch('/news-pop-up-club/update/{id}', ['as' => 'admin.news-pop-up-club.update', 'uses' => 'Admin\NewsController@updatePopUp']);
+
 
     //gallery
     Route::get('/gallery', ['as' => 'admin.gallery', 'uses' => 'Admin\GalleryController@index']);
