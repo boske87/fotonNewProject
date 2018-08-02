@@ -8,7 +8,7 @@
             <div class="container-small">
                 <h3>Komentarisane fotografije </h3>
                 <div class="row">
-                    @if($items->count()>0)
+                    @if($items->count()>0 && $itemsCall->count()>0)
                         @foreach($items as $one)
                             <div class="spanx">
                                 <div class="vesti-box">
@@ -41,7 +41,7 @@
 
                         <p style="width: 35%; margin-left: 15%" class="alert alert-warning">Nema novih Komentarisane fotografije </p>
                     @endif
-                        @if($itemsCall->count()>0)
+                        @if($itemsCall->count()>0 && $items->count()>0)
                             @foreach($itemsCall as $one)
                                 <div class="spanx">
                                     <div class="vesti-box">
