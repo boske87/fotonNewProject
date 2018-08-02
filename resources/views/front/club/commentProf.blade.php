@@ -11,14 +11,13 @@
                     @if($items->count()>0)
 
                         @foreach($items as $one)
-                            {{dd($one->userGalleryImage)}}
-                            @if(isset($one->userGalleryImage->userId))
 
                                 <div class="spanx">
                                     <div class="vesti-box">
                                         <div class="gallery-img">
-                                            <a href="{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id])}}">
-                                                <img src="{{ Image::load('gallery/mygallery'.$one->userGalleryImage->userId.'/' . $one->main_image, ['h' => 10]) }}">
+                                            <a href="{{route('foton-klub.galerija.slika',[$one->galleryId, $one->imageId])}}">
+
+                                                <img src="{{ Image::load('gallery/mygallery'.$galle[$one->galleryId].'/' . $one->main_image, ['h' => 10]) }}">
                                             </a>
                                         </div>
                                         <div class="vesti-info single">
@@ -40,7 +39,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
                         @endforeach
                     @else
 

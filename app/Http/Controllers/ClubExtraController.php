@@ -77,8 +77,14 @@ class ClubExtraController extends Controller
             ->groupBy('comments.imageId')
             ->orderby('comments.id', 'desc')
             ->get();
+//        dd($items[0]);
 
-        $new_com = array();
+        $galle = UserGallery::all();
+
+        foreach ($galle as $oneGal){
+            $galle [$oneGal->id] = $oneGal->userId;
+        }
+
 
         $comments = DB::table('comments')
             ->select('imageId', DB::raw('count(*) as comments'))
@@ -90,8 +96,10 @@ class ClubExtraController extends Controller
             $new_com [$one->imageId] = $one->comments;
         }
 //        dd($new_com);
-        return view('front.club.commentProf', compact('items', 'new_com'));
+        return view('front.club.commentProf', compact('items', 'new_com', 'galle'));
     }
+
+
 
     public function news()
     {
