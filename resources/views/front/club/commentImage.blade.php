@@ -74,7 +74,6 @@
                             @endforeach
                         @else
 
-                            <p style="width: 35%; margin-left: 15%" class="alert alert-warning">Nema novih Komentarisane fotografije </p>
                         @endif
                 </div>
 
