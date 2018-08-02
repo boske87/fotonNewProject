@@ -99,16 +99,22 @@
                     <div class="row" style="margin-bottom: 50px">
                         <div class="row" style="margin-top: 70px;margin-bottom: 40px">
                             @if(isset($docs1) && !empty($docs1))
-                            <div class="span2 offset2">
+                            <div class="span2 offset2" style="
+    display: grid;
+    text-align: -webkit-center;
+"><a target="_blank" href="/img/docs/{{$docs1->file}}">
                                 <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
 
-                                <a target="_blank" href="/img/docs/{{$docs1->file}}">{{$docs1->name}}</a>
+                              {{$docs1->name}}</a>
                             </div>
 
                             @foreach($docs as $one)
-                                <div class="span2">
+                                <div class="span2" style="
+    display: grid;
+    text-align: -webkit-center;
+"><a target="_blank" href="/img/docs/{{$one->file}}">
                                     <img src="{{asset('assets/img/pdf2.png')}}" width="50px">
-                                    <a target="_blank" href="/img/docs/{{$one->file}}">{{$one->name}}</a>
+                                   {{$one->name}}</a>
                                 </div>
                             @endforeach
                                 @endif
