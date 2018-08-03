@@ -12,6 +12,7 @@ class UserExtraController extends Controller
         $myGal = $user->userGallery;
         $callGal = $user->callGallery;
 
+
         return view('front.club.otherView.profile', compact('callGal', 'myGal', 'user'));
 
     }

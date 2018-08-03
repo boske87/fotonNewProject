@@ -8,12 +8,12 @@
             <div class="container-small">
                 <h3>Komentarisane fotografije </h3>
                 <div class="row">
-                    @if($items->count()>0 && $itemsCall->count()>0)
+                    @if($items->count()>0 || $itemsCall->count()>0)
                         @foreach($items as $one)
                             <div class="spanx">
                                 <div class="vesti-box">
                                     <div class="gallery-img">
-                                        <a href="{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id])}}">
+                                        <a href="{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id, 'userId='.$gallUser[$one->galleryId]])}}">
                                             <img src="{{ Image::load('gallery/mygallery'.$galle[$one->galleryId].'/' . $one->main_image, ['h' => 10]) }}">
                                         </a>
                                     </div>
@@ -31,7 +31,7 @@
 
                                                 @endif
                                             </div>
-                                            <input type="text" onClick="window.location.href='{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
+                                            <input type="text" onClick="window.location.href='{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id, 'userId='.$gallUser[$one->galleryId]])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
                                         </div>
                                     </div>
                                 </div>
@@ -41,15 +41,15 @@
 
                         <p style="width: 35%; margin-left: 15%" class="alert alert-warning">Nema novih Komentarisane fotografije </p>
                     @endif
-                        @if($itemsCall->count()>0 && $items->count()>0)
+                        @if($itemsCall->count()>0 || $items->count()>0)
+
                             @foreach($itemsCall as $one)
+
                                 <div class="spanx">
                                     <div class="vesti-box">
                                         <div class="gallery-img">
-                                            <a href="{{route('foton-klub.galerija-zvanja.slika',[$one->galleryId, $one->id])}}">
-
+                                            <a href="{{route('foton-klub.galerija-zvanja.slika',[$one->galleryId, $one->id, 'userId='.$gallUserCall[$one->galleryId]])}}">
                                                 <img src="{{ Image::load('gallery/galerija_zvanja'.$one->galleryId.'/' . $one->main_image, ['h' => 10]) }}">
-
                                             </a>
                                         </div>
                                         <div class="vesti-info single">
@@ -66,7 +66,7 @@
 
                                                     @endif
                                                 </div>
-                                                <input type="text" onClick="window.location.href='{{route('foton-klub.galerija.slika',[$one->galleryId, $one->id])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
+                                                <input type="text" onClick="window.location.href='{{route('foton-klub.galerija-zvanja.slika',[$one->galleryId, $one->id, 'userId='.$gallUserCall[$one->galleryId]])}}'" placeholder="Napišite komentar..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napišite komentar...'">
                                             </div>
                                         </div>
                                     </div>

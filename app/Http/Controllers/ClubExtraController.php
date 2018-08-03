@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CallGallery;
+use App\CallGalleryImage;
 use App\ClubNews;
 use App\Comment;
 use App\Exh;
@@ -43,8 +44,43 @@ class ClubExtraController extends Controller
             $new_com [$one->imageId] = $one->comments;
         }
 
-//        dd($items);
-        return view('front.club.newImage', compact('items', 'new_com'));
+        //call galery
+
+        $itemsCall = CallGalleryImage::where('created_at','>=', Auth::user()->last_login)
+            ->groupBy('id')
+            ->get();
+
+        $new_comCall = array();
+
+        $commentsCountCall = DB::table('comments')
+            ->select('imageId', DB::raw('count(*) as comments'))
+            ->leftjoin('callGalleryImage', 'comments.imageId','=','callGalleryImage.id')
+            ->where('callGalleryImage.created_at','>=', Auth::user()->last_login)
+            ->where('typeId', 1)
+            ->groupBy('imageId')
+            ->get();
+
+        foreach ($commentsCountCall as $one) {
+
+            $new_comCall [$one->imageId] = $one->comments;
+        }
+
+        $gallUser = array();
+        $galle = UserGallery::all();
+
+        foreach ($galle as $oneG){
+            $gallUser[$oneG->id] = $oneG->userId;
+        }
+
+        $galleCall = CallGallery::all();
+        $galleCallUser = array();
+        foreach ($galleCall as $oneG){
+            $galleCallUser[$oneG->id] = $oneG->userId;
+        }
+
+
+
+        return view('front.club.newImage', compact('items', 'new_com','itemsCall', 'new_comCall', 'galleCallUser', 'gallUser'));
     }
 
     public function newsDelete($id)
@@ -77,14 +113,17 @@ class ClubExtraController extends Controller
             ->groupBy('comments.imageId')
             ->orderby('comments.id', 'desc')
             ->get();
-//        dd($items[0]);
 
+        $gallUser = array();
         $galle = UserGallery::all();
+
+        foreach ($galle as $oneG){
+            $gallUser[$oneG->id] = $oneG->userId;
+        }
 
         foreach ($galle as $oneGal){
             $galle [$oneGal->id] = $oneGal->userId;
         }
-
 
         $comments = DB::table('comments')
             ->select('imageId', DB::raw('count(*) as comments'))
@@ -95,8 +134,39 @@ class ClubExtraController extends Controller
         foreach ($comments as $one) {
             $new_com [$one->imageId] = $one->comments;
         }
-//        dd($new_com);
-        return view('front.club.commentProf', compact('items', 'new_com', 'galle'));
+
+        //user call gallery
+        $itemsCall = Comment::where('comments.typeId', 1)
+            ->leftjoin('callGalleryImage', 'comments.imageId','=','callGalleryImage.id')
+            ->leftjoin('users', 'comments.userId','=','users.id')
+            ->where('comments.created_at','>=', Auth::user()->last_login)
+            ->where('users.type', 1)
+            ->groupBy('comments.imageId')
+            ->orderby('comments.id', 'desc')
+            ->get();
+
+        $galleCall = CallGallery::all();
+        $galleCallUser = array();
+        foreach ($galleCall as $oneG){
+            $gallUser[$oneG->id] = $oneG->userId;
+        }
+
+        foreach ($galleCall as $oneGal){
+            $galleCallUser [$oneGal->id] = $oneGal->userId;
+        }
+
+        $commentsCall = DB::table('comments')
+            ->select('imageId', DB::raw('count(*) as comments'))
+            ->where('typeId', 1)
+            ->groupBy('imageId')
+            ->get();
+
+        foreach ($commentsCall as $one) {
+            $new_comCall [$one->imageId] = $one->comments;
+        }
+
+
+        return view('front.club.commentProf', compact('items', 'new_com', 'galle', 'itemsCall', 'new_comCall', 'galleCall', 'gallUser', 'galleCallUser'));
     }
 
 
@@ -138,11 +208,18 @@ class ClubExtraController extends Controller
             ->orderby('comments.id', 'desc')
             ->get();
 
+        $gallUser = array();
         $gall = UserGallery::all();
+
+        foreach ($gall as $oneG){
+            $gallUser[$oneG->id] = $oneG->userId;
+        }
 
         foreach ($gall as $oneGal){
             $galle [$oneGal->id] = $oneGal->userId;
         }
+
+
 
 
         $new_com = array();
@@ -167,7 +244,15 @@ class ClubExtraController extends Controller
             ->orderby('comments.id', 'desc')
             ->get();
 
+
+
+        $gallUserCall = array();
         $gallCall = CallGallery::all();
+        foreach ($gallCall as $oneG){
+            $gallUserCall[$oneG->id] = $oneG->userId;
+        }
+
+
 
         foreach ($gallCall as $oneGal){
             $galleCall [$oneGal->id] = $oneGal->userId;
@@ -185,7 +270,7 @@ class ClubExtraController extends Controller
             $new_comCall [$one->imageId] = $one->comments;
         }
 
-        return view('front.club.commentImage', compact('items', 'new_com', 'galle','itemsCall', 'new_comCall', 'galleCall'));
+        return view('front.club.commentImage', compact('items', 'new_com', 'galle','itemsCall', 'new_comCall', 'galleCall', 'gallUserCall', 'gallUser'));
 
     }
 

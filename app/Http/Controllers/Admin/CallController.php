@@ -61,8 +61,8 @@ class CallController extends Controller
         $callGallery = callGallery::find($id);
         $items = CallGalleryImage::where('galleryId',$id)->get();
 
-
-        return view('admin.call.indexGallery', compact('items', 'id', 'callGallery'));
+        $user = User::where('id', $callGallery->userId)->first();
+        return view('admin.call.indexGallery', compact('items', 'id', 'callGallery', 'user'));
     }
 
     public function addGalleryImage($id)

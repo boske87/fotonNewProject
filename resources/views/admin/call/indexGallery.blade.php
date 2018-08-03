@@ -1,7 +1,7 @@
 @extends('admin/layouts/crud/index')
 
 @section('index_header')
-    <h1>Gallery zvanja:  {{$callGallery->galleryName}}</h1>
+    <h1>Gallery zvanja  {{$user->ime_prezime}}</h1>
 
 
     <div class="cms-options">

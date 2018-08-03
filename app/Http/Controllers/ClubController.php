@@ -97,6 +97,7 @@ class ClubController extends Controller
     }
     public function galleryOne($id)
     {
+
         $items = UserGalleryImage::where('galleryId', $id)->orderby('id','desc')->get();
         $gallery = UserGallery::find($id);
 

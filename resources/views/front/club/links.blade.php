@@ -97,7 +97,7 @@
                 {!! Form::open(['method' => 'PATCH','route' => ['foton-klub.links-izmena', $oneGal->id ]]) !!}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">Izmeni konkurs</h3>
+                    <h3 id="myModalLabel">Izmeni link</h3>
                 </div>
                 <div class="modal-body">
                     <p>Naslov:</p><input value="{{$oneGal->head}}" type="text" name="head" class="input-block-level" placeholder="Naslov...." required>

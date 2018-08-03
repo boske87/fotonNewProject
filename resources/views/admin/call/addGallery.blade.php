@@ -35,7 +35,7 @@
 
                         <!-- Username Form Input -->
                             <div class="form-group{!! $errors ->has('galleryName') ? ' has-error' : '' !!}">
-                                {!! Form::label('galleryName', 'Ime album zvanja', ['class' => 'col-sm-2 control-label']) !!}
+                                {!! Form::label('galleryName', 'Ime albuma zvanja', ['class' => 'col-sm-2 control-label']) !!}
                                 <div class="col-sm-6">
                                     {!! Form::text('galleryName', null, ['class' => 'form-control', 'reqired']) !!}
                                     {!! $errors ->first('galleryName', '<span class="help-block">:message</span>') !!}

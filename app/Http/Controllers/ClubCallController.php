@@ -15,8 +15,8 @@ class ClubCallController extends Controller
 {
     public function galleryOne($id)
     {
-        $items = CallGalleryImage::where('galleryId', $id)->get();
-//        dd($items);
+
+        $items = CallGalleryImage::where('galleryId', $id)->orderby('id', 'desc')->get();
         $gallery = CallGallery::find($id);
         $user_id = Auth::user()->id;
 

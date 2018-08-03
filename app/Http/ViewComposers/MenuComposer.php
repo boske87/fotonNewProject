@@ -1,6 +1,7 @@
 <?php namespace App\Http\ViewComposers;
 
 
+use App\CallGalleryImage;
 use App\Comment;
 use App\ProfMain;
 use App\User;
@@ -39,6 +40,15 @@ class MenuComposer {
             $newImage = UserGalleryImage::where('created_at','>=', Auth::user()->last_login)
                 ->groupBy('id')
                 ->get()->count();
+
+            $newImageCall = CallGalleryImage::where('created_at','>=', Auth::user()->last_login)
+                ->groupBy('id')
+                ->get()->count();
+
+
+            $newImage = $newImage + $newImageCall;
+
+
             $newImageComments = Comment::where('comments.typeId', 0)
                 ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
                 ->where('comments.created_at','>=', Auth::user()->last_login)
@@ -62,6 +72,17 @@ class MenuComposer {
                 ->groupBy('comments.imageId')
                 ->orderby('comments.id', 'desc')
                 ->get()->count();
+
+            $newImageCommentsProfCall = Comment::where('comments.typeId', 1)
+                ->leftjoin('usersGalleryImage', 'comments.imageId','=','usersGalleryImage.id')
+                ->leftjoin('users', 'comments.userId','=','users.id')
+                ->where('comments.created_at','>=', Auth::user()->last_login)
+                ->where('users.type', 1)
+                ->groupBy('comments.imageId')
+                ->orderby('comments.id', 'desc')
+                ->get()->count();
+
+            $newImageCommentsProf = $newImageCommentsProf + $newImageCommentsProfCall;
         }
 
 

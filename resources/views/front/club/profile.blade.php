@@ -11,7 +11,7 @@
         <div class="container">
             @include('layouts.partials.side')
             <div class="container-small">
-                <p style="text-align: left; padding-left: 2%; padding-right: 2%">{{ Auth::user()->optionDesc }}</p>
+                <p class="span8" style="text-align: left; padding-left: 6%; padding-right: 4%">{{ Auth::user()->optionDesc }}</p>
                 <h1>GALERIJA ZA ZVANJA</h1>
                 <div class="row">
                     @if($callGal->count()>0)

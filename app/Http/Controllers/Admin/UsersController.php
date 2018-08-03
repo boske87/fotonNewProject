@@ -117,7 +117,10 @@ class UsersController extends Controller
     public function oneGallery($id) {
         $items = UserGalleryImage::where('galleryId', $id)->get();
         $gal = UserGallery::find($id);
-        return view('admin.users.oneGallery', compact('items', 'gal'));
+
+        $user = User::find($gal->userId);
+
+        return view('admin.users.oneGallery', compact('items', 'gal', 'user'));
     }
 
     public function deleteImage($id)
