@@ -6,6 +6,12 @@
     html {
         overflow-y: scroll;
     }
+    .online {
+        font-size: 15px;
+    }
+    .direct-chat-text {
+        font-size: 15px;
+    }
 </style>
     <section class="background-new">
         <div class="container">
