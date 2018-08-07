@@ -54,8 +54,9 @@
 
                     <li class="color-circles">
                         <ul>
-                            <li style="background-color:{{$gallery->color}}"></li>
-                            <li class="txt"><span>{{$gallery->titula}}</span></li>
+                            <li style="background-color:{{$gallery->color}} ;width: 60px; height: 60px;line-height: 60px;
+                                    text-align: center;">{{Auth::user()->titula}}</li>
+                            <li class="txt"></li>
                         </ul>
                     </li>
                 </ul>
@@ -86,8 +87,9 @@
                                 </li>
                                 <li class="color-circles">
                                     <ul>
-                                        <li style="background-color:{{Auth::user()->color}}"></li>
-                                        <li class="txt" style="width: 50%; text-align: left"><span>{{Auth::user()->titula}}</span></li>
+                                        <li  style="background-color:{{Auth::user()->color}}; width: 40px; height: 40px;line-height: 40px;
+                                                text-align: center;">{{Auth::user()->titula}}</li>
+                                        <li class="txt" style="width: 50%; text-align: left"></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -133,8 +135,8 @@
                                 '</li>\n' +
                                 '<li class="color-circles">\n' +
                                 '<ul>\n' +
-                                '<li style="background-color:'+data.result[x].color+';"></li>\n' +
-                                ' <li class="txt" style="width: 50%; text-align: left"><span>'+data.result[x].titula+'</span></li>\n' +
+                                '<li style="background-color:'+data.result[x].color+'; width: 40px; height: 40px;line-height: 40px;text-align: center;">'+data.result[x].titula+'</li>\n' +
+                                ' <li class="txt" style="width: 50%; text-align: left;"></li>\n' +
                                 '</ul>\n' +
                                 '</li>\n' +
                                 '</ul>\n' +
@@ -180,8 +182,8 @@
                         '</li>\n' +
                         '<li class="color-circles">\n' +
                         '<ul>\n' +
-                        '<li style="background-color:{{Auth::user()->color}};"></li>\n' +
-                        ' <li class="txt" style="width: 50%; text-align: left"><span>{{Auth::user()->titula}}</span></li>\n' +
+                        '<li style="background-color:{{Auth::user()->color}};width: 40px; height: 40px;line-height: 40px;text-align: center;">{{Auth::user()->titula}}</li>\n' +
+                        ' <li class="txt" style="width: 50%; text-align: left"></li>\n' +
                         '</ul>\n' +
                         '</li>\n' +
                         '</ul>\n' +
