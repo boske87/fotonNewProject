@@ -32,8 +32,8 @@
                         <div class="form-group{!! $errors ->has('head') ? ' has-error' : '' !!}">
                             {!! Form::label('name', 'Naslov', ['class' => 'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                                {!! $errors ->first('name', '<span class="help-block">:message</span>') !!}
+                                {!! Form::text('head', null, ['class' => 'form-control']) !!}
+                                {!! $errors ->first('head', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
@@ -48,8 +48,8 @@
                         <div class="form-group{!! $errors ->has('desc') ? ' has-error' : '' !!}">
                             {!! Form::label('opis', 'Opis*', ['class' => 'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::textarea('opis', null, ['id'=>'desc', 'class' => 'form-control', 'rows' => 8]) !!}
-                                {!! $errors ->first('opis', '<span class="help-block">:message</span>') !!}
+                                {!! Form::textarea('desc', null, ['id'=>'desc', 'class' => 'form-control', 'rows' => 8]) !!}
+                                {!! $errors ->first('desc', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 

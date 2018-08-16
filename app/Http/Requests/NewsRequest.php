@@ -25,7 +25,7 @@ class NewsRequest extends FormRequest
     {
         return [
             'head'    => 'required',
-            'desc'    => 'required',
+            'opis'    => 'required',
             'main_image'    => 'required'
         ];
     }
