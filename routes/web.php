@@ -236,7 +236,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::delete('/prof/gallery/delete/{id}', ['as' => 'admin.prof.gallery.delete', 'uses' => 'Admin\ProfController@deleteImageGallery']);
 
     Route::get('/prof-text/{id}', ['as' => 'admin.prof-text', 'uses' => 'Admin\ProfController@editText']);
-    Route::patch('prof-text-update/{id}', ['as' => 'admin.prof-text.update', 'uses' => 'Admin\ProfController@editUpdate']);
+    Route::patch('/prof-text-update/{id}', ['as' => 'admin.prof-text.update', 'uses' => 'Admin\ProfController@editUpdate']);
 
 
     //news
