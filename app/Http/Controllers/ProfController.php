@@ -110,6 +110,6 @@ class ProfController extends Controller
     public function editText($id){
         $homeText = ProfText::find($id);
 
-        return view('admin.advance.index', compact('id','homeText'));
+        return view('admin.prof.text', compact('id','homeText'));
     }
 }
