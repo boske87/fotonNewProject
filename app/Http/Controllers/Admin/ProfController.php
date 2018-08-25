@@ -59,7 +59,10 @@ class ProfController extends Controller
         if(isset($input['main_image']))
             $input['main_image'] = $this->upload('main_image', 'img/gallery');
 
+
         $homeText->update($input);
+
+
 
         return redirect()->route('admin.prof', '1')->withFlashMessage("Updated successfully.")->withFlashType('success');
     }
@@ -110,6 +113,7 @@ class ProfController extends Controller
     public function editText($id){
         $homeText = ProfText::find($id);
 
+
         return view('admin.prof.text', compact('id','homeText'));
     }
 
@@ -120,6 +124,7 @@ class ProfController extends Controller
         $input = $request->all();
 
         $homeText->update($input);
+
 
         return redirect()->route('admin.prof-text', '1')->withFlashMessage("Updated successfully.")->withFlashType('success');
     }
