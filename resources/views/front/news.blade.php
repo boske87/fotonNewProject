@@ -50,7 +50,7 @@
                                 <h2><a href="{{route('vest',$one->slug)}}"> {!! $one->head !!}</a></h2>
                                 <span class="vesti-datum">{{ $one->created_at }}</span>
                                 <p>
-                                    {!! mb_substr($oneGal->desc,0,30, "utf-8") !!}...
+                                    {!! mb_substr($one->desc,0,30, "utf-8") !!}...
                                 </p>
                                 <a href="{{route('vest',$one->slug)}}">SAZNAJ VIŠE &rarr;</a><br/>
                                 <hr/>
