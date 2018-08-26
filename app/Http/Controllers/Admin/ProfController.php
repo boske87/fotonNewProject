@@ -37,6 +37,7 @@ class ProfController extends Controller
         // upload
         $input['main_image'] = $this->upload('main_image', 'img/gallery');
 
+
         ProfMain::create($input);
 
         return redirect()->route('admin.prof')->withFlashMessage("Insert image successfully.")->withFlashType('success');

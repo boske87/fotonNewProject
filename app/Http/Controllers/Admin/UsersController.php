@@ -108,11 +108,7 @@ class UsersController extends Controller
 
     public function deleteGall($id){
         $items = UserGallery::destroy($id);
-        if($items == 0) {
-            return redirect()->route('admin.users')->withFlashMessage("Delete gallerys.")->withFlashType('success');
-        }
-        $user = User::find($items->userId);
-        return view('admin.users.gallerys', compact('items', 'user'));
+        return redirect()->route('admin.users')->withFlashMessage("Delete gallerys.")->withFlashType('success');
 
     }
 

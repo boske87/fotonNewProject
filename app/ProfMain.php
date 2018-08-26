@@ -12,7 +12,7 @@ class ProfMain extends Model
     use Sluggable;
 
     protected $table = 'profesori';
-    protected $fillable = ['galleryName','userId','main_image','desc', 'slug','gallery_id','created_at'];
+    protected $fillable = ['name','desc','main_image','slug','gallery_id','created_at'];
 
 
 
