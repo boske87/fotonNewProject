@@ -50,7 +50,7 @@
                                         <h2><a href="{{route('foton-klub.vest',$oneGal->slug)}}"> {!! $oneGal->head !!}</a></h2>
                                         <span class="vesti-datum">{{ $oneGal->created_at }} - {{$oneGal->user->ime_prezime}}</span>
                                         <p>
-                                            {!! substr($oneGal->desc,0,30) !!}...
+                                            {!! mb_substr($oneGal->desc,0,30, "utf-8") !!}...
                                         </p>
                                         <a href="#" data-toggle="modal" data-target="#myModalIzmena{{$oneGal->id}}"
                                            style="color: green">IZMENI &rarr;</a><br/>
