@@ -55,15 +55,21 @@
 
                     <li class="color-circles">
                         <ul>
+                            @if(app('request')->has('userId'))
+                                <li style="background-color:{{$gallery->color}} ;width: 60px; height: 60px;line-height: 60px;
+                                        text-align: center;">{{$user->titula}}</li>
+                            @else
                             <li style="background-color:{{$gallery->color}} ;width: 60px; height: 60px;line-height: 60px;
                                     text-align: center;">{{Auth::user()->titula}}</li>
+
+                            @endif
                             <li class="txt"></li>
                         </ul>
                     </li>
                 </ul>
                 <div class="profile-comment-info">
                     <ul>
-                        <li><span id="pregledi">{{$item->view}}</span><span>pregleda</span></li>
+                        <li><span id="pregledi">{{$item->view}}</span><span>pregleda2</span></li>
                         <li><span id="komentara">{{isset ($new_com[$item->id]) ? $new_com[$item->id] : 0}}</span><span>komentara</span></li>
                     </ul>
                 </div>
