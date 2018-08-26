@@ -54,9 +54,14 @@
 
                     <li class="color-circles">
                         <ul>
-                            <li style="background-color:{{$gallery->color}} ;width: 60px; height: 60px;line-height: 60px;
-                                    text-align: center;">{{Auth::user()->titula}}</li>
-                            <li class="txt"></li>
+                            @if(app('request')->has('userId'))
+                                    <li style="background-color:{{$gallery->color}} ;width: 60px; height: 60px;line-height: 60px;
+                                            text-align: center;">{{$user->titula}}</li>
+                                @else
+                                <li style="background-color:{{$gallery->color}} ;width: 60px; height: 60px;line-height: 60px;
+                                        text-align: center;">{{Auth::user()->titula}}</li>
+                                <li class="txt"></li>
+                            @endif
                         </ul>
                     </li>
                 </ul>
