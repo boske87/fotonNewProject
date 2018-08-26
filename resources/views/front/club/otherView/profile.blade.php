@@ -42,7 +42,7 @@
                 </div>
 
                 <hr>
-                <h1>GALERIJA</h1>
+                <h1>MOJA GALERIJA</h1>
 
                 <div class="row">
                     @if($myGal->count()>0)
