@@ -65,8 +65,7 @@
                                         <p>
 
                                         </p>
-                                        <a onclick="return confirm('Da li sigurno zelite da obrisete album?');" href="{{route('foton-klub.album-brisanje', $oneGal->id)}}" style="color: red">OBRISI ALBUM &rarr;</a><br/>
-                                        <hr/>
+                                         <hr/>
                                     </div>
                                 </div>
                             </div>
