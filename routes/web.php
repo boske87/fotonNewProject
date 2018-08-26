@@ -154,6 +154,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/user/oneGallery/{id}', ['as' => 'admin.user.one-gallery', 'uses' => 'Admin\UsersController@oneGallery']);
     Route::delete('/user/oneGallery/{id}', ['as' => 'admin.user.one-gallery', 'uses' => 'Admin\UsersController@deleteImage']);
 
+    Route::delete('/user/usergallery/{id}', ['as' => 'admin.usergallery.delete', 'uses' => 'Admin\UsersController@deleteGall']);
+
     Route::get('/users/add', ['as' => 'admin.users.add', 'uses' => 'Admin\UsersController@add']);
 
     Route::post('/users/add', ['as' => 'admin.users.add', 'uses' => 'Admin\UsersController@store']);

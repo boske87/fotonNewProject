@@ -44,6 +44,7 @@ class GalleryController extends Controller
 
     public function delete($id)
     {
+
         Gallery::destroy($id);
 
         return redirect()->route('admin.gallery')->withFlashMessage("Delete image successfully.")->withFlashType('success');
