@@ -15,9 +15,10 @@
                         <div class="span12">
                             <div id="galleria">
 
-                                @foreach($items as $one)
-                                    <img src="{{ Image::load('gallery/' . $one->main_image, ['h' => 10]) }}" alt="" />
-                                @endforeach
+
+                                    <img width="100%" class="asyncImage"
+                                         data-src="{{ Image::load('gallery/' . $items[1]->main_image, ['h' => 10]) }}" src="{{ Image::load('gallery/' . $items[1]->main_image, ['h' => 10]) }}"  alt="" />
+
                             </div>
                         </div>
                     </div>
@@ -41,6 +42,25 @@
     <!-- End class="main" -->
 
     <script>Galleria.loadTheme("{{ asset('assets/js/galleria.classic.min.js')}}");
-        Galleria.run("#galleria");</script>
+        let data = [
+                <?php foreach ($items as $image): ?>
+            {
+                thumb: '<?= 'img/gallery/' .$image->main_image ?>',
+                image: '<?= 'img/gallery/' .$image->main_image ?>',
+
+            },
+            <?php endforeach ?>
+        ];
+
+        Galleria.run('#galleria',
+            {
+                dataSource: data
+            });
+
+
+    </script>
+
+
+
 
 @stop
