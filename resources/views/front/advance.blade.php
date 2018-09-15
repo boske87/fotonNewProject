@@ -39,7 +39,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <img src="{{asset('assets/img/big-napredni-nivo.png')}}" alt="Big Foton">
+                            <img src="{{asset('assets/img/Foton Website-03-Napredni modul_2018_slika.jpg')}}" alt="Big Foton">
                         </div>
                         <div class="span12 vrh">
                             <p>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="span12">
                             <div class="nivo-video">
-                                <a href="{!! $advanceText->Text7 !!}" target="_blank"><img style="height:270px; width:440px !important;"  src="{{asset('assets/img/Naprednivideo.jpg')}}"></a>
+
                             </div>
                         </div>
                     </div>
@@ -61,9 +61,8 @@
                     <div class="row">
                         <div class="span12">
                             <div id="galleria">
-                                @foreach($advanceGallery as $one)
-                                    <img src="{{ Image::load('gallery/' . $one->main_image, ['h' => 10]) }}" alt="" />
-                                @endforeach
+                                <img src="{{ Image::load('gallery/' . $advanceGallery[0]->main_image, ['h' => 10]) }}" alt="" />
+
                             </div>
                         </div>
                     </div>
@@ -75,25 +74,38 @@
                     <div class="row">
                         <div class="span12 pocetni-info">
                             <br/><br/>
-                            <h3 style="font-weight: bold !important;">OVAJ KURS SE PREPORUČUJE</h3>
+                            <h3 style="font-weight: bold !important;">NASTAVNI PROGRAM</h3>
                             <p>{!! $advanceText->Text2 !!}</p>
                         </div>
                         <div class="span12 pocetni-info">
                             <br/>
-                            <h3 style="font-weight: bold !important;">CILJ OVOG KURSA</h3>
+                            <h3 style="font-weight: bold !important;">DIPLOMA</h3>
                             <p>{!! $advanceText->Text3!!}</p>
                         </div>
 
                         <div class="span12 pocetni-info">
                             <br/>
-                            <h3 style="font-weight: bold !important;">NASTAVNI PROGRAM</h3>
+                            <h3 style="font-weight: bold !important;">CENA</h3>
                             <p>{!! $advanceText->Text4!!}</p>
 
                             <hr>
                         </div>
+
+                        <div class="span12 pocetni-info">
+                            <br/>
+                            <h3 style="font-weight: bold !important;">ŠTA DALJE</h3>
+                            <p>{!! $advanceText->Text8!!}</p>
+
+                            <hr>
+                        </div>
+
                         <div class="span12 pocetni-info">
                             <p>{!! $advanceText->Text5 !!}</p>
-                            <div id="hid" style="display: none">{!! $advanceText->Text6 !!}</div>
+                            <div id="hid" style="display: none">{!! $advanceText->Text6 !!}
+                                <div class="nivo-info">
+                                    <a href="/prijava"><img src="{{ Image::load('advancePage/' . $advanceText->imageHiden, ['h' => 10]) }}" alt="" /></a>
+                                </div>
+                            </div>
                             <div class="nivo-info">
                                 <a href="#" onclick="show();return false;">
                                     <span id="more">SAZNAJ VIŠE</span>
@@ -120,5 +132,26 @@
     <!-- End class="main" -->
 
     <script>Galleria.loadTheme("{{ asset('assets/js/galleria.classic.min.js')}}");
-        Galleria.run("#galleria");</script>
+        let data = [
+                <?php foreach ($advanceGallery as $image): ?>
+            {
+                thumb: '<?= 'img/gallery/' .$image->main_image ?>',
+                image: '<?= 'img/gallery/' .$image->main_image ?>',
+
+            },
+            <?php endforeach ?>
+        ];
+
+        Galleria.run('#galleria',
+            {
+
+                preload: 1,
+                dataSource: data,
+                carousel: true,
+                transition: 'fade',
+                transitionSpeed: 5,
+            });
+
+
+    </script>
 @stop

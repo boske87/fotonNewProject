@@ -28,6 +28,10 @@ class AdvanceController extends Controller
 
         $input = $request->all();
 
+
+        // upload
+        $input['imageHiden'] = $this->upload('imageHiden', 'img/advancePage');
+
         $homeText->update($input);
 
         return redirect()->route('admin.advance', '1')->withFlashMessage("Updated successfully.")->withFlashType('success');
@@ -46,6 +50,8 @@ class AdvanceController extends Controller
     public function advanceGalleryAddStore(AdvanceGalleryRequest $request)
     {
         $input = $request->all();
+
+
 
         // upload
         $input['main_image'] = $this->upload('main_image', 'img/gallery');

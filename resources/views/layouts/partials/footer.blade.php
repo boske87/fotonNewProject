@@ -9,16 +9,15 @@
                     tel: +381 64 11 59 800 <br/>
                     e-mail: skolafotografije@gmail.com <br/>
                     Brankova 9, Zeleni venac 11000 Beograd <br/>
-                    Đure Daničića 17, 11000 Beograd
-                    <br/><br/>
+                    <br/>
                     &copy; Foton škola fotografije
                 </p>
             </div>
 
             <div class="span2 foot-menu">
                 <p>
-                    <a href="/pocetni-nivo">Početni nivo</a><br/>
-                    <a href="/napredni-nivo">Napredni nivo</a><br/>
+                    <a href="/pocetni-nivo">Početni modul</a><br/>
+                    <a href="/napredni-nivo">Napredni modul</a><br/>
                     <a href="/profesori">Profesori</a><br/>
                     <a href="/galerija-fotografija">Galerija</a><br/>
                     <a href="/vesti">Vesti</a><br/>

@@ -49,7 +49,7 @@
                             FOTON ŠKOLA FOTOGRAFIJE<br/>
                             tel: +381 64 11 59 800<br/>
                             e-mail: skolafotografije@gmail.com<br/>
-                            Novopazarska 46 b, 11000 Beograd<br/>
+                            Brankova 9, Zeleni venac , 11000 Beograd<br/>
                             Đure Daničića 17, 11000 Beograd
                         </p><br/>
                         @include('admin.layouts.crud.flash_message')
@@ -120,8 +120,7 @@ function initialize() {
 
     // Multiple Markers
     var markers = [
-        ['Skola fotografije, Beograd', 44.798570, 20.477826],
-        ['Skola fotografije, Beograd', 44.8159888,20.4659168]
+        ['Skola fotografije, Beograd',44.814654, 20.456004]
     ];
 
     // Info Window Content

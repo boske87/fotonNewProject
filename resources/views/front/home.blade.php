@@ -90,7 +90,7 @@
                                 <img src="{{asset('assets/img/pocetni-icon.png')}}" alt="Pocetni Nivo">
                             </div>
                             <div class="nivo-title">
-                                <h2>POČETNI NIVO</h2>
+                                <h2>POČETNI MODUL</h2>
                             </div>
                             <div class="nivo-opis">
                                 <p>
@@ -100,7 +100,7 @@
                             </div>
                             <div class="nivo-video">
 
-                                <a href="{!! $front->Text5 !!}" target="_blank"><img src="{{asset('assets/img/Pocetnivideo.jpg')}}"></a>
+
                             </div>
                             <div class="nivo-info">
                                 <a href="/pocetni-nivo">
@@ -113,7 +113,7 @@
                                 <img src="{{asset('assets/img/napredni-icon.png')}}" alt="Napredni Nivo">
                             </div>
                             <div class="nivo-title">
-                                <h2>NAPREDNI NIVO</h2>
+                                <h2>NAPREDNI MODUL</h2>
                             </div>
                             <div class="nivo-opis">
                                 <p>
@@ -121,7 +121,7 @@
                                 </p>
                             </div>
                             <div class="nivo-video">
-                                <a href="{!! $front->Text5 !!}" target="_blank"><img src="{{asset('assets/img/Naprednivideo.jpg')}}"></a>
+
                             </div>
                             <div class="nivo-info">
                                 <a href="/napredni-nivo">
@@ -186,7 +186,8 @@
                             <p>
                                 {!! $front->Text2 !!}
                             </p>
-                            <div id="hid" class="pocetni-info vrh" style="display: none">{!! $front->Text3 !!} <p><a href="{{asset('assets/img/FOTON POCETNI_ jesen 2016.pdf')}}"><img  style="height: 25px !important; width: 25px !important;" src="{{asset('assets/img/pdf2.png')}}"></a></p></div>
+                            <div id="hid" class="pocetni-info vrh" style="display: none">{!! $front->Text3 !!} <p>
+                                   </p></div>
                             <div class="klub-info">
                                 <a href="#" onclick="show();return false;">
                                     <span id="more">SAZNAJ VIŠE</span>

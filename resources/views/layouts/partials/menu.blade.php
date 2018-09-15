@@ -32,10 +32,10 @@
                         <div class="menu-main-navigation-container">
                             <ul id="menu-main-navigation" class="main-menu">
                                 <li data-width="">
-                                    <a href="/pocetni-nivo" class="">Početni nivo</a>
+                                    <a href="/pocetni-nivo" class="">Početni modul</a>
                                 </li>
                                 <li>
-                                    <a href="/napredni-nivo"  class="">Napredni nivo</a>
+                                    <a href="/napredni-nivo"  class="">Napredni modul</a>
                                 </li>
                                 <li>
                                     <a href="/prijava"  class="">Prijava</a>

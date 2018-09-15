@@ -14,7 +14,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="span12">
-                            <img src="{{asset('assets/img/big-pocetni-nivo.png')}}" alt="Big Foton">
+                            <img src="{{asset('assets/img/Foton Website-02-Pocetni modul_2018_slika.jpg')}}" alt="Big Foton">
                         </div>
                         <div class="span12">
                             <p>
@@ -23,7 +23,7 @@
                         </div>
                         <div class="span12">
                             <div class="nivo-video">
-                                <a href="{!! $basicText->Text7 !!}" target="_blank"><img style="height:270px; width:440px !important;"  src="{{asset('assets/img/Pocetnivideo.jpg')}}"></a>
+                                <a href="{!! $basicText->Text7 !!}" target="_blank"></a>
                             </div>
                         </div>
                     </div>
@@ -36,9 +36,8 @@
                     <div class="row">
                         <div class="span12">
                             <div id="galleria">
-                                @foreach($basicGallery as $one)
-                                    <img src="{{ Image::load('gallery/' . $one->main_image, ['h' => 10]) }}" alt="" />
-                                @endforeach
+                                <img src="{{ Image::load('gallery/' . $basicGallery[0]->main_image, ['h' => 10]) }}" alt="" />
+
                             </div>
                         </div>
                     </div>
@@ -50,24 +49,35 @@
                     <div class="row">
                         <div class="span12 pocetni-info">
                             <br/><br/>
-                            <h3 style="font-weight: bold !important;">OVAJ KURS SE PREPORUČUJE</h3>
+                            <h3 style="font-weight: bold !important;">NASTAVNI PROGRAM</h3>
                             <p>{!! $basicText->Text2 !!}</p>
                         </div>
                         <div class="span12 pocetni-info">
                             <br/>
-                            <h3 style="font-weight: bold !important;">CILJ OVOG KURSA</h3>
+                            <h3 style="font-weight: bold !important;">DIPLOMA</h3>
                             <p>{!! $basicText->Text4 !!}</p>
                         </div>
                         <div class="span12 pocetni-info">
                             <br/>
-                            <h3 style="font-weight: bold !important;">NASTAVNI PROGRAM</h3>
+                            <h3 style="font-weight: bold !important;">CENA</h3>
                             <p>{!! $basicText->Text5 !!}</p>
 
                             <hr>
                         </div>
                         <div class="span12 pocetni-info">
+                            <br/>
+                            <h3 style="font-weight: bold !important;">ŠTA DALJE</h3>
+                            <p>{!! $basicText->Text8 !!}</p>
+
+                            <hr>
+                        </div>
+                        <div class="span12 pocetni-info">
                             <p>{!! $basicText->Text3 !!}</p>
-                            <div id="hid" style="display: none">{!! $basicText->Text6  !!} </div>
+                            <div id="hid" style="display: none">{!! $basicText->Text6  !!}
+                                <div class="nivo-info">
+                                    <a href="/prijava"><img src="{{ Image::load('basicPage/' . $basicText->imageHiden, ['h' => 10]) }}" alt="" /></a>
+                                </div>
+                            </div>
                             <div class="nivo-info">
                                 <a href="#" onclick="show();return false;">
                                     <span id="more">SAZNAJ VIŠE</span>
@@ -93,7 +103,29 @@
     </section>
     <!-- End class="main" -->
 
+
     <script>Galleria.loadTheme("{{ asset('assets/js/galleria.classic.min.js')}}");
-        Galleria.run("#galleria");</script>
+        let data = [
+                <?php foreach ($basicGallery as $image): ?>
+            {
+                thumb: '<?= 'img/gallery/' .$image->main_image ?>',
+                image: '<?= 'img/gallery/' .$image->main_image ?>',
+
+            },
+            <?php endforeach ?>
+        ];
+
+        Galleria.run('#galleria',
+            {
+
+                preload: 0,
+                dataSource: data,
+                carousel: true,
+                transition: 'fade',
+                transitionSpeed: 1000,
+            });
+
+
+    </script>
 
 @stop

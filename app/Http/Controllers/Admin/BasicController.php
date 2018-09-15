@@ -32,6 +32,9 @@ class BasicController extends Controller
 
         $input = $request->all();
 
+        // upload
+        $input['imageHiden'] = $this->upload('imageHiden', 'img/basicPage');
+
         $homeText->update($input);
 
         return redirect()->route('admin.basic', '1')->withFlashMessage("Updated successfully.")->withFlashType('success');

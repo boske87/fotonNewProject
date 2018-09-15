@@ -1,6 +1,28 @@
 @extends('layouts.main')
 
 @section('content')
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
     <!-- Content section -->
     <section class="main">
 
@@ -17,7 +39,7 @@
 
 
                                     <img width="100%" class="asyncImage"
-                                         data-src="{{ Image::load('gallery/' . $items[1]->main_image, ['h' => 10]) }}" src="{{ Image::load('gallery/' . $items[1]->main_image, ['h' => 10]) }}"  alt="" />
+                                         data-src="{{ Image::load('gallery/' . $items[0]->main_image, ['h' => 10]) }}" src="{{ Image::load('gallery/' . $items[0]->main_image, ['h' => 10]) }}"  alt="" />
 
                             </div>
                         </div>
@@ -41,7 +63,13 @@
     </section>
     <!-- End class="main" -->
 
-    <script>Galleria.loadTheme("{{ asset('assets/js/galleria.classic.min.js')}}");
+
+    <script>
+        $(document).ready(function() {
+            $('#galleria') .html('<div style="width: 100%; background-color: white"></div>');
+
+        });
+        Galleria.loadTheme("{{ asset('assets/js/galleria.classic.min.js')}}");
         let data = [
                 <?php foreach ($items as $image): ?>
             {
@@ -52,9 +80,16 @@
             <?php endforeach ?>
         ];
 
+
         Galleria.run('#galleria',
             {
-                dataSource: data
+                idleMode: 'false',
+                preload: 1,
+                wait: 0,
+                dataSource: data,
+                carousel: true,
+                transition: 'fade',
+                transitionSpeed: 5,
             });
 
 
