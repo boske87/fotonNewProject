@@ -50,7 +50,6 @@
                             tel: +381 64 11 59 800<br/>
                             e-mail: skolafotografije@gmail.com<br/>
                             Brankova 9, Zeleni venac , 11000 Beograd<br/>
-                            Đure Daničića 17, 11000 Beograd
                         </p><br/>
                         @include('admin.layouts.crud.flash_message')
                         {!! Form::open(['route' => 'sendMail']) !!}
