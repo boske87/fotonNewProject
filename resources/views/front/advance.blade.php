@@ -88,7 +88,7 @@
                             <h3 style="font-weight: bold !important;">CENA</h3>
                             <p>{!! $advanceText->Text4!!}</p>
 
-                            <hr>
+
                         </div>
 
                         <div class="span12 pocetni-info">
