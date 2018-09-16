@@ -66,10 +66,10 @@
                         </div>
                         <div class="span12 pocetni-info">
                             <br/>
-                            <h3 style="font-weight: bold !important;">ŠTA DALJE</h3>
+                            <h3 style="font-weight: bold !important;">ŠTA DALJE?</h3>
                             <p>{!! $basicText->Text8 !!}</p>
 
-                            <hr>
+                            <hr style="margin-bottom: -1%">
                         </div>
                         <div class="span12 pocetni-info">
                             <p>{!! $basicText->Text3 !!}</p>

@@ -37,6 +37,12 @@
             formatting: ['p', 'h2', 'h3', 'h4', 'blockquote']
         });
 
+        $('#text8').redactor({
+            buttons: ['html', 'formatting', 'bold', 'italic', 'underline', 'outdent', 'indent', 'alignment', 'unorderedlist', 'orderedlist', 'link'],
+            buttonSource: true,
+            formatting: ['p', 'h2', 'h3', 'h4', 'blockquote']
+        });
+
     });
 </script>
 

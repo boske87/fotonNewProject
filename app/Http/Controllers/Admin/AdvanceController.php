@@ -29,8 +29,10 @@ class AdvanceController extends Controller
         $input = $request->all();
 
 
-        // upload
-        $input['imageHiden'] = $this->upload('imageHiden', 'img/advancePage');
+        if(isset($input['imageHiden'])) {
+            $input['imageHiden'] = $this->upload('imageHiden', 'img/advancePage');
+        }
+
 
         $homeText->update($input);
 

@@ -27,7 +27,7 @@
                 <div class="tab-pane fade in active" id="tab-1">
                     <fieldset>
                         <!-- Body Form Input -->
-                        <div class="form-group{!! $errors ->has('body') ? ' has-error' : '' !!}">
+                        <div  class="form-group{!! $errors ->has('body') ? ' has-error' : '' !!}">
                             {!! Form::label('body', 'Tekst 1*', ['class' => 'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
                                 {!! Form::textarea('Text1', $homeText->Text1, ['id'=>'text', 'class' => 'form-control', 'rows' => 4]) !!}
@@ -86,7 +86,7 @@
                         <div class="form-group{!! $errors ->has('body8') ? ' has-error' : '' !!}">
                             {!! Form::label('body8', 'Sta dalje*', ['class' => 'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::textarea('Text8', $homeText->Text8, ['id'=>'text7', 'class' => 'form-control', 'rows' => 4]) !!}
+                                {!! Form::textarea('Text8', $homeText->Text8, ['id'=>'text8', 'class' => 'form-control', 'rows' => 4]) !!}
                                 {!! $errors ->first('body8', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>

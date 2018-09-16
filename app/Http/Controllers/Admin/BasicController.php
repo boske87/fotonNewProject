@@ -32,8 +32,14 @@ class BasicController extends Controller
 
         $input = $request->all();
 
-        // upload
-        $input['imageHiden'] = $this->upload('imageHiden', 'img/basicPage');
+
+        if(isset($input['imageHiden'])) {
+            $input['imageHiden'] = $this->upload('imageHiden', 'img/basicPage');
+        }
+
+
+
+
 
         $homeText->update($input);
 

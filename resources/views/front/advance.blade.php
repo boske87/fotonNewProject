@@ -93,7 +93,7 @@
 
                         <div class="span12 pocetni-info">
                             <br/>
-                            <h3 style="font-weight: bold !important;">ŠTA DALJE</h3>
+                            <h3 style="font-weight: bold !important;">ŠTA DALJE?</h3>
                             <p>{!! $advanceText->Text8!!}</p>
 
                             <hr>
