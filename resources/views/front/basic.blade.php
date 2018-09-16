@@ -6,6 +6,9 @@
         p {
             line-height: 20px !important;
         }
+        .promos {
+            padding-bottom: 20px !important;;
+        }
     </style>
     <!-- Content section -->
     <section class="main">
