@@ -30,7 +30,7 @@
             line-height: 20px !important;
         }
         .promos {
-            padding-bottom: 20px !important;;
+            padding-bottom: 10px !important;;
         }
     </style>
     <!-- Content section -->
