@@ -96,7 +96,7 @@
                             <h3 style="font-weight: bold !important;">ŠTA DALJE?</h3>
                             <p>{!! $advanceText->Text8!!}</p>
 
-                            <hr>
+                            <hr style="margin-bottom: -1%">
                         </div>
 
                         <div class="span12 pocetni-info">
