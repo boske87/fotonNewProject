@@ -1,7 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
+    <style type="text/css">
 
+        p {
+            line-height: 20px !important;
+        }
+    </style>
     <!-- Content section -->
     <section class="main">
 
