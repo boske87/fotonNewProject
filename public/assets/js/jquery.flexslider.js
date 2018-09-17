@@ -862,7 +862,7 @@
     move: 0,                        //{NEW} Integer: Number of carousel items that should move on animation. If 0, slider will move all visible items.
 
     // Callback API
-    start: function(){},            //Callback: function(slider) - Fires when the slider loads the first slide
+      start: function(slider) { slider.removeClass('loading');  },        //Callback: function(slider) - Fires when the slider loads the first slide
     before: function(){},           //Callback: function(slider) - Fires asynchronously with each slider animation
     after: function(){},            //Callback: function(slider) - Fires after each slider animation completes
     end: function(){},              //Callback: function(slider) - Fires when the slider reaches the last slide (asynchronous)

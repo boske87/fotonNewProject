@@ -32,6 +32,7 @@
             font-size: 17px !important;
 
         }
+        .flexslider.loading .slides > li:first-child { opacity: 1 !important; }
     </style>
     <!-- Content section -->
     <section class="main">
@@ -41,7 +42,7 @@
 
 
             <!-- Slider -->
-            <section class="flexslider">
+            <section class="flexslider loading">
                 <ul class="slides">
                     @foreach($frontGallery as $one)
                         <li>
