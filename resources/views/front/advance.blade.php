@@ -44,7 +44,7 @@
             <section class="promos pocetni">
                 <div class="container">
                     <div class="row" >
-                        <div class="span12">
+                        <div class="span12" style="padding-bottom: 25px;">
                             <img src="{{asset('assets/img/Foton Website-03-Napredni modul_2018_slika.jpg')}}" alt="Big Foton">
                         </div>
                         <div class="span12 vrh" >
